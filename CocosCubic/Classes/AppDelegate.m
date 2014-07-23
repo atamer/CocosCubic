@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "IntroScene.h"
 #import "HelloWorldScene.h"
+#import "CCFileUtils.h"
 
 @implementation AppDelegate
 
@@ -42,7 +43,8 @@
 		// Make iPad's act like they run at a 2x content scale. (iPad retina 4x)
 //		CCSetupTabletScale2X: @(YES),
 	}];
-	
+    CCFileUtils *utils = [CCFileUtils sharedFileUtils];
+    [utils setiPadSuffix:@"-hd"];
 	return YES;
 }
 

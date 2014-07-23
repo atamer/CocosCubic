@@ -14,9 +14,19 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>TexturePacker.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>178289EB19804D8D00F70EEA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>17C5C69319801EDA0064B653</key>
 		<dict>
 			<key>primary</key>

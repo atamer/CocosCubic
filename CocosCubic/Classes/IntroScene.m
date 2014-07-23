@@ -51,6 +51,30 @@
     helloWorldButton.position = ccp(0.5f, 0.35f);
     [helloWorldButton setTarget:self selector:@selector(onSpinningClicked:)];
     [self addChild:helloWorldButton];
+    
+    
+    
+    CCSpriteBatchNode *spritesBgNode;
+    spritesBgNode = [CCSpriteBatchNode batchNodeWithFile:@"rounded-sprite.pvr.ccz"];
+    [self addChild:spritesBgNode];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"rounded-sprite.plist"];
+    
+    CGPoint spriteOffset = ccp(100, 100);
+    CCSprite *sprite = [CCSprite spriteWithImageNamed:@"rounded_1.png"];
+    sprite.position = spriteOffset;
+    [spritesBgNode addChild:sprite];
+    
+    
+    CCSpriteBatchNode *backgroundBgNode;
+    backgroundBgNode = [CCSpriteBatchNode batchNodeWithFile:@"background.pvr.ccz"];
+    [self addChild:backgroundBgNode];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"background.plist"];
+    CCSprite *background1 = [CCSprite spriteWithImageNamed:@"background.png"];
+    background1.anchorPoint = ccp(0,0);
+    [backgroundBgNode addChild:background1];
+    
+    
+    
 
     // done
 	return self;
