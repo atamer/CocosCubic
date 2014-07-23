@@ -215,6 +215,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		178289EF19804DBE00F70EEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 17C5C68C19801EDA0064B653 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 178289EB19804D8D00F70EEA;
+			remoteInfo = TexturePacker;
+		};
 		17C5C6AC19801EDA0064B653 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17C5C68C19801EDA0064B653 /* Project object */;
@@ -225,6 +232,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		170F0898198064450021108C /* CocosCubic-Art */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CocosCubic-Art"; path = "Resources/CocosCubic-Art"; sourceTree = "<group>"; };
+		178289EA19804C9C00F70EEA /* PackTextures.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = Resources/PackTextures.sh; sourceTree = "<group>"; };
 		17C5C69419801EDA0064B653 /* CocosCubic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocosCubic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C5C69719801EDA0064B653 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		17C5C69919801EDA0064B653 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -724,6 +733,7 @@
 		17C5C6B019801EDA0064B653 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				170F0898198064450021108C /* CocosCubic-Art */,
 				17C5C6B119801EDA0064B653 /* Default.png */,
 				17C5C6B319801EDA0064B653 /* Default@2x.png */,
 				17C5C6B519801EDA0064B653 /* Default-568h@2x.png */,
@@ -732,6 +742,7 @@
 				17C5C6D519801EDA0064B653 /* iTunesArtwork */,
 				17C5C6D719801EDA0064B653 /* iTunesArtwork@2x */,
 				17C5C6B919801EDA0064B653 /* Icons */,
+				178289EA19804C9C00F70EEA /* PackTextures.sh */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1552,6 +1563,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		178289EB19804D8D00F70EEA /* TexturePacker */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "${PROJECT_DIR}/${PROJECT}/Resources/PackTextures.sh";
+			buildConfigurationList = 178289EC19804D8D00F70EEA /* Build configuration list for PBXLegacyTarget "TexturePacker" */;
+			buildPhases = (
+			);
+			buildToolPath = /bin/sh;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = TexturePacker;
+			passBuildSettingsInEnvironment = 1;
+			productName = TexturePacker;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		17C5C69319801EDA0064B653 /* CocosCubic */ = {
 			isa = PBXNativeTarget;
@@ -1564,6 +1592,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				178289F019804DBE00F70EEA /* PBXTargetDependency */,
 				17C5C6AD19801EDA0064B653 /* PBXTargetDependency */,
 			);
 			name = CocosCubic;
@@ -1609,6 +1638,7 @@
 			targets = (
 				17C5C69319801EDA0064B653 /* CocosCubic */,
 				17C5C6AA19801EDA0064B653 /* ObjectiveChipmunk */,
+				178289EB19804D8D00F70EEA /* TexturePacker */,
 			);
 		};
 /* End PBXProject section */
@@ -1836,6 +1866,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		178289F019804DBE00F70EEA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 178289EB19804D8D00F70EEA /* TexturePacker */;
+			targetProxy = 178289EF19804DBE00F70EEA /* PBXContainerItemProxy */;
+		};
 		17C5C6AD19801EDA0064B653 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 17C5C6AA19801EDA0064B653 /* ObjectiveChipmunk */;
@@ -1844,6 +1879,77 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		178289ED19804D8D00F70EEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		178289EE19804D8D00F70EEA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		17C5C94819801EDC0064B653 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1973,6 +2079,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		178289EC19804D8D00F70EEA /* Build configuration list for PBXLegacyTarget "TexturePacker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				178289ED19804D8D00F70EEA /* Debug */,
+				178289EE19804D8D00F70EEA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		17C5C68F19801EDA0064B653 /* Build configuration list for PBXProject "CocosCubic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1989,6 +2104,7 @@
 				17C5C94C19801EDC0064B653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17C5C94D19801EDC0064B653 /* Build configuration list for PBXNativeTarget "CocosCubic" */ = {
 			isa = XCConfigurationList;
@@ -1997,6 +2113,7 @@
 				17C5C94F19801EDC0064B653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
