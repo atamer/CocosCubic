@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */ = {isa = PBXBuildFile; fileRef = 170F0898198064450021108C /* CocosCubic-Art */; };
 		17C5C69819801EDA0064B653 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C69719801EDA0064B653 /* QuartzCore.framework */; };
 		17C5C69A19801EDA0064B653 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C69919801EDA0064B653 /* OpenGLES.framework */; };
 		17C5C69C19801EDA0064B653 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C69B19801EDA0064B653 /* OpenAL.framework */; };
@@ -1648,6 +1649,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */,
 				17C5C6B419801EDA0064B653 /* Default@2x.png in Resources */,
 				17C5C6C719801EDA0064B653 /* Icon-120.png in Resources */,
 				17C5C8CB19801EDC0064B653 /* LICENSE_CCBReader.txt in Resources */,
