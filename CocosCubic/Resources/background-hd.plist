@@ -4,31 +4,122 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>background.png</key>
+            <key>back_button.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,0},{1067,800}}</string>
+                <string>{{715,378},{143,58}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{1067,800}}</string>
+                <string>{{0,0},{143,58}}</string>
                 <key>sourceSize</key>
-                <string>{1067,800}</string>
+                <string>{143,58}</string>
             </dict>
-            <key>frame.png</key>
+            <key>back_button_highlight.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1069,0},{589,440}}</string>
+                <string>{{625,469},{143,58}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{143,58}}</string>
+                <key>sourceSize</key>
+                <string>{143,58}</string>
+            </dict>
+            <key>button.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{713,0},{376,86}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{589,440}}</string>
+                <string>{{0,0},{376,86}}</string>
                 <key>sourceSize</key>
-                <string>{589,440}</string>
+                <string>{376,86}</string>
+            </dict>
+            <key>button_highlight.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{625,0},{376,86}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{376,86}}</string>
+                <key>sourceSize</key>
+                <string>{376,86}</string>
+            </dict>
+            <key>grid.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{0,0},{623,617}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{623,617}}</string>
+                <key>sourceSize</key>
+                <string>{623,617}</string>
+            </dict>
+            <key>lock.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{716,529},{89,88}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{89,88}}</string>
+                <key>sourceSize</key>
+                <string>{89,88}</string>
+            </dict>
+            <key>lock_highlight.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{625,529},{89,88}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{89,88}}</string>
+                <key>sourceSize</key>
+                <string>{89,88}</string>
+            </dict>
+            <key>small_button.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{770,438},{89,88}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{89,88}}</string>
+                <key>sourceSize</key>
+                <string>{89,88}</string>
+            </dict>
+            <key>small_button_highlight.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{625,378},{89,88}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,0},{89,88}}</string>
+                <key>sourceSize</key>
+                <string>{89,88}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -38,9 +129,9 @@
             <key>realTextureFileName</key>
             <string>background-hd.pvr.ccz</string>
             <key>size</key>
-            <string>{1509,800}</string>
+            <string>{858,617}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:19e3c539fd34594b19d2779605bc0368:830aacf89dd482bd729390f1e7d4a462:e6136aa6596e59eb50098cff9a2f7815$</string>
+            <string>$TexturePacker:SmartUpdate:fe13e0d6e025292f59dc62522794bf72:7665849388ccaf53fba0745c582ff186:e6136aa6596e59eb50098cff9a2f7815$</string>
             <key>textureFileName</key>
             <string>background-hd.pvr.ccz</string>
         </dict>

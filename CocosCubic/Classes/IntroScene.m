@@ -7,9 +7,13 @@
 //
 // -----------------------------------------------------------------------
 
+
+
 // Import the interfaces
 #import "IntroScene.h"
 #import "HelloWorldScene.h"
+#import "Constants.h"
+#import "SelectSizeScene.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - IntroScene
@@ -34,49 +38,48 @@
     self = [super init];
     if (!self) return(nil);
     
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    CGFloat screenWidth = screenRect.size.width;
+    
     // Create a colored background (Dark Grey)
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
+    CCNodeColor *background = [CCNodeColor nodeWithColor: BACKGROUND_COLOR ];
     [self addChild:background];
-    
-    // Hello world
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Chalkduster" fontSize:36.0f];
-    label.positionType = CCPositionTypeNormalized;
-    label.color = [CCColor redColor];
-    label.position = ccp(0.5f, 0.5f); // Middle of screen
-    [self addChild:label];
-    
-    // Helloworld scene button
-    CCButton *helloWorldButton = [CCButton buttonWithTitle:@"[ Start ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    helloWorldButton.positionType = CCPositionTypeNormalized;
-    helloWorldButton.position = ccp(0.5f, 0.35f);
-    [helloWorldButton setTarget:self selector:@selector(onSpinningClicked:)];
-    [self addChild:helloWorldButton];
-    
-    
-    
-    CCSpriteBatchNode *spritesBgNode;
-    spritesBgNode = [CCSpriteBatchNode batchNodeWithFile:@"rounded-sprite.pvr.ccz"];
-    [self addChild:spritesBgNode];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"rounded-sprite.plist"];
-    
-    CGPoint spriteOffset = ccp(100, 100);
-    CCSprite *sprite = [CCSprite spriteWithImageNamed:@"rounded_1.png"];
-    sprite.position = spriteOffset;
-    [spritesBgNode addChild:sprite];
-    
+
     
     CCSpriteBatchNode *backgroundBgNode;
     backgroundBgNode = [CCSpriteBatchNode batchNodeWithFile:@"background.pvr.ccz"];
     [self addChild:backgroundBgNode];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"background.plist"];
-    CCSprite *background1 = [CCSprite spriteWithImageNamed:@"background.png"];
-    background1.anchorPoint = ccp(0,0);
-    [backgroundBgNode addChild:background1];
     
     
+    // Hello world
+    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Coco's Cubic" fontName:@"Chalkboard" fontSize:48.0f];
+    label.positionType = CCPositionTypeNormalized;
+    label.color = RED_COLOR;
+    label.position = ccp(0.5f, 0.8f); // Middle of screen
+    [self addChild:label];
     
 
-    // done
+
+    CCButton *playButton = [CCButton buttonWithTitle:@"Play" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"button_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"button_highlight.png"]];
+    playButton.label.fontSize = 20;
+    playButton.anchorPoint = ccp(0,0);
+
+    CGFloat buttonWidth =  playButton.boundingBox.size.width;
+    playButton.position = ccp((screenWidth - buttonWidth) /2, 200.0f); // Middle of screen
+    [self addChild:playButton];
+    [playButton setTarget:self selector:@selector(onPlayClicked:)];
+    
+    
+    CCButton *optionsButton = [CCButton buttonWithTitle:@"Options" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"button.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"button_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"button_highlight.png"]];
+    optionsButton.label.fontSize = 20;
+    optionsButton.anchorPoint = ccp(0,0);
+    optionsButton.position = ccp((screenWidth - buttonWidth) /2, 150.0f); // Middle of screen
+    [self addChild:optionsButton];
+    [optionsButton setTarget:self selector:@selector(onOptionsClicked:)];
+    
+
+
 	return self;
 }
 
@@ -84,12 +87,23 @@
 #pragma mark - Button Callbacks
 // -----------------------------------------------------------------------
 
-- (void)onSpinningClicked:(id)sender
+- (void)onPlayClicked:(id)sender
 {
     // start spinning scene with transition
-    [[CCDirector sharedDirector] replaceScene:[HelloWorldScene scene]
+    [[CCDirector sharedDirector] replaceScene:[SelectSizeScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
 }
+
+
+- (void)onOptionsClicked:(id)sender
+{
+}
+
+- (void)onPuzzleClicked:(id)sender
+{
+    
+}
+
 
 // -----------------------------------------------------------------------
 @end

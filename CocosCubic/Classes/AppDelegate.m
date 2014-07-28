@@ -35,7 +35,7 @@
 		// Use a simplified coordinate system that is shared across devices.
 //		CCSetupScreenMode: CCScreenModeFixed,
 		// Run in portrait mode.
-//		CCSetupScreenOrientation: CCScreenOrientationPortrait,
+		CCSetupScreenOrientation: CCScreenOrientationPortrait,
 		// Run at a reduced framerate.
 //		CCSetupAnimationInterval: @(1.0/30.0),
 		// Run the fixed timestep extra fast.
@@ -43,8 +43,8 @@
 		// Make iPad's act like they run at a 2x content scale. (iPad retina 4x)
 //		CCSetupTabletScale2X: @(YES),
 	}];
-    CCFileUtils *utils = [CCFileUtils sharedFileUtils];
-    [utils setiPadSuffix:@"-hd"];
+  //  CCFileUtils *utils = [CCFileUtils sharedFileUtils];
+   // [utils setiPadSuffix:@"-hd"];
 	return YES;
 }
 

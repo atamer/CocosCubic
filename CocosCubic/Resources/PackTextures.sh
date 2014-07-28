@@ -27,9 +27,9 @@ else
 if [ -f "${TP}" ]; then
 echo "building..."
 
-${TP} --smart-update Resources/CocosCubic-Art/background/background.tps
+${TP} --smart-update Resources/CocosCubic-Art/background.tps
 
-${TP} --smart-update Resources/CocosCubic-Art/rounded/rounded.tps
+${TP} --smart-update Resources/CocosCubic-Art/rounded.tps
 
 
 exit 0

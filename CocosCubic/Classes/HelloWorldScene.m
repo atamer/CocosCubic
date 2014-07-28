@@ -33,7 +33,7 @@
 - (id)init
 {
     // Apple recommend assigning self with supers return value
-    self = [super init];
+    self = [super init ];
     if (!self) return(nil);
     
     // Enable touch handling on scene node
