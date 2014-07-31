@@ -48,14 +48,15 @@ NSString *level_;
 
     
     
-   /* CCSprite *grid = [CCSprite spriteWithImageNamed:@"grid3.png"];
+   CCSprite *grid = [CCSprite spriteWithImageNamed:@"grid5.png"];
     grid.anchorPoint = ccp(0.5,0.5);
     grid.name = @"size3";
     grid.positionType = CCPositionTypeNormalized;
     grid.position = ccp(0.5f, 0.57f);
     [self addChild:grid];
     
-    
+
+   /*
     CCSprite *grid1 = [CCSprite spriteWithImageNamed:@"grid4.png"];
     grid1.anchorPoint = ccp(0.5,0.5);
     grid1.name = @"size3";
@@ -78,25 +79,6 @@ NSString *level_;
     grid3.position = ccp(0.5f, 0.57f);
     [self addChild:grid3];
 */
-    
-    
-    CCSprite *horizontal1 = [CCSprite spriteWithImageNamed:@"horizontal_line.png"];
-    horizontal1.anchorPoint = ccp(0.5,0.5);
-    horizontal1.name = @"size3";
-    horizontal1.positionType = CCPositionTypeNormalized;
-    horizontal1.position = ccp(0.5f, 0.875f);
-  //  horizontal1.position = ccp(0.5f, 0.6716f);
-    [self addChild:horizontal1];
-    
-    CCSprite *horizontal2 = [CCSprite spriteWithImageNamed:@"horizontal_line.png"];
-    horizontal2.anchorPoint = ccp(0.5,0.5);
-    horizontal2.name = @"size3";
-    horizontal2.positionType = CCPositionTypeNormalized;
-    horizontal2.position = ccp(0.5f, 0.265f);
-   // horizontal2.position = ccp(0.5f, 0.4683f);
-    [self addChild:horizontal2];
-
-    
     
     
     return self;

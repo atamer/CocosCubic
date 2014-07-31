@@ -46,10 +46,23 @@
     [self addChild:background];
 
     
-    CCSpriteBatchNode *backgroundBgNode;
-    backgroundBgNode = [CCSpriteBatchNode batchNodeWithFile:@"background.pvr.ccz"];
-    [self addChild:backgroundBgNode];
-    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"background.plist"];
+    CCSpriteBatchNode *buttonsNode;
+    buttonsNode = [CCSpriteBatchNode batchNodeWithFile:@"buttons.pvr.ccz"];
+    [self addChild:buttonsNode];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"buttons.plist"];
+
+    CCSpriteBatchNode *grid3_4;
+    grid3_4 = [CCSpriteBatchNode batchNodeWithFile:@"grid_3_4.pvr.ccz"];
+    [self addChild:grid3_4];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"grid_3_4.plist"];
+    
+   
+    CCSpriteBatchNode *grid5_6;
+    grid5_6 = [CCSpriteBatchNode batchNodeWithFile:@"grid_5_6.pvr.ccz"];
+    [self addChild:grid5_6];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"grid_5_6.plist"];
+    
+
     
     
     // Hello world

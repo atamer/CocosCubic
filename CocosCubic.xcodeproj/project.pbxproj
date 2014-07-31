@@ -9,6 +9,24 @@
 /* Begin PBXBuildFile section */
 		17132CED1986DE290055DDD8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17132CEC1986DE290055DDD8 /* GameScene.m */; };
 		1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */ = {isa = PBXBuildFile; fileRef = 170F0898198064450021108C /* CocosCubic-Art */; };
+		17BC22C5198ACEC10076160B /* buttons-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B3198ACEC10076160B /* buttons-hd.plist */; };
+		17BC22C6198ACEC10076160B /* buttons-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B4198ACEC10076160B /* buttons-hd.pvr.ccz */; };
+		17BC22C7198ACEC10076160B /* buttons-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B5198ACEC10076160B /* buttons-ipadhd.plist */; };
+		17BC22C8198ACEC10076160B /* buttons-ipadhd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B6198ACEC10076160B /* buttons-ipadhd.pvr.ccz */; };
+		17BC22C9198ACEC10076160B /* buttons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B7198ACEC10076160B /* buttons.plist */; };
+		17BC22CA198ACEC10076160B /* buttons.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B8198ACEC10076160B /* buttons.pvr.ccz */; };
+		17BC22CB198ACEC10076160B /* grid_3_4-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B9198ACEC10076160B /* grid_3_4-hd.plist */; };
+		17BC22CC198ACEC10076160B /* grid_3_4-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22BA198ACEC10076160B /* grid_3_4-hd.pvr.ccz */; };
+		17BC22CD198ACEC10076160B /* grid_3_4-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22BB198ACEC10076160B /* grid_3_4-ipadhd.plist */; };
+		17BC22CE198ACEC10076160B /* grid_3_4-ipadhd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22BC198ACEC10076160B /* grid_3_4-ipadhd.pvr.ccz */; };
+		17BC22CF198ACEC10076160B /* grid_3_4.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22BD198ACEC10076160B /* grid_3_4.plist */; };
+		17BC22D0198ACEC10076160B /* grid_3_4.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22BE198ACEC10076160B /* grid_3_4.pvr.ccz */; };
+		17BC22D1198ACEC10076160B /* grid_5_6-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22BF198ACEC10076160B /* grid_5_6-hd.plist */; };
+		17BC22D2198ACEC10076160B /* grid_5_6-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22C0198ACEC10076160B /* grid_5_6-hd.pvr.ccz */; };
+		17BC22D3198ACEC10076160B /* grid_5_6-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22C1198ACEC10076160B /* grid_5_6-ipadhd.plist */; };
+		17BC22D4198ACEC10076160B /* grid_5_6-ipadhd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22C2198ACEC10076160B /* grid_5_6-ipadhd.pvr.ccz */; };
+		17BC22D5198ACEC10076160B /* grid_5_6.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22C3198ACEC10076160B /* grid_5_6.plist */; };
+		17BC22D6198ACEC10076160B /* grid_5_6.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22C4198ACEC10076160B /* grid_5_6.pvr.ccz */; };
 		17C5C69819801EDA0064B653 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C69719801EDA0064B653 /* QuartzCore.framework */; };
 		17C5C69A19801EDA0064B653 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C69919801EDA0064B653 /* OpenGLES.framework */; };
 		17C5C69C19801EDA0064B653 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C69B19801EDA0064B653 /* OpenAL.framework */; };
@@ -241,6 +259,24 @@
 		17132CEB1986DE290055DDD8 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Classes/GameScene.h; sourceTree = "<group>"; };
 		17132CEC1986DE290055DDD8 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameScene.m; path = Classes/GameScene.m; sourceTree = "<group>"; };
 		178289EA19804C9C00F70EEA /* PackTextures.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = Resources/PackTextures.sh; sourceTree = "<group>"; };
+		17BC22B3198ACEC10076160B /* buttons-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "buttons-hd.plist"; path = "Resources/buttons-hd.plist"; sourceTree = "<group>"; };
+		17BC22B4198ACEC10076160B /* buttons-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "buttons-hd.pvr.ccz"; path = "Resources/buttons-hd.pvr.ccz"; sourceTree = "<group>"; };
+		17BC22B5198ACEC10076160B /* buttons-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "buttons-ipadhd.plist"; path = "Resources/buttons-ipadhd.plist"; sourceTree = "<group>"; };
+		17BC22B6198ACEC10076160B /* buttons-ipadhd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "buttons-ipadhd.pvr.ccz"; path = "Resources/buttons-ipadhd.pvr.ccz"; sourceTree = "<group>"; };
+		17BC22B7198ACEC10076160B /* buttons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = buttons.plist; path = Resources/buttons.plist; sourceTree = "<group>"; };
+		17BC22B8198ACEC10076160B /* buttons.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = buttons.pvr.ccz; path = Resources/buttons.pvr.ccz; sourceTree = "<group>"; };
+		17BC22B9198ACEC10076160B /* grid_3_4-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "grid_3_4-hd.plist"; path = "Resources/grid_3_4-hd.plist"; sourceTree = "<group>"; };
+		17BC22BA198ACEC10076160B /* grid_3_4-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "grid_3_4-hd.pvr.ccz"; path = "Resources/grid_3_4-hd.pvr.ccz"; sourceTree = "<group>"; };
+		17BC22BB198ACEC10076160B /* grid_3_4-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "grid_3_4-ipadhd.plist"; path = "Resources/grid_3_4-ipadhd.plist"; sourceTree = "<group>"; };
+		17BC22BC198ACEC10076160B /* grid_3_4-ipadhd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "grid_3_4-ipadhd.pvr.ccz"; path = "Resources/grid_3_4-ipadhd.pvr.ccz"; sourceTree = "<group>"; };
+		17BC22BD198ACEC10076160B /* grid_3_4.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = grid_3_4.plist; path = Resources/grid_3_4.plist; sourceTree = "<group>"; };
+		17BC22BE198ACEC10076160B /* grid_3_4.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = grid_3_4.pvr.ccz; path = Resources/grid_3_4.pvr.ccz; sourceTree = "<group>"; };
+		17BC22BF198ACEC10076160B /* grid_5_6-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "grid_5_6-hd.plist"; path = "Resources/grid_5_6-hd.plist"; sourceTree = "<group>"; };
+		17BC22C0198ACEC10076160B /* grid_5_6-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "grid_5_6-hd.pvr.ccz"; path = "Resources/grid_5_6-hd.pvr.ccz"; sourceTree = "<group>"; };
+		17BC22C1198ACEC10076160B /* grid_5_6-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "grid_5_6-ipadhd.plist"; path = "Resources/grid_5_6-ipadhd.plist"; sourceTree = "<group>"; };
+		17BC22C2198ACEC10076160B /* grid_5_6-ipadhd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "grid_5_6-ipadhd.pvr.ccz"; path = "Resources/grid_5_6-ipadhd.pvr.ccz"; sourceTree = "<group>"; };
+		17BC22C3198ACEC10076160B /* grid_5_6.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = grid_5_6.plist; path = Resources/grid_5_6.plist; sourceTree = "<group>"; };
+		17BC22C4198ACEC10076160B /* grid_5_6.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = grid_5_6.pvr.ccz; path = Resources/grid_5_6.pvr.ccz; sourceTree = "<group>"; };
 		17C5C69419801EDA0064B653 /* CocosCubic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocosCubic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C5C69719801EDA0064B653 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		17C5C69919801EDA0064B653 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -745,6 +781,24 @@
 		17C5C6B019801EDA0064B653 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17BC22B3198ACEC10076160B /* buttons-hd.plist */,
+				17BC22B4198ACEC10076160B /* buttons-hd.pvr.ccz */,
+				17BC22B5198ACEC10076160B /* buttons-ipadhd.plist */,
+				17BC22B6198ACEC10076160B /* buttons-ipadhd.pvr.ccz */,
+				17BC22B7198ACEC10076160B /* buttons.plist */,
+				17BC22B8198ACEC10076160B /* buttons.pvr.ccz */,
+				17BC22B9198ACEC10076160B /* grid_3_4-hd.plist */,
+				17BC22BA198ACEC10076160B /* grid_3_4-hd.pvr.ccz */,
+				17BC22BB198ACEC10076160B /* grid_3_4-ipadhd.plist */,
+				17BC22BC198ACEC10076160B /* grid_3_4-ipadhd.pvr.ccz */,
+				17BC22BD198ACEC10076160B /* grid_3_4.plist */,
+				17BC22BE198ACEC10076160B /* grid_3_4.pvr.ccz */,
+				17BC22BF198ACEC10076160B /* grid_5_6-hd.plist */,
+				17BC22C0198ACEC10076160B /* grid_5_6-hd.pvr.ccz */,
+				17BC22C1198ACEC10076160B /* grid_5_6-ipadhd.plist */,
+				17BC22C2198ACEC10076160B /* grid_5_6-ipadhd.pvr.ccz */,
+				17BC22C3198ACEC10076160B /* grid_5_6.plist */,
+				17BC22C4198ACEC10076160B /* grid_5_6.pvr.ccz */,
 				17FFE05D1983DE9800D9427A /* Chalkboard.ttc */,
 				170F0898198064450021108C /* CocosCubic-Art */,
 				17C5C6B119801EDA0064B653 /* Default.png */,
@@ -1667,6 +1721,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17BC22C7198ACEC10076160B /* buttons-ipadhd.plist in Resources */,
+				17BC22D0198ACEC10076160B /* grid_3_4.pvr.ccz in Resources */,
 				1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */,
 				17C5C6B419801EDA0064B653 /* Default@2x.png in Resources */,
 				17C5C6C719801EDA0064B653 /* Icon-120.png in Resources */,
@@ -1675,23 +1731,39 @@
 				17C5C6CF19801EDA0064B653 /* Icon-Small@2x.png in Resources */,
 				17C5C6C119801EDA0064B653 /* Icon-72@2x.png in Resources */,
 				17C5C6B219801EDA0064B653 /* Default.png in Resources */,
+				17BC22CC198ACEC10076160B /* grid_3_4-hd.pvr.ccz in Resources */,
+				17BC22C9198ACEC10076160B /* buttons.plist in Resources */,
 				17C5C6BB19801EDA0064B653 /* Icon.png in Resources */,
 				17C5C6C919801EDA0064B653 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				17C5C6B819801EDA0064B653 /* Default-Landscape~ipad.png in Resources */,
+				17BC22D1198ACEC10076160B /* grid_5_6-hd.plist in Resources */,
 				17C5C6CD19801EDA0064B653 /* Icon-Small.png in Resources */,
 				17C5C6CB19801EDA0064B653 /* Icon-Small-50.png in Resources */,
 				17C5C8B419801EDC0064B653 /* LICENSE_Kazmath.txt in Resources */,
 				17C5C6BF19801EDA0064B653 /* Icon-72.png in Resources */,
 				17C5C80D19801EDB0064B653 /* LICENSE_cocos2d.txt in Resources */,
+				17BC22CB198ACEC10076160B /* grid_3_4-hd.plist in Resources */,
+				17BC22CA198ACEC10076160B /* buttons.pvr.ccz in Resources */,
+				17BC22D4198ACEC10076160B /* grid_5_6-ipadhd.pvr.ccz in Resources */,
+				17BC22D3198ACEC10076160B /* grid_5_6-ipadhd.plist in Resources */,
+				17BC22D2198ACEC10076160B /* grid_5_6-hd.pvr.ccz in Resources */,
+				17BC22C5198ACEC10076160B /* buttons-hd.plist in Resources */,
+				17BC22D6198ACEC10076160B /* grid_5_6.pvr.ccz in Resources */,
 				17FFE05E1983DE9800D9427A /* Chalkboard.ttc in Resources */,
 				17C5C6B619801EDA0064B653 /* Default-568h@2x.png in Resources */,
 				17C5C6D619801EDA0064B653 /* iTunesArtwork in Resources */,
 				17C5C6D119801EDA0064B653 /* Icon-Spotlight-iOS7.png in Resources */,
+				17BC22C8198ACEC10076160B /* buttons-ipadhd.pvr.ccz in Resources */,
+				17BC22D5198ACEC10076160B /* grid_5_6.plist in Resources */,
+				17BC22CD198ACEC10076160B /* grid_3_4-ipadhd.plist in Resources */,
 				17C5C6C519801EDA0064B653 /* Icon-76@2x.png in Resources */,
+				17BC22CE198ACEC10076160B /* grid_3_4-ipadhd.pvr.ccz in Resources */,
 				17C5C93919801EDC0064B653 /* LICENSE_Chipmunk.txt in Resources */,
 				17C5C6D319801EDA0064B653 /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				17C5C6C319801EDA0064B653 /* Icon-76.png in Resources */,
 				17C5C89919801EDC0064B653 /* ChangeLog in Resources */,
+				17BC22CF198ACEC10076160B /* grid_3_4.plist in Resources */,
+				17BC22C6198ACEC10076160B /* buttons-hd.pvr.ccz in Resources */,
 				17C5C6D819801EDA0064B653 /* iTunesArtwork@2x in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1984,7 +2056,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
-					"COCOS2D_DEBUG=1",
+					"COCOS2D_DEBUG=2",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
