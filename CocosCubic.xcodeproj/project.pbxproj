@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17132CED1986DE290055DDD8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17132CEC1986DE290055DDD8 /* GameScene.m */; };
 		1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */ = {isa = PBXBuildFile; fileRef = 170F0898198064450021108C /* CocosCubic-Art */; };
 		17C5C69819801EDA0064B653 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C69719801EDA0064B653 /* QuartzCore.framework */; };
 		17C5C69A19801EDA0064B653 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C69919801EDA0064B653 /* OpenGLES.framework */; };
@@ -211,7 +212,6 @@
 		17C5C93919801EDC0064B653 /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C93819801EDC0064B653 /* LICENSE_Chipmunk.txt */; };
 		17C5C93D19801EDC0064B653 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C93C19801EDC0064B653 /* main.m */; };
 		17C5C94119801EDC0064B653 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C94019801EDC0064B653 /* AppDelegate.m */; };
-		17C5C94419801EDC0064B653 /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C94319801EDC0064B653 /* HelloWorldScene.m */; };
 		17C5C94719801EDC0064B653 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C94619801EDC0064B653 /* IntroScene.m */; };
 		17FFE05319839B6200D9427A /* background-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE04D19839B6200D9427A /* background-hd.plist */; };
 		17FFE05419839B6200D9427A /* background-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE04E19839B6200D9427A /* background-hd.pvr.ccz */; };
@@ -244,6 +244,8 @@
 
 /* Begin PBXFileReference section */
 		170F0898198064450021108C /* CocosCubic-Art */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CocosCubic-Art"; path = "Resources/CocosCubic-Art"; sourceTree = "<group>"; };
+		17132CEB1986DE290055DDD8 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Classes/GameScene.h; sourceTree = "<group>"; };
+		17132CEC1986DE290055DDD8 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameScene.m; path = Classes/GameScene.m; sourceTree = "<group>"; };
 		178289EA19804C9C00F70EEA /* PackTextures.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = Resources/PackTextures.sh; sourceTree = "<group>"; };
 		17C5C69419801EDA0064B653 /* CocosCubic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocosCubic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C5C69719801EDA0064B653 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -669,8 +671,6 @@
 		17C5C93C19801EDC0064B653 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		17C5C93F19801EDC0064B653 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		17C5C94019801EDC0064B653 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		17C5C94219801EDC0064B653 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		17C5C94319801EDC0064B653 /* HelloWorldScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelloWorldScene.m; path = Classes/HelloWorldScene.m; sourceTree = "<group>"; };
 		17C5C94519801EDC0064B653 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		17C5C94619801EDC0064B653 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
 		17FFE04D19839B6200D9427A /* background-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "background-hd.plist"; path = "Resources/background-hd.plist"; sourceTree = "<group>"; };
@@ -1584,8 +1584,6 @@
 			children = (
 				17C5C93F19801EDC0064B653 /* AppDelegate.h */,
 				17C5C94019801EDC0064B653 /* AppDelegate.m */,
-				17C5C94219801EDC0064B653 /* HelloWorldScene.h */,
-				17C5C94319801EDC0064B653 /* HelloWorldScene.m */,
 				17FFE05F198416C900D9427A /* SelectSizeScene.h */,
 				17FFE060198416C900D9427A /* SelectSizeScene.m */,
 				17C5C94519801EDC0064B653 /* IntroScene.h */,
@@ -1594,6 +1592,8 @@
 				17FFE0631985041700D9427A /* Constants.m */,
 				17FFE0651985630D00D9427A /* SelectLevelScene.h */,
 				17FFE0661985630D00D9427A /* SelectLevelScene.m */,
+				17132CEB1986DE290055DDD8 /* GameScene.h */,
+				17132CEC1986DE290055DDD8 /* GameScene.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -1734,6 +1734,7 @@
 				17C5C85E19801EDB0064B653 /* NSMutableArray+WeakReferences.m in Sources */,
 				17C5C7D819801EDB0064B653 /* CCGLView.m in Sources */,
 				17C5C8A219801EDC0064B653 /* mat4.c in Sources */,
+				17132CED1986DE290055DDD8 /* GameScene.m in Sources */,
 				17C5C6FE19801EDA0064B653 /* CCAtlasNode.m in Sources */,
 				17C5C84C19801EDB0064B653 /* OpenALManager.m in Sources */,
 				17C5C85819801EDB0064B653 /* IOSVersion.m in Sources */,
@@ -1824,7 +1825,6 @@
 				17C5C78A19801EDB0064B653 /* ccShaders.m in Sources */,
 				17C5C89E19801EDC0064B653 /* matrix.c in Sources */,
 				17C5C7B019801EDB0064B653 /* CCTiledMapLayer.m in Sources */,
-				17C5C94419801EDC0064B653 /* HelloWorldScene.m in Sources */,
 				17C5C8A419801EDC0064B653 /* neon_matrix_impl.c in Sources */,
 				17C5C72919801EDA0064B653 /* CCLabelTTF.m in Sources */,
 				17C5C7DE19801EDB0064B653 /* NSEvent+CC.m in Sources */,
@@ -2003,7 +2003,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2025,7 +2025,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -2089,12 +2089,14 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
 				INFOPLIST_FILE = CocosCubic/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2113,12 +2115,14 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
 				INFOPLIST_FILE = CocosCubic/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
