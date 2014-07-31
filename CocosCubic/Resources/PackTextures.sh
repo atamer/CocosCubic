@@ -13,11 +13,9 @@ cd ${PROJECT_DIR}/${PROJECT}
 if [ "${ACTION}" = "clean" ]; then
 echo "cleaning..."
 
-rm -f Resources/rounded-sprite*.pvr.ccz
-rm -f Resources/background*.plist
+rm -f Resources/*.pvr.ccz
+rm -f Resources/*.plist
 
-rm -f Resources/background*.pvr.ccz
-rm -f Resources/background*.plist
 
 # ....
 # add all files to be removed in clean phase
@@ -27,10 +25,11 @@ else
 if [ -f "${TP}" ]; then
 echo "building..."
 
-${TP} --smart-update Resources/CocosCubic-Art/background.tps
+${TP} --smart-update --multipack Resources/CocosCubic-Art/buttons/buttons.tps
 
-${TP} --smart-update Resources/CocosCubic-Art/rounded.tps
+${TP} --smart-update --multipack Resources/CocosCubic-Art/grid_3_4/grid_3_4.tps
 
+${TP} --smart-update --multipack Resources/CocosCubic-Art/grid_5_6/grid_5_6.tps
 
 exit 0
 else

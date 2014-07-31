@@ -9,7 +9,6 @@
 
 #import "AppDelegate.h"
 #import "IntroScene.h"
-#import "HelloWorldScene.h"
 #import "CCFileUtils.h"
 
 @implementation AppDelegate
@@ -41,10 +40,11 @@
 		// Run the fixed timestep extra fast.
 //		CCSetupFixedUpdateInterval: @(1.0/180.0),
 		// Make iPad's act like they run at a 2x content scale. (iPad retina 4x)
-//		CCSetupTabletScale2X: @(YES),
+		CCSetupTabletScale2X: @(YES),
 	}];
-  //  CCFileUtils *utils = [CCFileUtils sharedFileUtils];
-   // [utils setiPadSuffix:@"-hd"];
+    CCFileUtils *utils = [CCFileUtils sharedFileUtils];
+//    [utils setiPadSuffix:@"-hd"];
+//    [[CCFileUtils sharedFileUtils] setiPadContentScaleFactor:1.0f];
 	return YES;
 }
 
