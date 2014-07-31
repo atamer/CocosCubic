@@ -213,12 +213,6 @@
 		17C5C93D19801EDC0064B653 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C93C19801EDC0064B653 /* main.m */; };
 		17C5C94119801EDC0064B653 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C94019801EDC0064B653 /* AppDelegate.m */; };
 		17C5C94719801EDC0064B653 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C94619801EDC0064B653 /* IntroScene.m */; };
-		17FFE05319839B6200D9427A /* background-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE04D19839B6200D9427A /* background-hd.plist */; };
-		17FFE05419839B6200D9427A /* background-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE04E19839B6200D9427A /* background-hd.pvr.ccz */; };
-		17FFE05519839B6200D9427A /* background-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE04F19839B6200D9427A /* background-ipadhd.plist */; };
-		17FFE05619839B6200D9427A /* background-ipadhd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE05019839B6200D9427A /* background-ipadhd.pvr.ccz */; };
-		17FFE05719839B6200D9427A /* background.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE05119839B6200D9427A /* background.plist */; };
-		17FFE05819839B6200D9427A /* background.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE05219839B6200D9427A /* background.pvr.ccz */; };
 		17FFE05E1983DE9800D9427A /* Chalkboard.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE05D1983DE9800D9427A /* Chalkboard.ttc */; };
 		17FFE061198416C900D9427A /* SelectSizeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FFE060198416C900D9427A /* SelectSizeScene.m */; };
 		17FFE0641985041700D9427A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FFE0631985041700D9427A /* Constants.m */; };
@@ -673,12 +667,6 @@
 		17C5C94019801EDC0064B653 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		17C5C94519801EDC0064B653 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		17C5C94619801EDC0064B653 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
-		17FFE04D19839B6200D9427A /* background-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "background-hd.plist"; path = "Resources/background-hd.plist"; sourceTree = "<group>"; };
-		17FFE04E19839B6200D9427A /* background-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "background-hd.pvr.ccz"; path = "Resources/background-hd.pvr.ccz"; sourceTree = "<group>"; };
-		17FFE04F19839B6200D9427A /* background-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "background-ipadhd.plist"; path = "Resources/background-ipadhd.plist"; sourceTree = "<group>"; };
-		17FFE05019839B6200D9427A /* background-ipadhd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "background-ipadhd.pvr.ccz"; path = "Resources/background-ipadhd.pvr.ccz"; sourceTree = "<group>"; };
-		17FFE05119839B6200D9427A /* background.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = background.plist; path = Resources/background.plist; sourceTree = "<group>"; };
-		17FFE05219839B6200D9427A /* background.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = background.pvr.ccz; path = Resources/background.pvr.ccz; sourceTree = "<group>"; };
 		17FFE05D1983DE9800D9427A /* Chalkboard.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = Chalkboard.ttc; path = Resources/Chalkboard.ttc; sourceTree = "<group>"; };
 		17FFE05F198416C900D9427A /* SelectSizeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectSizeScene.h; path = Classes/SelectSizeScene.h; sourceTree = "<group>"; };
 		17FFE060198416C900D9427A /* SelectSizeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectSizeScene.m; path = Classes/SelectSizeScene.m; sourceTree = "<group>"; };
@@ -758,12 +746,6 @@
 			isa = PBXGroup;
 			children = (
 				17FFE05D1983DE9800D9427A /* Chalkboard.ttc */,
-				17FFE04D19839B6200D9427A /* background-hd.plist */,
-				17FFE04E19839B6200D9427A /* background-hd.pvr.ccz */,
-				17FFE04F19839B6200D9427A /* background-ipadhd.plist */,
-				17FFE05019839B6200D9427A /* background-ipadhd.pvr.ccz */,
-				17FFE05119839B6200D9427A /* background.plist */,
-				17FFE05219839B6200D9427A /* background.pvr.ccz */,
 				170F0898198064450021108C /* CocosCubic-Art */,
 				17C5C6B119801EDA0064B653 /* Default.png */,
 				17C5C6B319801EDA0064B653 /* Default@2x.png */,
@@ -1696,24 +1678,18 @@
 				17C5C6BB19801EDA0064B653 /* Icon.png in Resources */,
 				17C5C6C919801EDA0064B653 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				17C5C6B819801EDA0064B653 /* Default-Landscape~ipad.png in Resources */,
-				17FFE05819839B6200D9427A /* background.pvr.ccz in Resources */,
 				17C5C6CD19801EDA0064B653 /* Icon-Small.png in Resources */,
 				17C5C6CB19801EDA0064B653 /* Icon-Small-50.png in Resources */,
 				17C5C8B419801EDC0064B653 /* LICENSE_Kazmath.txt in Resources */,
 				17C5C6BF19801EDA0064B653 /* Icon-72.png in Resources */,
 				17C5C80D19801EDB0064B653 /* LICENSE_cocos2d.txt in Resources */,
-				17FFE05519839B6200D9427A /* background-ipadhd.plist in Resources */,
 				17FFE05E1983DE9800D9427A /* Chalkboard.ttc in Resources */,
 				17C5C6B619801EDA0064B653 /* Default-568h@2x.png in Resources */,
 				17C5C6D619801EDA0064B653 /* iTunesArtwork in Resources */,
-				17FFE05619839B6200D9427A /* background-ipadhd.pvr.ccz in Resources */,
-				17FFE05719839B6200D9427A /* background.plist in Resources */,
 				17C5C6D119801EDA0064B653 /* Icon-Spotlight-iOS7.png in Resources */,
 				17C5C6C519801EDA0064B653 /* Icon-76@2x.png in Resources */,
 				17C5C93919801EDC0064B653 /* LICENSE_Chipmunk.txt in Resources */,
 				17C5C6D319801EDA0064B653 /* Icon-Spotlight-iOS7@2x.png in Resources */,
-				17FFE05319839B6200D9427A /* background-hd.plist in Resources */,
-				17FFE05419839B6200D9427A /* background-hd.pvr.ccz in Resources */,
 				17C5C6C319801EDA0064B653 /* Icon-76.png in Resources */,
 				17C5C89919801EDC0064B653 /* ChangeLog in Resources */,
 				17C5C6D819801EDA0064B653 /* iTunesArtwork@2x in Resources */,
