@@ -31,6 +31,8 @@ ${TP} --smart-update --multipack Resources/CocosCubic-Art/grid_3_4/grid_3_4.tps
 
 ${TP} --smart-update --multipack Resources/CocosCubic-Art/grid_5_6/grid_5_6.tps
 
+${TP} --smart-update --multipack Resources/CocosCubic-Art/colors/colors.tps
+
 exit 0
 else
 #if here the TexturePacker command line file could not be found

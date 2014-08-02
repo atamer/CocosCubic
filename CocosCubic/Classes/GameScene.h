@@ -15,4 +15,5 @@
 
 + (GameScene *)scene:(NSString*)size level:(NSString*)level;
 
+-(void)onBackClicked1;
 @end

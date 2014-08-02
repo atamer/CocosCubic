@@ -36,9 +36,7 @@
     // Apple recommend assigning self with supers return value
     self = [super init];
     if (!self) return(nil);
-    
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
+
     
     // Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor: BACKGROUND_COLOR ];
@@ -61,6 +59,12 @@
     grid5_6 = [CCSpriteBatchNode batchNodeWithFile:@"grid_5_6.pvr.ccz"];
     [self addChild:grid5_6];
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"grid_5_6.plist"];
+    
+
+    CCSpriteBatchNode *colors;
+    colors = [CCSpriteBatchNode batchNodeWithFile:@"colors.pvr.ccz"];
+    [self addChild:colors];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:@"colors.plist"];
     
 
     

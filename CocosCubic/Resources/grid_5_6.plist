@@ -7,28 +7,28 @@
             <key>grid5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{312,2},{306,308}}</string>
+                <string>{{12,12},{289,289}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{306,308}}</string>
+                <string>{{0,0},{289,289}}</string>
                 <key>sourceSize</key>
-                <string>{306,308}</string>
+                <string>{289,289}</string>
             </dict>
             <key>grid6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{308,308}}</string>
+                <string>{{323,12},{288,289}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{308,308}}</string>
+                <string>{{0,0},{288,289}}</string>
                 <key>sourceSize</key>
-                <string>{308,308}</string>
+                <string>{288,289}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -38,9 +38,9 @@
             <key>realTextureFileName</key>
             <string>grid_5_6.pvr.ccz</string>
             <key>size</key>
-            <string>{620,312}</string>
+            <string>{623,313}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:0f9505bd1929c1033dc29b508530382a:1188bce4f0b746279a8903645aaf0f83:19b6cdf09edaf291b9f092bc3549e6a2$</string>
+            <string>$TexturePacker:SmartUpdate:c2542b7f81743cfed6e23845119a70be:86c679a72b25604ba33ef076bbcc496f:19b6cdf09edaf291b9f092bc3549e6a2$</string>
             <key>textureFileName</key>
             <string>grid_5_6.pvr.ccz</string>
         </dict>

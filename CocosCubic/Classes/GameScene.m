@@ -9,6 +9,7 @@
 #import "GameScene.h"
 #import "Constants.h"
 #import "SelectLevelScene.h"
+#import "GridScene.h"
 
 @implementation GameScene
 
@@ -34,60 +35,88 @@ NSString *level_;
     back.anchorPoint = ccp(0.5,0.5);
     back.name = @"size3";
     back.positionType = CCPositionTypeNormalized;
-    [back setTarget:self selector:@selector(onBackClicked)];
+    [back setTarget:self selector:@selector(gameSceneBackClicked)];
     back.position = ccp(0.12f, 0.96f);
     [self addChild:back];
     
     
-    CCLabelTTF *label = [CCLabelTTF labelWithString:@"Move: 1" fontName:@"Chalkboard" fontSize:24.0f];
-    label.positionType = CCPositionTypeNormalized;
-    label.color = RED_COLOR;
-    label.anchorPoint = ccp(0.5,0.5);
-    label.position = ccp(0.78f, 0.96f); // Middle of screen
-    [self addChild:label];
+    CCLabelTTF *moveLabel = [CCLabelTTF labelWithString:@"Move: 1" fontName:@"Chalkboard" fontSize:24.0f];
+    moveLabel.positionType = CCPositionTypeNormalized;
+    moveLabel.color = RED_COLOR;
+    moveLabel.anchorPoint = ccp(0.5,0.5);
+    moveLabel.position = ccp(0.78f, 0.96f); // Middle of screen
+    [self addChild:moveLabel];
 
     
-    
-   CCSprite *grid = [CCSprite spriteWithImageNamed:@"grid5.png"];
+    GridScene *grid;
+    if( [size_ isEqual: @"size3"]){
+        grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3];
+    }else if([size_ isEqual: @"size4"]){
+        grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4];
+    }else if([size_ isEqual: @"size5"]){
+        grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5];
+    }else if([size_ isEqual: @"size6"]){
+        grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6];
+    }
+
     grid.anchorPoint = ccp(0.5,0.5);
-    grid.name = @"size3";
     grid.positionType = CCPositionTypeNormalized;
-    grid.position = ccp(0.5f, 0.57f);
+    grid.position = ccp(0.5f, 0.59f);
     [self addChild:grid];
     
+    
+    
+    NSString *puzzle = [NSString stringWithFormat:@"%@ %@", @"Puzzle", level_];
+    CCLabelTTF *puzzleLabel = [CCLabelTTF labelWithString:puzzle fontName:@"Chalkboard" fontSize:24.0f];
+    puzzleLabel.positionType = CCPositionTypeNormalized;
+    puzzleLabel.color = RED_COLOR;
+    puzzleLabel.anchorPoint = ccp(0.5,0.5);
+    puzzleLabel.position = ccp(0.5f, 0.06f); // Middle of screen
+    [self addChild:puzzleLabel];
+    
+    
+     CCButton *next = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"next.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_highlight.png"]];
+    next.label.fontSize = 20;
+    next.anchorPoint = ccp(0.5,0.5);
+    next.positionType = CCPositionTypeNormalized;
+    [next setTarget:self selector:@selector(onBackClicked)];
+    next.position = ccp(0.9f, 0.06f);
+    [self addChild:next];
 
-   /*
-    CCSprite *grid1 = [CCSprite spriteWithImageNamed:@"grid4.png"];
-    grid1.anchorPoint = ccp(0.5,0.5);
-    grid1.name = @"size3";
-    grid1.positionType = CCPositionTypeNormalized;
-    grid1.position = ccp(0.5f, 0.57f);
-    [self addChild:grid1];
+
+    CCButton *previous = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"back.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_highlight.png"]];
+    previous.label.fontSize = 20;
+    previous.anchorPoint = ccp(0.5,0.5);
+    previous.positionType = CCPositionTypeNormalized;
+    [previous setTarget:self selector:@selector(gameSceneBackClicked)];
+    previous.position = ccp(0.1f, 0.06f);
+    [self addChild:previous];
     
-    CCSprite *grid2 = [CCSprite spriteWithImageNamed:@"grid5.png"];
-    grid2.anchorPoint = ccp(0.5,0.5);
-    grid2.name = @"size3";
-    grid2.positionType = CCPositionTypeNormalized;
-    grid2.position = ccp(0.5f, 0.57f);
-    [self addChild:grid2];
-    
-    
-    CCSprite *grid3 = [CCSprite spriteWithImageNamed:@"grid6.png"];
-    grid3.anchorPoint = ccp(0.5,0.5);
-    grid3.name = @"size3";
-    grid3.positionType = CCPositionTypeNormalized;
-    grid3.position = ccp(0.5f, 0.57f);
-    [self addChild:grid3];
-*/
+
+    CCButton *restart = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_highlight.png"]];
+    restart.label.fontSize = 20;
+    restart.anchorPoint = ccp(0.5,0.5);
+    restart.positionType = CCPositionTypeNormalized;
+    [restart setTarget:self selector:@selector(onBackClicked)];
+    restart.position = ccp(0.40f, 0.20f);
+    [self addChild:restart];
     
     
+    CCButton *revert = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_highlight.png"]];
+    revert.label.fontSize = 20;
+    revert.anchorPoint = ccp(0.5,0.5);
+    revert.positionType = CCPositionTypeNormalized;
+    [revert setTarget:self selector:@selector(onBackClicked)];
+    revert.position = ccp(0.6f, 0.20f);
+    [self addChild:revert];
+
     return self;
 }
 
 
--(void)onBackClicked{
+-(void)gameSceneBackClicked{
     
-    [[CCDirector sharedDirector] replaceScene:[SelectLevelScene scene:size_]
+    [[CCDirector sharedDirector] replaceScene:[SelectLevelScene scene:@"asd"]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
 }
 
