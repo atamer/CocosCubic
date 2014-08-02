@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "+[CCSpriteFrame frameWithImageNamed:]:CCSpriteFrame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "frame.target">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[IntroScene init]:IntroScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "playButton.boundingBox.size.height">
+            </PersistentString>
+            <PersistentString
+               value = "((screenWidth - buttonWidth) / 2 * screenWidth)">
+            </PersistentString>
+            <PersistentString
+               value = "((screenWidth - buttonWidth) / (2 * screenWidth))">
+            </PersistentString>
+            <PersistentString
+               value = "(screenWidth - buttonWidth)">
+            </PersistentString>
+            <PersistentString
+               value = "    playButton.contentSize.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCSpriteFrame(Proxy) proxy]:CCSpriteFrameCache.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CCButton layout]:CCButton.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.preferredSize">
+            </PersistentString>
+            <PersistentString
+               value = "self.maxSize">
+            </PersistentString>
+            <PersistentString
+               value = "_label.contentSize">
+            </PersistentString>
+            <PersistentString
+               value = "self.contentSizeType">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[IntroScene onPlayClicked:]:IntroScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "id">
+            </PersistentString>
+            <PersistentString
+               value = "sender.boundingBox.size.width">
+            </PersistentString>
+            <PersistentString
+               value = " b.boundingBox.size.width;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameScene onBackClicked]:GameScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "size_">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameScene gameSceneBackClicked]:GameScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "size_">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCNode convertContentSizeToPoints:type:]:CCNode.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "director.UIScaleFactor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameScene init]:GameScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "size_">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCButton initWithTitle:spriteFrame:highlightedSpriteFrame:disabledSpriteFrame:]:CCButton.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "spriteFrame.originalSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCSpriteFrame rect]:CCSpriteFrame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.texture.contentScale">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCSpriteFrame originalSize]:CCSpriteFrame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.texture.contentScale">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
