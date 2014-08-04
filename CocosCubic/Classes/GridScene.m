@@ -17,43 +17,100 @@
 
 @implementation GridScene
 
-NSString* image_;
-int size_;
 NSMutableArray *blockArray;
-NSArray *positionArray;
-
-NSArray *borderArray;
+NSMutableArray *positionArray;
 
 BOOL actionActive ;
 NSInteger actionDirection;
 CGPoint touchStartPoint;
 BOOL touchStart ;
 
+CGFloat borderX1_2;
+CGFloat borderX2_3;
 
+CGFloat borderY1_2;
+CGFloat borderY2_3;
 
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size
 {
-    image_ = image;
-    size_ = size;
-    return [self spriteWithImageNamed:image];
+    return [[self alloc] initWithImageNamed:image size:size];
 }
 
-- (id) initWithImageNamed:(NSString*)imageName
+- (id) initWithImageNamed:(NSString*)imageName size:(int)size
 {
     self = [super initWithSpriteFrame:[CCSpriteFrame frameWithImageNamed:imageName]];
     if(!self)return (nil);
     
-    for(int i = 0 ; i < size_ ; i++ ){
-        for(int j = 0 ; j < size_ ; j++){
-            NSString *image = [NSString stringWithFormat:@"%@%d.png", @"color",i+1];
-            ColorBlock *color = [ColorBlock initWithColor:image x:i y:j contentSize:self.contentSize size:size_ updateProtocol:self];
-            [self addChild:color];
+    self.image = imageName;
+    self.size = size;
+    
+    CCSprite *parentNode = [CCSprite node ];
+    
+    blockArray = [NSMutableArray array];
+    positionArray = [NSMutableArray array];
+    for(int i = 0 ; i < self.size + 2 ; i++ ){
+        NSMutableArray *rowArray = [NSMutableArray array];
+        NSMutableArray *rowPositionArray = [NSMutableArray array];
+        for(int j = 0 ; j < self.size + 2 ; j++){
+            NSString *image = [NSString stringWithFormat:@"%@%d.png", @"color",1];
+            ColorBlock *color = [ColorBlock initWithColor:image x:j y:i contentSize:self.contentSize size:self.size updateProtocol:self];
+            [rowArray  insertObject:color atIndex:j];
+            [rowPositionArray insertObject:[NSValue valueWithCGPoint: color.position] atIndex:j];
+            [parentNode addChild:color];
+         //   CCLOG(@"*  %f %f ",color.position.x,color.position.y);
         }
+        [blockArray insertObject:rowArray atIndex:i];
+        [positionArray insertObject:rowPositionArray atIndex:i];
     }
+    CGPoint  pointX1 =   [positionArray[1][1] CGPointValue];
+    CGPoint  pointX2 =   [positionArray[1][2] CGPointValue];
+    CGPoint  pointX3 =   [positionArray[1][3] CGPointValue];
+    borderX1_2 = (pointX1.x + pointX2.x)/2;
+    borderX2_3 = (pointX2.x + pointX3.x)/2;
+    
+    CGPoint  pointY1 =   [positionArray[1][1] CGPointValue];
+    CGPoint  pointY2 =   [positionArray[2][1] CGPointValue];
+    CGPoint  pointY3 =   [positionArray[3][1] CGPointValue];
+    borderY1_2 = (pointY1.y + pointY2.y)/2;
+    borderY2_3 = (pointY2.y + pointY3.y)/2;
+    
+    
+    
+    CGPoint point1 = CGPointMake(3.f, 292.f);
+    CGPoint point2 = CGPointMake(3.f, 19.f);
+    CGPoint point3 = CGPointMake(306.f, 292.f);
+    CGPoint point4 = CGPointMake(306.f, 19.f);
+
+    CGPoint pointArray[] = {point2,point1,point3,point4};
+    
+    static ccColor4F mask = {0, 0, 0, 1};
+    CCColor *color = [CCColor colorWithCcColor4f:mask];
+    
+    
+    CCDrawNode *stencil = [CCDrawNode new];
+    [stencil drawPolyWithVerts:pointArray count:4 fillColor:color borderWidth:0.f borderColor:color];
+    //    stencil.position = ccp(0.f, 100.f);
+    // stencil.contentSize = CGSizeMake(200.f, 60.f);
+    stencil.color = color;
+    
+    CCClippingNode *nodecc = [CCClippingNode new];
+    nodecc.anchorPoint = ccp(0.5, 0.5);
+    nodecc.position = CGPointMake(0, 0);
+    
+    nodecc.inverted = false;
+    nodecc.stencil = stencil;
+    nodecc.visible = true;
+    
+    [nodecc addChild:parentNode];
+    
+    [self addChild:nodecc];
+
+    
     return self;
 }
 
 - (void) touchEndFunc:(UITouch*)uiTouch x:(int)x y:(int)y{
+    /*
     if(touchStart == true){
         actionActive = NO;
         touchStart = false;
@@ -65,7 +122,7 @@ BOOL touchStart ;
         
         if(actionDirection == 1){
             //horizontal
-            for(int i = 0 ; i < 5 ; i++){
+            for(int i = 0 ; i < self.size + 2 ; i++){
                 point = [positionArray[y][i] CGPointValue];
                 block = blockArray[y][i];
                 actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(point.x,point.y)];
@@ -78,7 +135,7 @@ BOOL touchStart ;
             }
         }else{
             //vertical
-            for(int i = 0 ; i < 5 ; i++){
+            for(int i = 0 ; i < self.size + 2 ; i++){
                 point = [positionArray[i][x] CGPointValue];
                 block = blockArray[i][x];
                 actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(point.x,point.y)];
@@ -97,6 +154,7 @@ BOOL touchStart ;
             [block runAction:action];
         }
     }
+     */
     
 }
 
@@ -130,93 +188,59 @@ BOOL touchStart ;
             actionActive = YES;
         }
         
-        CCActionMoveTo *actionMove0;
-        CCActionMoveTo *actionMove1;
-        CCActionMoveTo *actionMove2;
-        CCActionMoveTo *actionMove3;
-        CCActionMoveTo *actionMove4;
         CCActionSequence *sequence;
         
-        
-        ColorBlock *block0;
+       
         ColorBlock *block1;
-        ColorBlock *block2;
-        ColorBlock *block3;
-        ColorBlock *block4;
         
         ColorBlock *selectedBlock;
         selectedBlock = blockArray[y][x];
         
         
         if(actionDirection == 1){
-            CCLOG(@"moves horizontal ");
+            
             // moves horizontal
-            block0 = blockArray[y][0];
             block1 = blockArray[y][1];
-            block2 = blockArray[y][2];
-            block3 = blockArray[y][3];
-            block4 = blockArray[y][4];
-            
-            NSNumber *borderX1 = borderArray[0][0] ;
-            NSNumber *borderX2 = borderArray[0][1] ;
-            
-            if( (block2.position.x > [borderX2 floatValue] ) || (block2.position.x - differX) > [borderX2 floatValue] ){
+           // CCLOG(@"moves horizontal %f %f",block1.position.x,borderX1_2);
+            if( (block1.position.x > borderX1_2  ) || (block1.position.x - differX) > borderX1_2 ){
                 // slide to right
                 // CCLOG(@"slideright %f %f ",differX,block2.position.x);
-                CGPoint pos0 = [positionArray[y][0] CGPointValue];
+                touchStart = false;
+                NSMutableArray *actionArray = [NSMutableArray array];
                 
-                CGPoint pos1 = [positionArray[y][1] CGPointValue];
-                actionMove0 = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos1.x,pos1.y)];
+                for(int i = 0 ; i < self.size + 2 ; i++ ){
+                    if( i != 0 ){
+                        CGPoint pos = [positionArray[y][i] CGPointValue];
+                        CCLOG(@"block %d %f-%f",i,pos.x,pos.y);
+                        CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
+                        actionArray[i-1] = actionMove;
+                    }
+                }
+                
+                // apply actions to block arrays except first one
+                NSMutableArray *horizontalBlockArray = blockArray[y];
+                for(int i = 1 ; i < [actionArray count] ; i++){
+                    CCActionMoveTo *actionMove =  actionArray[i];
+                    ColorBlock *block = horizontalBlockArray[i];
+                    [block runAction:actionMove];
+                }
+                
+                // action0 and complete sequencially
+                sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(rightMoveComplete:) object:[NSNumber numberWithInt:y]]];
                 
                 
-                CGPoint pos2 = [positionArray[y][2] CGPointValue];
-                actionMove1 = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos2.x,pos2.y)];
-                
-                CGPoint pos3 = [positionArray[y][3] CGPointValue];
-                actionMove2 = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos3.x,pos3.y)];
-                
-                CGPoint pos4 = [positionArray[y][4] CGPointValue];
-                actionMove3 = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos4.x,pos4.y)];
-                
-                // put begin
-                block4.position = CGPointMake(pos0.x , pos0.y);
-                
+                ColorBlock *firstBlock = horizontalBlockArray[0];
+                [firstBlock runAction:sequence];
                 touchStart = false;
                 
-                ColorBlock *temp = blockArray[y][0];
-                
-                NSMutableArray *arr = blockArray[y];
-                
-                
-                [arr setObject:blockArray[y][4] atIndexedSubscript:0];
-                [arr setObject:blockArray[y][3] atIndexedSubscript:4];
-                [arr setObject:blockArray[y][2] atIndexedSubscript:3];
-                [arr setObject:blockArray[y][1] atIndexedSubscript:2];
-                [arr setObject:temp atIndexedSubscript:1];
-                
-                
-                ((ColorBlock*)blockArray[y][0]).prop_x = 0;
-                ((ColorBlock*)blockArray[y][1]).prop_x = 1;
-                ((ColorBlock*)blockArray[y][2]).prop_x = 2;
-                ((ColorBlock*)blockArray[y][3]).prop_x = 3;
-                ((ColorBlock*)blockArray[y][4]).prop_x = 4;
-                
-                
-                [block3 runAction:actionMove3];
-                [block2 runAction:actionMove2];
-                [block1 runAction:actionMove1];
-                
-                
+               
                 //CCLOG(@"action move %f %f %f %f %f ",pos0.x, pos1.x, pos2.x, pos3.x, pos4.x);
                 
-                sequence = [CCActionSequence actionOne: actionMove0 two:[ExtActionCallFunc actionWithTarget:self selector:@selector(rightMoveComplete:) object:[NSNumber numberWithInt:y]]];
-                
-                [block0 runAction:sequence];
-                
-                
-            }else if(block2.position.x < [borderX1 floatValue] || (block2.position.x + differX) < [borderX1 floatValue] ){
+            }else if(false){
+//                block2.position.x < [borderX1 floatValue] || (block2.position.x + differX) < [borderX1 floatValue]
                 //slide to left
-                CGPoint pos0 = [positionArray[y][0] CGPointValue];
+               
+               /* CGPoint pos0 = [positionArray[y][0] CGPointValue];
                 actionMove1 = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos0.x, pos0.y)];
                 
                 CGPoint pos1 = [positionArray[y][1] CGPointValue];
@@ -260,16 +284,23 @@ BOOL touchStart ;
                 CCActionCallFunc *callFunc = [ExtActionCallFunc actionWithTarget:self selector:@selector(leftMoveComplete:) object:[NSNumber numberWithInt:y]];
                 sequence = [CCActionSequence actionOne: actionMove4 two:callFunc];
                 [block4 runAction:sequence];
-                
+                */
                 
             }else{
                 //  CCLOG(@"move right %f %f",differX,block2.position.x );
+                CCLOG(@"move**********");
+                for(int i = 0 ; i < self.size + 2 ; i++ ){
+                    ColorBlock *block = blockArray[y][i];
+                    block.position = CGPointMake(block.position.x - differX , block.position.y );
+                }
+                
+                /*
                 block0.position = CGPointMake(block0.position.x - differX , block0.position.y );
                 block1.position = CGPointMake(block1.position.x - differX , block1.position.y );
                 block2.position = CGPointMake(block2.position.x - differX , block2.position.y );
                 block3.position = CGPointMake(block3.position.x - differX , block3.position.y );
                 block4.position = CGPointMake(block4.position.x - differX , block4.position.y );
-                
+                */
             }
             
             /* CCLOG(@"last position %f %f %f %f %f",((MoveBlock*)blockArray[y][0]).position.x,((MoveBlock*)blockArray[y][1]).position.x,
@@ -278,12 +309,13 @@ BOOL touchStart ;
         }else{
             // moves vertical
             CCLOG(@"moves vertical ");
+            /*
             block0 = blockArray[0][x];
             block1 = blockArray[1][x];
             block2 = blockArray[2][x];
             block3 = blockArray[3][x];
-            block4 = blockArray[4][x];
-            
+            block4 = blockArray[4][x];*/
+         /*
             NSNumber *borderY1 = borderArray[1][0] ;
             NSNumber *borderY2 = borderArray[1][1] ;
             
@@ -336,7 +368,7 @@ BOOL touchStart ;
                 sequence = [CCActionSequence actionOne: actionMove4 two:[ExtActionCallFunc actionWithTarget:self selector:@selector(upMoveComplete:)object:[NSNumber numberWithInt:x]]];
                 [block4 runAction:sequence];
                 
-                
+          
             }else if(block2.position.y < [borderY2 floatValue] ||  (block2.position.y - differY) < [borderY2 floatValue]  ){
                 //move down
                 CGPoint pos4 = [positionArray[4][x] CGPointValue];
@@ -397,6 +429,7 @@ BOOL touchStart ;
                 block3.position =CGPointMake(block3.position.x , block3.position.y - differY);
                 block4.position = CGPointMake(block4.position.x , block4.position.y - differY);
             }
+            */
         }
     }
 }
@@ -404,7 +437,7 @@ BOOL touchStart ;
 
 -(void) reflectFirstLastColors{
     
-    for(int y = 0 ; y < size_ + 2 ; y++  ){
+ /*   for(int y = 0 ; y < size_ + 2 ; y++  ){
         for(int x = 0 ; x < size_ + 2 ; x++ ){
             if(y == 0 && x != 0 && x != (size_+1)){
                 ColorBlock *blockFirst = blockArray[0][x];
@@ -434,19 +467,28 @@ BOOL touchStart ;
             
         }
     }
-    
+    */
     
 }
 
 - (void) rightMoveComplete:(id)obj{
-    // switch colors
+    int row = [((NSNumber*)obj)intValue];
     
+    // change last node position manually
+    ColorBlock *lastBlock = blockArray[row][self.size + 1];
+    
+    // now change positions in blockarray slide right
+    for(int i =  self.size + 1 ; i > 0 ; i--){
+        blockArray[row][i] = blockArray[row][i-1];
+    }
+    
+    blockArray[row][0] = lastBlock;
+    CGPoint firstPosition = [positionArray[row][0] CGPointValue];
+    lastBlock.position = CGPointMake(firstPosition.x , firstPosition.y);
+    
+    // switch colors
     [self reflectFirstLastColors];
     
-    
-    
-    //    CCLOG(@"slide position %f %f %f %f %f",block0.position.x,block1.position.x,
-    //         block2.position.x,block3.position.x,block4.position.x);
 }
 
 - (void) leftMoveComplete:(id)obj{

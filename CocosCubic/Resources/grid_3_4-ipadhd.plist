@@ -7,7 +7,7 @@
             <key>grid3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{0,0},{1232,1232}}</string>
+                <string>{{1,1},{1232,1232}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -20,7 +20,7 @@
             <key>grid4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1232,0},{1232,1232}}</string>
+                <string>{{1235,1},{1232,1232}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -38,9 +38,9 @@
             <key>realTextureFileName</key>
             <string>grid_3_4-ipadhd.pvr.ccz</string>
             <key>size</key>
-            <string>{2464,1232}</string>
+            <string>{2468,1234}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:59fdd88fcc4c300cc3479b858e6782ef:ece778b7ac8f559b09b0f2f61e143028:8aa141ca6ad9ffca1c13042586d52ede$</string>
+            <string>$TexturePacker:SmartUpdate:9e36eb541006f52c6c099c6eb7491d13:ece778b7ac8f559b09b0f2f61e143028:8aa141ca6ad9ffca1c13042586d52ede$</string>
             <key>textureFileName</key>
             <string>grid_3_4-ipadhd.pvr.ccz</string>
         </dict>

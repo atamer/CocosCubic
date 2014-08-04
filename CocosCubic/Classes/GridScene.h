@@ -14,9 +14,9 @@
 
 
 @interface GridScene : CCSprite<GridSceneProtocol>
-
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size;
-
+@property NSString* image;
+@property  int size;
 @end
 
 @interface ActionMoveBlock:NSObject{

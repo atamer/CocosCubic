@@ -247,7 +247,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		17C5C6AC19801EDA0064B653 /* PBXContainerItemProxy */ = {
+		17C161EE198EC83200388165 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 17C5C68C19801EDA0064B653 /* Project object */;
 			proxyType = 1;
@@ -1724,8 +1724,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				17C161EF198EC83200388165 /* PBXTargetDependency */,
 				17FFE05A19839C4700D9427A /* PBXTargetDependency */,
-				17C5C6AD19801EDA0064B653 /* PBXTargetDependency */,
 			);
 			name = CocosCubic;
 			productName = CocosCubic;
@@ -2030,10 +2030,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		17C5C6AD19801EDA0064B653 /* PBXTargetDependency */ = {
+		17C161EF198EC83200388165 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 17C5C6AA19801EDA0064B653 /* ObjectiveChipmunk */;
-			targetProxy = 17C5C6AC19801EDA0064B653 /* PBXContainerItemProxy */;
+			targetProxy = 17C161EE198EC83200388165 /* PBXContainerItemProxy */;
 		};
 		17FFE05A19839C4700D9427A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2124,7 +2124,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
-					"COCOS2D_DEBUG=2",
+					"COCOS2D_DEBUG=1",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

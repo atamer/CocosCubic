@@ -22,9 +22,6 @@
     self = [super init ];
     if (!self) return(nil);
     
-    
-    //[[UIApplication sharedApplication] setStatusBarHidden:YES animated:NO];
-    
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
     
@@ -89,6 +86,9 @@
     size6.position = ccp(0.5f, 0.2); // Middle of screen
     [self addChild:size6];
     
+    SelectLevelScene *selectLevel = [SelectLevelScene scene:@"dummy"backScene:self];
+    self.selectLevel = selectLevel;
+    
     return self;
 }
 
@@ -96,8 +96,11 @@
 {
     CCButton *button = (CCButton*)sender;
     NSString *name = button.name;
-    [[CCDirector sharedDirector] replaceScene:[SelectLevelScene scene:name]
+    self.selectLevel.size = name;
+    
+    [[CCDirector sharedDirector] replaceScene:self.selectLevel
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+  
 }
 
 -(void)onBackClicked{

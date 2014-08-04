@@ -9,11 +9,17 @@
 #import "CCScene.h"
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
+#import "SelectLevelScene.h"
 
 
 @interface GameScene : CCScene
 
-+ (GameScene *)scene:(NSString*)size level:(NSString*)level;
++ (GameScene *)scene:(NSString*)size level:(NSString*)level back:(SelectLevelScene*)back;
 
--(void)onBackClicked1;
+-(void)gameSceneBackClicked;
+
+@property NSString *size;
+@property NSString *level;
+@property SelectLevelScene* backScene;
+
 @end

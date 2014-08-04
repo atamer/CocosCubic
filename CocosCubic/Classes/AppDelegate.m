@@ -25,7 +25,7 @@
 	[self setupCocos2dWithOptions:@{
 		// Show the FPS and draw call label.
 		CCSetupShowDebugStats: @(YES),
-		
+		CCSetupDepthFormat: @GL_DEPTH24_STENCIL8_OES,
 		// More examples of options you might want to fiddle with:
 		// (See CCAppDelegate.h for more information)
 		
@@ -42,9 +42,10 @@
 		// Make iPad's act like they run at a 2x content scale. (iPad retina 4x)
 		CCSetupTabletScale2X: @(YES),
 	}];
-    CCFileUtils *utils = [CCFileUtils sharedFileUtils];
+//    CCFileUtils *utils = [CCFileUtils sharedFileUtils];
 //    [utils setiPadSuffix:@"-hd"];
 //    [[CCFileUtils sharedFileUtils] setiPadContentScaleFactor:1.0f];
+
 	return YES;
 }
 

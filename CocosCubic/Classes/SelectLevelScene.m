@@ -14,18 +14,20 @@
 
 @implementation SelectLevelScene
 
-NSString* size_;
 
-+ (SelectLevelScene *)scene:(NSString*)size
+
++ (SelectLevelScene*)scene:(NSString*)size backScene:(SelectSizeScene*)backScene
 {
-    size_ = size;
-    return [[self alloc] init];
+    return [[self alloc] init:size backScene:backScene];
 }
 
 
-- (id)init{
+- (id)init:(NSString*)size backScene:(SelectSizeScene*)backScene{
     self = [super init ];
     if (!self) return(nil);
+    
+    self.size = size;
+    self.backScene = backScene;
     
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
@@ -109,7 +111,7 @@ NSString* size_;
 
 
 -(void)onBackClicked{
-    [[CCDirector sharedDirector] replaceScene:[SelectSizeScene scene]
+    [[CCDirector sharedDirector] replaceScene:self.backScene
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
 }
 
@@ -117,7 +119,12 @@ NSString* size_;
     CCButton *button = (CCButton*)sender;
     NSString *level = button.name;
 
-    [[CCDirector sharedDirector] replaceScene:[GameScene scene:size_ level:level]
+    self.level = level;
+    
+    self.gameScene = [GameScene scene:self.size level:self.level back:self];
+    
+
+    [[CCDirector sharedDirector] replaceScene:self.gameScene
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
 }
 

@@ -13,19 +13,19 @@
 
 @implementation GameScene
 
-NSString *size_;
-NSString *level_;
 
-+ (GameScene *)scene:(NSString*)size level:(NSString*)level
++ (GameScene *)scene:(NSString*)size level:(NSString*)level back:(SelectLevelScene*)back
 {
-    size_ = size;
-    level_ = level;
-    return [[self alloc] init];
+    return [[self alloc] init:size level:level back:back];
 }
 
-- (id)init{
+- (id)init:(NSString*)size level:(NSString*)level back:(SelectLevelScene*)backScene{
     self = [super init ];
     if (!self) return(nil);
+    
+    self.backScene = backScene;
+    self.level = level;
+    self.size = size;
     
     CCNodeColor *background = [CCNodeColor nodeWithColor: BACKGROUND_COLOR ];
     [self addChild:background];
@@ -49,13 +49,13 @@ NSString *level_;
 
     
     GridScene *grid;
-    if( [size_ isEqual: @"size3"]){
+    if( [size isEqual: @"size3"]){
         grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3];
-    }else if([size_ isEqual: @"size4"]){
+    }else if([size isEqual: @"size4"]){
         grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4];
-    }else if([size_ isEqual: @"size5"]){
+    }else if([size isEqual: @"size5"]){
         grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5];
-    }else if([size_ isEqual: @"size6"]){
+    }else if([size isEqual: @"size6"]){
         grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6];
     }
 
@@ -66,7 +66,7 @@ NSString *level_;
     
     
     
-    NSString *puzzle = [NSString stringWithFormat:@"%@ %@", @"Puzzle", level_];
+    NSString *puzzle = [NSString stringWithFormat:@"%@ %@", @"Puzzle", level];
     CCLabelTTF *puzzleLabel = [CCLabelTTF labelWithString:puzzle fontName:@"Chalkboard" fontSize:24.0f];
     puzzleLabel.positionType = CCPositionTypeNormalized;
     puzzleLabel.color = RED_COLOR;
@@ -79,7 +79,7 @@ NSString *level_;
     next.label.fontSize = 20;
     next.anchorPoint = ccp(0.5,0.5);
     next.positionType = CCPositionTypeNormalized;
-    [next setTarget:self selector:@selector(onBackClicked)];
+    [next setTarget:self selector:@selector(gameSceneBackClicked)];
     next.position = ccp(0.9f, 0.06f);
     [self addChild:next];
 
@@ -97,7 +97,7 @@ NSString *level_;
     restart.label.fontSize = 20;
     restart.anchorPoint = ccp(0.5,0.5);
     restart.positionType = CCPositionTypeNormalized;
-    [restart setTarget:self selector:@selector(onBackClicked)];
+    [restart setTarget:self selector:@selector(gameSceneBackClicked)];
     restart.position = ccp(0.40f, 0.20f);
     [self addChild:restart];
     
@@ -106,7 +106,7 @@ NSString *level_;
     revert.label.fontSize = 20;
     revert.anchorPoint = ccp(0.5,0.5);
     revert.positionType = CCPositionTypeNormalized;
-    [revert setTarget:self selector:@selector(onBackClicked)];
+    [revert setTarget:self selector:@selector(gameSceneBackClicked)];
     revert.position = ccp(0.6f, 0.20f);
     [self addChild:revert];
 
@@ -115,8 +115,7 @@ NSString *level_;
 
 
 -(void)gameSceneBackClicked{
-    
-    [[CCDirector sharedDirector] replaceScene:[SelectLevelScene scene:@"asd"]
+    [[CCDirector sharedDirector] replaceScene:self.backScene
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
 }
 

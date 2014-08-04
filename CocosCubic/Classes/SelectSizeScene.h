@@ -8,11 +8,17 @@
 
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
+#import "SelectLevelScene.h"
 
-#import "CCScene.h"
+
+@class SelectLevelScene;
 
 @interface SelectSizeScene : CCScene
+    
 
 + (SelectSizeScene *)scene;
 - (id)init;
+
+@property SelectLevelScene* selectLevel;
+
 @end
