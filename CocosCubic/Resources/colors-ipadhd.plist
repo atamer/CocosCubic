@@ -7,11 +7,11 @@
             <key>color1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3,3},{225,223}}</string>
+                <string>{{907,231},{225,223}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{225,223}}</string>
                 <key>sourceSize</key>
@@ -20,24 +20,24 @@
             <key>color1_hover.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3,232},{225,223}}</string>
+                <string>{{340,3},{333,331}}</string>
                 <key>offset</key>
-                <string>{60,-60}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{60,60},{225,223}}</string>
+                <string>{{6,6},{333,331}}</string>
                 <key>sourceSize</key>
-                <string>{225,223}</string>
+                <string>{345,343}</string>
             </dict>
             <key>color2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3,461},{225,223}}</string>
+                <string>{{678,458},{225,223}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{225,223}}</string>
                 <key>sourceSize</key>
@@ -46,24 +46,24 @@
             <key>color2_hover.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3,690},{225,223}}</string>
+                <string>{{340,338},{333,331}}</string>
                 <key>offset</key>
-                <string>{60,-60}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{60,60},{225,223}}</string>
+                <string>{{6,6},{333,331}}</string>
                 <key>sourceSize</key>
-                <string>{225,223}</string>
+                <string>{345,343}</string>
             </dict>
             <key>color3.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3,919},{225,223}}</string>
+                <string>{{907,458},{225,223}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
                 <string>{{0,0},{225,223}}</string>
                 <key>sourceSize</key>
@@ -72,93 +72,93 @@
             <key>color3_hover.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3,1148},{225,223}}</string>
+                <string>{{341,673},{333,331}}</string>
                 <key>offset</key>
-                <string>{59,-60}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{59,60},{225,223}}</string>
+                <string>{{6,6},{333,331}}</string>
                 <key>sourceSize</key>
-                <string>{225,223}</string>
+                <string>{345,343}</string>
             </dict>
             <key>color4.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{230,690},{224,223}}</string>
+                <string>{{678,3},{226,223}}</string>
                 <key>offset</key>
-                <string>{1,0}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{1,0},{224,223}}</string>
+                <string>{{0,0},{226,223}}</string>
                 <key>sourceSize</key>
-                <string>{224,223}</string>
+                <string>{226,223}</string>
             </dict>
             <key>color4_hover.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{230,918},{224,223}}</string>
+                <string>{{3,675},{334,331}}</string>
                 <key>offset</key>
-                <string>{61,-60}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{61,60},{224,223}}</string>
+                <string>{{6,6},{334,331}}</string>
                 <key>sourceSize</key>
-                <string>{224,223}</string>
+                <string>{346,343}</string>
             </dict>
             <key>color5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3,1377},{225,222}}</string>
+                <string>{{908,3},{225,224}}</string>
                 <key>offset</key>
-                <string>{0,-1}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,1},{225,222}}</string>
+                <string>{{0,0},{225,224}}</string>
                 <key>sourceSize</key>
-                <string>{225,222}</string>
+                <string>{225,224}</string>
             </dict>
             <key>color5_hover.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{230,3},{225,222}}</string>
+                <string>{{3,3},{333,332}}</string>
                 <key>offset</key>
-                <string>{59,-61}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{59,61},{225,222}}</string>
+                <string>{{6,6},{333,332}}</string>
                 <key>sourceSize</key>
-                <string>{225,222}</string>
+                <string>{345,344}</string>
             </dict>
             <key>color6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{230,232},{225,222}}</string>
+                <string>{{678,230},{225,224}}</string>
                 <key>offset</key>
-                <string>{0,-1}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,1},{225,222}}</string>
+                <string>{{0,0},{225,224}}</string>
                 <key>sourceSize</key>
-                <string>{225,222}</string>
+                <string>{225,224}</string>
             </dict>
             <key>color6_hover.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{230,461},{225,222}}</string>
+                <string>{{3,339},{333,332}}</string>
                 <key>offset</key>
-                <string>{60,-61}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{60,61},{225,222}}</string>
+                <string>{{6,6},{333,332}}</string>
                 <key>sourceSize</key>
-                <string>{225,222}</string>
+                <string>{345,344}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -168,9 +168,9 @@
             <key>realTextureFileName</key>
             <string>colors-ipadhd.pvr.ccz</string>
             <key>size</key>
-            <string>{456,1711}</string>
+            <string>{1173,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:64607af305e0e1035aaa5f40b83e383c:987975584a479ba6e572498878f2fe34:d40b0d44e6c98bd89cb2a02aac827742$</string>
+            <string>$TexturePacker:SmartUpdate:0d4d3d815a7fc75061c0f5d40d814f0e:987975584a479ba6e572498878f2fe34:d40b0d44e6c98bd89cb2a02aac827742$</string>
             <key>textureFileName</key>
             <string>colors-ipadhd.pvr.ccz</string>
         </dict>

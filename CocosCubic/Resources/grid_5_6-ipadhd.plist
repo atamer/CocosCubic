@@ -7,28 +7,28 @@
             <key>grid5.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{12,12},{1154,1155}}</string>
+                <string>{{1,1},{1231,1232}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{1154,1155}}</string>
+                <string>{{0,0},{1231,1232}}</string>
                 <key>sourceSize</key>
-                <string>{1154,1155}</string>
+                <string>{1231,1232}</string>
             </dict>
             <key>grid6.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{1188,12},{1153,1154}}</string>
+                <string>{{1234,1},{1230,1231}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{1153,1154}}</string>
+                <string>{{0,0},{1230,1231}}</string>
                 <key>sourceSize</key>
-                <string>{1153,1154}</string>
+                <string>{1230,1231}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -38,9 +38,9 @@
             <key>realTextureFileName</key>
             <string>grid_5_6-ipadhd.pvr.ccz</string>
             <key>size</key>
-            <string>{2353,1179}</string>
+            <string>{2465,1234}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:c2542b7f81743cfed6e23845119a70be:86c679a72b25604ba33ef076bbcc496f:19b6cdf09edaf291b9f092bc3549e6a2$</string>
+            <string>$TexturePacker:SmartUpdate:72da425ffcfe7296f7fcc48004f838a4:86c679a72b25604ba33ef076bbcc496f:19b6cdf09edaf291b9f092bc3549e6a2$</string>
             <key>textureFileName</key>
             <string>grid_5_6-ipadhd.pvr.ccz</string>
         </dict>

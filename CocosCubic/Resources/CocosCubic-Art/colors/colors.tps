@@ -62,7 +62,7 @@
             </struct>
         </array>
         <key>allowRotation</key>
-        <true/>
+        <false/>
         <key>premultiplyAlpha</key>
         <true/>
         <key>shapeDebug</key>
@@ -180,11 +180,11 @@
             <string></string>
         </struct>
         <key>autoAliasEnabled</key>
-        <true/>
+        <false/>
         <key>trimSpriteNames</key>
         <false/>
         <key>cleanTransparentPixels</key>
-        <true/>
+        <false/>
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
@@ -196,9 +196,9 @@
             <key>extrude</key>
             <uint>1</uint>
             <key>trimThreshold</key>
-            <uint>255</uint>
+            <uint>1</uint>
             <key>trimMode</key>
-            <enum type="SpriteSettings::TrimMode">CropKeepPos</enum>
+            <enum type="SpriteSettings::TrimMode">Trim</enum>
             <key>heuristicMask</key>
             <false/>
             <key>pivotPoint</key>

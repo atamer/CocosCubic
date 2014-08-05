@@ -96,32 +96,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CocosCubic/Classes/ColorBlock.m"
-            timestampString = "428869827.591941"
+            filePath = "CocosCubic/Classes/GridScene.m"
+            timestampString = "428963528.168186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-width"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CocosCubic/Classes/ColorBlock.m"
-            timestampString = "428869827.591941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
-            landmarkName = "-height"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "-updateFunc:differY:x:y:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -132,12 +116,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CocosCubic/Classes/GridScene.m"
-            timestampString = "428882060.840767"
+            timestampString = "428970039.940978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "478"
-            endingLineNumber = "478"
-            landmarkName = "-rightMoveComplete:"
+            startingLineNumber = "413"
+            endingLineNumber = "413"
+            landmarkName = "-hoverBlock"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -40,6 +40,7 @@ BOOL firstMove = YES;
     self.parentContentSize  = parentContentSize;
     self.size = size;
     self.updateProtocol = updateProtocol;
+    self.image = imageName;
     
     float pos_x ;
     float pos_y ;
@@ -157,7 +158,6 @@ BOOL firstMove = YES;
 }
 
 - (void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-    CGPoint touchLoc = [touch locationInNode:self];
     firstTouch = YES;
     [self.updateProtocol touchEndFunc:touch x:self.prop_x y:self.prop_y];
 }

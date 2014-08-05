@@ -48,21 +48,21 @@
     [self addChild:moveLabel];
 
     
-    GridScene *grid;
+
     if( [size isEqual: @"size3"]){
-        grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3];
+        self.grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3];
     }else if([size isEqual: @"size4"]){
-        grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4];
+        self.grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4];
     }else if([size isEqual: @"size5"]){
-        grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5];
+        self.grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5];
     }else if([size isEqual: @"size6"]){
-        grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6];
+        self.grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6];
     }
 
-    grid.anchorPoint = ccp(0.5,0.5);
-    grid.positionType = CCPositionTypeNormalized;
-    grid.position = ccp(0.5f, 0.59f);
-    [self addChild:grid];
+    self.grid.anchorPoint = ccp(0.5,0.5);
+    self.grid.positionType = CCPositionTypeNormalized;
+    self.grid.position = ccp(0.5f, 0.59f);
+    [self addChild:self.grid];
     
     
     
@@ -75,7 +75,7 @@
     [self addChild:puzzleLabel];
     
     
-     CCButton *next = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"next.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_highlight.png"]];
+     CCButton *next = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"next.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_disabled.png"]];
     next.label.fontSize = 20;
     next.anchorPoint = ccp(0.5,0.5);
     next.positionType = CCPositionTypeNormalized;
@@ -84,7 +84,7 @@
     [self addChild:next];
 
 
-    CCButton *previous = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"back.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_highlight.png"]];
+    CCButton *previous = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"back.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_disabled.png"]];
     previous.label.fontSize = 20;
     previous.anchorPoint = ccp(0.5,0.5);
     previous.positionType = CCPositionTypeNormalized;
@@ -93,16 +93,16 @@
     [self addChild:previous];
     
 
-    CCButton *restart = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_highlight.png"]];
+    CCButton *restart = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_disabled.png"]];
     restart.label.fontSize = 20;
     restart.anchorPoint = ccp(0.5,0.5);
     restart.positionType = CCPositionTypeNormalized;
-    [restart setTarget:self selector:@selector(gameSceneBackClicked)];
+    [restart setTarget:self selector:@selector(restartClicked)];
     restart.position = ccp(0.40f, 0.20f);
     [self addChild:restart];
     
     
-    CCButton *revert = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_highlight.png"]];
+    CCButton *revert = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_disabled.png"]];
     revert.label.fontSize = 20;
     revert.anchorPoint = ccp(0.5,0.5);
     revert.positionType = CCPositionTypeNormalized;
@@ -117,6 +117,10 @@
 -(void)gameSceneBackClicked{
     [[CCDirector sharedDirector] replaceScene:self.backScene
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+}
+
+-(void)restartClicked{
+    [self.grid restart];
 }
 
 @end

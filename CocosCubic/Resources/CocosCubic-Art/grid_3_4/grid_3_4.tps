@@ -200,7 +200,7 @@
             <key>trimMode</key>
             <enum type="SpriteSettings::TrimMode">Trim</enum>
             <key>heuristicMask</key>
-            <true/>
+            <false/>
             <key>pivotPoint</key>
             <enum type="SpriteSettings::PivotPoint">Center</enum>
         </struct>

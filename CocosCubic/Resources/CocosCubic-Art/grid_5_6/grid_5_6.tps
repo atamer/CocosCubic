@@ -62,9 +62,9 @@
             </struct>
         </array>
         <key>allowRotation</key>
-        <true/>
-        <key>premultiplyAlpha</key>
         <false/>
+        <key>premultiplyAlpha</key>
+        <true/>
         <key>shapeDebug</key>
         <false/>
         <key>dpi</key>
@@ -90,7 +90,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>2</uint>
+        <uint>0</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -102,7 +102,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">pvr2ccz</enum>
         <key>borderPadding</key>
-        <uint>2</uint>
+        <uint>0</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -188,13 +188,13 @@
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
-            <double>0.9375</double>
+            <double>1</double>
             <key>scaleMode</key>
             <enum type="ScaleMode">Smooth</enum>
             <key>innerPadding</key>
             <uint>0</uint>
             <key>extrude</key>
-            <uint>10</uint>
+            <uint>1</uint>
             <key>trimThreshold</key>
             <uint>1</uint>
             <key>trimMode</key>

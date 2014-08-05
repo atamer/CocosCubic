@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "SelectLevelScene.h"
+#import "GridScene.h"
 
 
 @interface GameScene : CCScene
@@ -21,5 +22,5 @@
 @property NSString *size;
 @property NSString *level;
 @property SelectLevelScene* backScene;
-
+@property GridScene* grid;
 @end
