@@ -14,9 +14,10 @@
 
 
 @interface GridScene : CCSprite<GridSceneProtocol>
-+ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size;
++ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level;
 - (void) restart;
 @property NSString* image;
+@property int level;
 @property  int size;
 
 @property  int hoverX;

@@ -11,22 +11,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[IntroScene init]:IntroScene.m">
+         contextName = "-[CCSpriteFrame originalSize]:CCSpriteFrame.m">
          <PersistentStrings>
             <PersistentString
-               value = "playButton.boundingBox.size.height">
-            </PersistentString>
-            <PersistentString
-               value = "(screenWidth - buttonWidth)">
-            </PersistentString>
-            <PersistentString
-               value = "    playButton.contentSize.width">
-            </PersistentString>
-            <PersistentString
-               value = "((screenWidth - buttonWidth) / (2 * screenWidth))">
-            </PersistentString>
-            <PersistentString
-               value = "((screenWidth - buttonWidth) / 2 * screenWidth)">
+               value = "self.texture.contentScale">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -61,6 +49,14 @@
             </PersistentString>
             <PersistentString
                value = " b.boundingBox.size.width;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene moveDown:sel:checkComplete:]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "sel">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -149,10 +145,25 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[CCSpriteFrame originalSize]:CCSpriteFrame.m">
+         contextName = "-[GridScene reflectFirstLastColors]:GridScene.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[IntroScene init]:IntroScene.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.texture.contentScale">
+               value = "playButton.boundingBox.size.height">
+            </PersistentString>
+            <PersistentString
+               value = "((screenWidth - buttonWidth) / (2 * screenWidth))">
+            </PersistentString>
+            <PersistentString
+               value = "((screenWidth - buttonWidth) / 2 * screenWidth)">
+            </PersistentString>
+            <PersistentString
+               value = "(screenWidth - buttonWidth)">
+            </PersistentString>
+            <PersistentString
+               value = "    playButton.contentSize.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "ColorBlock.h"
 #import "ExtActionCallFunc.h"
+#import <objc/message.h>
 
 @implementation ActionMoveBlock{
 }
@@ -31,18 +32,19 @@ CGFloat borderX2_3;
 CGFloat borderY1_2;
 CGFloat borderY2_3;
 
-+ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size
++ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level;
 {
-    return [[self alloc] initWithImageNamed:image size:size];
+    return [[self alloc] initWithImageNamed:image size:size level:level ];
 }
 
-- (id) initWithImageNamed:(NSString*)imageName size:(int)size
+- (id) initWithImageNamed:(NSString*)imageName size:(int)size level:(NSString*)level;
 {
     self = [super initWithSpriteFrame:[CCSpriteFrame frameWithImageNamed:imageName]];
     if(!self)return (nil);
     
     self.image = imageName;
     self.size = size;
+    self.level = [level intValue];
     
     CCSprite *parentNode = [CCSprite node ];
     
@@ -126,7 +128,9 @@ CGFloat borderY2_3;
     [nodecc addChild:parentNode];
     
     [self addChild:nodecc];
- //   [self reflectFirstLastColors];
+    [self reflectFirstLastColors:NO];
+    
+    [self unmatchColors];
     
     return self;
 }
@@ -209,7 +213,7 @@ CGFloat borderY2_3;
             actionActive = YES;
         }
         
-        CCActionSequence *sequence;
+
         
        
         ColorBlock *block1;
@@ -227,61 +231,13 @@ CGFloat borderY2_3;
             if( (block1.position.x > borderX1_2  ) || (block1.position.x - differX) > borderX1_2 ){
                 //move right
                 touchStart = false;
-                NSMutableArray *actionArray = [NSMutableArray array];
                 
-                for(int i = 0 ; i < self.size + 2 ; i++ ){
-                    if( i != 0 ){
-                        CGPoint pos = [positionArray[y][i] CGPointValue];
-
-                        CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
-                        actionArray[i-1] = actionMove;
-                    }
-                }
-                
-                // apply actions to block arrays except first one
-                NSMutableArray *horizontalBlockArray = blockArray[y];
-                for(int i = 1 ; i < [actionArray count] ; i++){
-                    CCActionMoveTo *actionMove =  actionArray[i];
-                    ColorBlock *block = horizontalBlockArray[i];
-                    [block runAction:actionMove];
-                }
-                
-                // action0 and complete sequencially
-                sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(rightMoveComplete:) object:[NSNumber numberWithInt:y]]];
-                
-                ColorBlock *firstBlock = horizontalBlockArray[0];
-                [firstBlock runAction:sequence];
-               
-                //CCLOG(@"action move %f %f %f %f %f ",pos0.x, pos1.x, pos2.x, pos3.x, pos4.x);
-                
+                [self moveRight:y sel:nil checkComplete:YES];
             }else if( block2.position.x < borderX1_2 || (block2.position.x + differX) < borderX1_2){
                 //move left
                 touchStart = false;
-                NSMutableArray *actionArray = [NSMutableArray array];
                 
-                for(int i = 0 ; i < self.size + 2 ; i++ ){
-                    if( i != self.size + 1  ){
-                        CGPoint pos = [positionArray[y][i] CGPointValue];
-                        CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
-                        actionArray[i] = actionMove;
-                    }
-                }
-                
-                // apply actions to block arrays except first one
-                NSMutableArray *horizontalBlockArray = blockArray[y];
-                for(int i = 1 ; i < [actionArray count] ; i++){
-                    CCActionMoveTo *actionMove =  actionArray[i];
-                    ColorBlock *block = horizontalBlockArray[i+1];
-                    [block runAction:actionMove];
-                }
-                
-                // action0 and complete sequencially
-                sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(leftMoveComplete:) object:[NSNumber numberWithInt:y]]];
-                
-                ColorBlock *firstBlock = horizontalBlockArray[1];
-                [firstBlock runAction:sequence];
-
-                
+                [self moveLeft:y];
             }else{
                 //  CCLOG(@"move right %f %f",differX,block2.position.x );
                 for(int i = 0 ; i < self.size + 2 ; i++ ){
@@ -297,58 +253,14 @@ CGFloat borderY2_3;
             if( block2.position.y > borderY1_2 || (block2.position.y - differY)  > borderY1_2 ){
                 //move up
                 touchStart = false;
-                NSMutableArray *actionArray = [NSMutableArray array];
-                
-                for(int i = 0 ; i < self.size + 2 ; i++ ){
-                    if( i != self.size + 1  ){
-                        CGPoint pos = [positionArray[i][x] CGPointValue];
-                        CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
-                        actionArray[i] = actionMove;
-                    }
+                [self moveUp:x];
 
-                }
-                
-                // apply actions to block arrays except first one
-                for(int i = 1 ; i < [actionArray count] ; i++){
-                    CCActionMoveTo *actionMove =  actionArray[i];
-                    ColorBlock *block = blockArray[i+1][x];
-                    [block runAction:actionMove];
-                }
-           
-                // action0 and complete sequencially
-                sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(upMoveComplete:) object:[NSNumber numberWithInt:x]]];
-                
-                ColorBlock *firstBlock = blockArray[1][x];
-                [firstBlock runAction:sequence];
            
           
             }else if( block1.position.y < borderY1_2 || (block1.position.y - differY)  < borderY1_2 ){
                 //move down
                 touchStart = false;
-                
-                NSMutableArray *actionArray = [NSMutableArray array];
-                
-                for(int i = 0 ; i < self.size + 2 ; i++ ){
-                    if( i != 0 ){
-                        CGPoint pos = [positionArray[i][x] CGPointValue];
-                        CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
-                        actionArray[i-1] = actionMove;
-                    }
-                    
-                }
-                
-                // apply actions to block arrays except first one
-                for(int i = 1 ; i < [actionArray count] ; i++){
-                    CCActionMoveTo *actionMove =  actionArray[i];
-                    ColorBlock *block = blockArray[i][x];
-                    [block runAction:actionMove];
-                }
-                
-                // action0 and complete sequencially
-                sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(downMoveComplete:) object:[NSNumber numberWithInt:x]]];
-                
-                ColorBlock *firstBlock = blockArray[0][x];
-                [firstBlock runAction:sequence];
+                [self moveDown:x sel:nil checkComplete:YES];
                 
             }else{
                 for(int i = 0 ; i < self.size + 2 ; i++ ){
@@ -360,48 +272,6 @@ CGFloat borderY2_3;
             
         }
     }
-}
-
-
--(void) reflectFirstLastColors{
-    
-    for(int y = 0 ; y < self.size + 2 ; y++  ){
-        for(int x = 0 ; x < self.size + 2 ; x++ ){
-            ColorBlock *block =  blockArray[y][x];
-            block.prop_y = y;
-            block.prop_x = x;
-            
-            if(y == 0 && x != 0 && x != (self.size+1)){
-                ColorBlock *blockFirst = blockArray[0][x];
-                ColorBlock *blockLast = blockArray[self.size][x];
-                [blockFirst changeImage:blockLast.image];
-            }
-            if(x == 0 && y != 0 && y != (self.size+1)){
-                ColorBlock *blockFirst = blockArray[y][0];
-                ColorBlock *blockLast = blockArray[y][self.size];
-                [blockFirst changeImage:blockLast.image];
-
-            }
-            
-            if( y == (self.size + 1) && x != (self.size + 1) && x != 0 ){
-                ColorBlock *blockLast = blockArray[y][x];
-                ColorBlock *blockFirst = blockArray[1][x];
-                [blockLast changeImage:blockFirst.image];
-            }
-            
-            if( y != (self.size + 1) && x == (self.size + 1) && y != 0 ){
-                ColorBlock *blockLast = blockArray[y][x];
-                ColorBlock *blockFirst = blockArray[y][1];
-                [blockLast changeImage:blockFirst.image];
-            }
-            
-        }
-    }
-    
-    self.hoverY  = 1 ;
-    self.hoverX  = 1 ;
-    float interval = 1.0f/(self.size * 1.5f);
-    [self schedule:@selector(hoverBlock) interval:interval repeat:(self.size * self.size ) delay:0];
 }
 
 -(void) hoverBlock{
@@ -422,8 +292,98 @@ CGFloat borderY2_3;
     
 }
 
-- (void) rightMoveComplete:(id)obj{
-    int row = [((NSNumber*)obj)intValue];
+
+
+
+int randomizeCounter = 0 ;
+int randomCount;
+
+-(void) unmatchColors{
+    // just randomize
+    randomizeCounter = 0;
+    if(self.level == 1 ) {
+        randomCount = 2;
+        [self randomizeColors];
+    }else if( self.level == 2 || self.level == 3  ){
+        randomCount = 3;
+        [self randomizeColors];
+    }else{
+        randomCount = self.level;
+        [self randomizeColors];
+    }
+}
+
+
+-(void) randomizeColors{
+
+    if(randomizeCounter < randomCount){
+        int random = rand() % self.size;
+        if(randomizeCounter % 2 == 0){
+            [self moveDown:random sel:@selector(randomizeColors) checkComplete:NO];
+        }else{
+            [self moveRight:random sel:@selector(randomizeColors) checkComplete:NO];
+        }
+    }
+    randomizeCounter++;
+}
+
+
+-(void) restart{
+    
+}
+
+
+
+-(void) moveRight:(int)y sel:(SEL)sel checkComplete:(BOOL)checkComplete{
+    
+    CCActionSequence *sequence;
+    NSMutableArray *actionArray = [NSMutableArray array];
+    
+    for(int i = 0 ; i < self.size + 2 ; i++ ){
+        if( i != 0 ){
+            CGPoint pos = [positionArray[y][i] CGPointValue];
+            
+            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
+            actionArray[i-1] = actionMove;
+        }
+    }
+    
+    // apply actions to block arrays except first one
+    NSMutableArray *horizontalBlockArray = blockArray[y];
+    for(int i = 1 ; i < [actionArray count] ; i++){
+        CCActionMoveTo *actionMove =  actionArray[i];
+        ColorBlock *block = horizontalBlockArray[i];
+        [block runAction:actionMove];
+    }
+    
+    NSArray *array ;
+    if(sel){
+        array = @[[NSNumber numberWithInt:y], [NSValue valueWithPointer:sel], [NSNumber numberWithBool:checkComplete]];
+    }else{
+        array = @[[NSNumber numberWithInt:y]];
+    }
+    
+    // action0 and complete sequencially
+    sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(rightMoveComplete:) array:array]];
+    
+    ColorBlock *firstBlock = horizontalBlockArray[0];
+    [firstBlock runAction:sequence];
+    
+}
+
+- (void) rightMoveComplete:(NSArray*)array{
+    int row = [((NSNumber*)array[0]) intValue];
+    SEL callback;
+    BOOL checkComplete = YES ;
+    
+    if([array count] >= 2){
+        callback = [((NSValue*)array[1]) pointerValue];
+    }
+    if([array count] >= 3){
+        checkComplete = [((NSNumber*)array[2]) boolValue ];
+    }
+
+    
     
     // change last node position manually
     ColorBlock *lastBlock = blockArray[row][self.size + 1];
@@ -438,12 +398,52 @@ CGFloat borderY2_3;
     lastBlock.position = CGPointMake(firstPosition.x , firstPosition.y);
     
     // switch colors
-    [self reflectFirstLastColors];
+    [self reflectFirstLastColors:checkComplete];
+    if(callback){
+        typedef void (*Func)(id, SEL);
+        ((Func)objc_msgSend)(self, callback);
+    }
     
 }
 
-- (void) leftMoveComplete:(id)obj{
-    int row = [((NSNumber*)obj)intValue];
+
+
+
+//left
+
+-(void) moveLeft:(int)y{
+    
+    CCActionSequence *sequence;
+    NSMutableArray *actionArray = [NSMutableArray array];
+    
+    for(int i = 0 ; i < self.size + 2 ; i++ ){
+        if( i != self.size + 1  ){
+            CGPoint pos = [positionArray[y][i] CGPointValue];
+            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
+            actionArray[i] = actionMove;
+        }
+    }
+    
+    // apply actions to block arrays except first one
+    NSMutableArray *horizontalBlockArray = blockArray[y];
+    for(int i = 1 ; i < [actionArray count] ; i++){
+        CCActionMoveTo *actionMove =  actionArray[i];
+        ColorBlock *block = horizontalBlockArray[i+1];
+        [block runAction:actionMove];
+    }
+    
+    NSArray *array = [NSArray arrayWithObjects:[NSNumber numberWithInt:y], nil];
+    // action0 and complete sequencially
+    sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(leftMoveComplete:) array:array]];
+    
+    ColorBlock *firstBlock = horizontalBlockArray[1];
+    [firstBlock runAction:sequence];
+    
+}
+
+
+- (void) leftMoveComplete:(NSArray*)array{
+    int row = array[0];
     
     // change last node position manually
     ColorBlock *firstBlock = blockArray[row][0];
@@ -458,11 +458,41 @@ CGFloat borderY2_3;
     firstBlock.position = CGPointMake(lastPosition.x , lastPosition.y);
     
     // switch colors
-    [self reflectFirstLastColors];
+    [self reflectFirstLastColors:YES];
 }
 
-- (void) upMoveComplete:(id)obj{
-    int column = [((NSNumber*)obj)intValue];
+
+// move up
+
+-(void) moveUp:(int)x{
+    CCActionSequence *sequence;
+    NSMutableArray *actionArray = [NSMutableArray array];
+    
+    for(int i = 0 ; i < self.size + 2 ; i++ ){
+        if( i != self.size + 1  ){
+            CGPoint pos = [positionArray[i][x] CGPointValue];
+            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
+            actionArray[i] = actionMove;
+        }
+    }
+    
+    // apply actions to block arrays except first one
+    for(int i = 1 ; i < [actionArray count] ; i++){
+        CCActionMoveTo *actionMove =  actionArray[i];
+        ColorBlock *block = blockArray[i+1][x];
+        [block runAction:actionMove];
+    }
+    NSArray *array = [NSArray arrayWithObjects:[NSNumber numberWithInt:x], nil];
+    // action0 and complete sequencially
+    sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(upMoveComplete:) array:array]];
+    
+    ColorBlock *firstBlock = blockArray[1][x];
+    [firstBlock runAction:sequence];
+}
+
+
+- (void) upMoveComplete:(NSArray*)array{
+    int column = array[0];
     
     // change last node position manually
     ColorBlock *firstBlock = blockArray[0][column];
@@ -477,11 +507,68 @@ CGFloat borderY2_3;
     firstBlock.position = CGPointMake(lastPosition.x , lastPosition.y);
     
     // switch colors
-    [self reflectFirstLastColors];
+    [self reflectFirstLastColors:YES];
 }
 
-- (void) downMoveComplete:(id)obj{
-    int column = [((NSNumber*)obj)intValue];
+
+// move down
+
+-(void) moveDown:(int)x sel:(SEL)sel checkComplete:(BOOL)checkComplete{
+    CCActionSequence *sequence;
+    
+    NSMutableArray *actionArray = [NSMutableArray array];
+    
+    for(int i = 0 ; i < self.size + 2 ; i++ ){
+        if( i != 0 ){
+            CGPoint pos = [positionArray[i][x] CGPointValue];
+            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
+            actionArray[i-1] = actionMove;
+        }
+        
+    }
+    
+    // apply actions to block arrays except first one
+    for(int i = 1 ; i < [actionArray count] ; i++){
+        CCActionMoveTo *actionMove =  actionArray[i];
+        ColorBlock *block = blockArray[i][x];
+        [block runAction:actionMove];
+    }
+    
+  
+    
+//    NSArray *array = [NSArray arrayWithObjects:[NSNumber numberWithInt:x],sel,checkComplete, nil];
+    NSArray *array ;
+    if(sel){
+        array = @[[NSNumber numberWithInt:x], [NSValue valueWithPointer:sel], [NSNumber numberWithBool:checkComplete]];
+    }else{
+        array = @[[NSNumber numberWithInt:x]];
+    }
+
+    
+
+    // action0 and complete sequencially
+    sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(downMoveComplete:) array:array]];
+    
+    ColorBlock *firstBlock = blockArray[0][x];
+    [firstBlock runAction:sequence];
+    
+    
+    
+}
+
+
+- (void) downMoveComplete:(NSArray*)array{
+    int column = [((NSNumber*)array[0]) intValue];
+    SEL callback;
+    BOOL checkComplete = YES ;
+    
+    if([array count] >= 2){
+        callback = [((NSValue*)array[1]) pointerValue];
+    }
+    if([array count] >= 3){
+        checkComplete = [((NSNumber*)array[2]) boolValue ];
+    }
+
     
     // change last node position manually
     ColorBlock *lastBlock = blockArray[self.size + 1][column];
@@ -496,10 +583,100 @@ CGFloat borderY2_3;
     lastBlock.position = CGPointMake(firstPosition.x , firstPosition.y);
     
     // switch colors
-    [self reflectFirstLastColors];
+    [self reflectFirstLastColors:checkComplete];
+    if(callback){
+        typedef void (*Func)(id, SEL);
+        ((Func)objc_msgSend)(self, callback);
+    }
+    
 }
 
--(void) restart{
+
+
+
+-(void) reflectFirstLastColors:(BOOL)checkComplete{
+    
+    for(int y = 0 ; y < self.size + 2 ; y++  ){
+        for(int x = 0 ; x < self.size + 2 ; x++ ){
+            ColorBlock *block =  blockArray[y][x];
+            block.prop_y = y;
+            block.prop_x = x;
+            
+            if(y == 0 && x != 0 && x != (self.size+1)){
+                ColorBlock *blockFirst = blockArray[0][x];
+                ColorBlock *blockLast = blockArray[self.size][x];
+                [blockFirst changeImage:blockLast.image];
+            }
+            if(x == 0 && y != 0 && y != (self.size+1)){
+                ColorBlock *blockFirst = blockArray[y][0];
+                ColorBlock *blockLast = blockArray[y][self.size];
+                [blockFirst changeImage:blockLast.image];
+                
+            }
+            
+            if( y == (self.size + 1) && x != (self.size + 1) && x != 0 ){
+                ColorBlock *blockLast = blockArray[y][x];
+                ColorBlock *blockFirst = blockArray[1][x];
+                [blockLast changeImage:blockFirst.image];
+            }
+            
+            if( y != (self.size + 1) && x == (self.size + 1) && y != 0 ){
+                ColorBlock *blockLast = blockArray[y][x];
+                ColorBlock *blockFirst = blockArray[y][1];
+                [blockLast changeImage:blockFirst.image];
+            }
+            
+        }
+    }
+    
+    if(checkComplete == YES){
+        BOOL match = YES;
+        // check horizontal match
+        for (int i = 1 ; i < self.size +1 ; i++){
+            NSString *matchColor = nil;
+            for(int j = 1 ; j < self.size + 1 ; j++){
+                ColorBlock *block = blockArray[i][j];
+                if(!matchColor){
+                    matchColor = block.image;
+                }
+                if( ![matchColor isEqualToString:block.image]  ){
+                    match = NO;
+                    break;
+                }
+            }
+            if(match == false){
+                break;
+            }
+        }
+        
+        if( match == NO){
+            // check vertical match
+            for (int i = 1 ; i < self.size +1 ; i++){
+                NSString *matchColor = nil;
+                for(int j = 1 ; j < self.size + 1 ; j++){
+                    ColorBlock *block = blockArray[j][i];
+                    if(!matchColor){
+                        matchColor = block.image;
+                    }
+                    if(![matchColor isEqualToString:block.image]  ){
+                        match = NO;
+                        break;
+                    }
+                }
+                if(match == false){
+                    break;
+                }
+            }
+        }
+        
+        if(match == YES){
+            self.hoverY  = 1 ;
+            self.hoverX  = 1 ;
+            float interval = 1.0f/(self.size * 1.5f);
+            [self schedule:@selector(hoverBlock) interval:interval repeat:(self.size * self.size ) delay:0];
+        }
+    }
+    
     
 }
 

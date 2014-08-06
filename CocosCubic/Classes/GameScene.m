@@ -50,13 +50,13 @@
     
 
     if( [size isEqual: @"size3"]){
-        self.grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3];
+        self.grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3 level:self.level];
     }else if([size isEqual: @"size4"]){
-        self.grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4];
+        self.grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4 level:self.level];
     }else if([size isEqual: @"size5"]){
-        self.grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5];
+        self.grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5 level:self.level];
     }else if([size isEqual: @"size6"]){
-        self.grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6];
+        self.grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6 level:self.level];
     }
 
     self.grid.anchorPoint = ccp(0.5,0.5);

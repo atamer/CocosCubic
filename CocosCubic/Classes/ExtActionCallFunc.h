@@ -8,11 +8,10 @@
 
 #import "CCActionInstant.h"
 
-@interface ExtActionCallFunc : CCActionCallFunc{
-    id _object;
-}
+@interface ExtActionCallFunc : CCActionCallFunc
+    
+@property  NSArray* array;
 
-
-+ (id)actionWithTarget:(id)t selector:(SEL)s object:(id)obj;
++(id) actionWithTarget: (id) t selector:(SEL) s array:(NSArray*)array;
 
 @end
