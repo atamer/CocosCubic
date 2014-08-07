@@ -162,6 +162,10 @@ BOOL firstMove = YES;
     [self.updateProtocol touchEndFunc:touch x:self.prop_x y:self.prop_y];
 }
 
+-(void)clean{
+    
+}
+
 -(CGFloat) width
 {
     return [self boundingBox].size.width;

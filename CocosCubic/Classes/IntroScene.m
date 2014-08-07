@@ -43,6 +43,22 @@
 
     [self addChild:background];
 
+    // file operations
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"cocoscube.score"];
+    
+    NSFileManager *manager = [NSFileManager defaultManager];
+    
+    if ([manager fileExistsAtPath: filePath] == YES){
+        [self readScoreFile:filePath];
+    }else{
+        [self createScoreFile:filePath];
+    }
+        
+    //
+    
+    
     
     CCSpriteBatchNode *buttonsNode;
     buttonsNode = [CCSpriteBatchNode batchNodeWithFile:@"buttons.pvr.ccz"];
@@ -120,6 +136,47 @@
 {
     
 }
+
+-(void)createScoreFile:(NSString*)filePath{
+    SCORE_TABLE = [NSMutableArray array];
+    NSString *scoreFile = @"" ;
+    for(int i = 0 ; i < 4 ; i++ ){
+        NSMutableArray *levelScore =  [NSMutableArray array];
+        for(int j = 0 ; j < 15 ; j++){
+            NSString *line = [NSString stringWithFormat:@"%d:%d:0\n",i,j];
+            scoreFile = [scoreFile stringByAppendingString:line];
+            levelScore[j] = [NSNumber numberWithInt:0];
+        }
+        SCORE_TABLE[i] = [NSNumber numberWithInt:i];
+    }
+    NSError *error;
+    [scoreFile writeToFile:filePath atomically:YES
+            encoding:NSUTF8StringEncoding error:&error];
+}
+
+-(void)readScoreFile:(NSString*)filePath{
+    SCORE_TABLE = [NSMutableArray array];
+    
+    for(int i = 0 ; i<15 ; i++){
+        SCORE_TABLE[i] = [NSMutableArray array];
+    }
+    
+    NSError *error;
+    NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    NSArray *scoreLines = [content componentsSeparatedByString:@"\n"];
+    for(int i = 0 ; i < [scoreLines count] - 1 ; i++){
+        NSString *line = scoreLines[i];
+        NSArray *score = [line componentsSeparatedByString:@":"];
+
+        int size = [((NSString*)(score[0])) intValue];
+        int level = [((NSString*)(score[1])) intValue];
+        int record = [((NSString*)(score[2])) intValue];
+        
+        SCORE_TABLE[size][level] = [NSNumber numberWithInt:record];
+    }
+    
+}
+
 
 
 // -----------------------------------------------------------------------

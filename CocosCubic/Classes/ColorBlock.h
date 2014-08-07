@@ -17,8 +17,8 @@
 
 - (id) initWithImageNamed:(NSString*)imageName x:(int)_x y:(int)_y contentSize:(CGSize)contentSize size:(int)size updateProtocol:(id<GridSceneProtocol>)updateProtocol;
 
-
--(void) changeImage:(NSString*) image;
+-(void)clean;
+-(void)changeImage:(NSString*) image;
 -(CGFloat) width;
 -(CGFloat) height;
 

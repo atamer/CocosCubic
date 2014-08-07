@@ -26,6 +26,7 @@
     self.backScene = backScene;
     self.level = level;
     self.size = size;
+    self.move = 1;
     
     CCNodeColor *background = [CCNodeColor nodeWithColor: BACKGROUND_COLOR ];
     [self addChild:background];
@@ -40,23 +41,15 @@
     [self addChild:back];
     
     
-    CCLabelTTF *moveLabel = [CCLabelTTF labelWithString:@"Move: 1" fontName:@"Chalkboard" fontSize:24.0f];
-    moveLabel.positionType = CCPositionTypeNormalized;
-    moveLabel.color = RED_COLOR;
-    moveLabel.anchorPoint = ccp(0.5,0.5);
-    moveLabel.position = ccp(0.78f, 0.96f); // Middle of screen
-    [self addChild:moveLabel];
-
-    
 
     if( [size isEqual: @"size3"]){
-        self.grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3 level:self.level];
+        self.grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3 level:self.level gameSceneProtocol:self ];
     }else if([size isEqual: @"size4"]){
-        self.grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4 level:self.level];
+        self.grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4 level:self.level gameSceneProtocol:self];
     }else if([size isEqual: @"size5"]){
-        self.grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5 level:self.level];
+        self.grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5 level:self.level gameSceneProtocol:self];
     }else if([size isEqual: @"size6"]){
-        self.grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6 level:self.level];
+        self.grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6 level:self.level gameSceneProtocol:self];
     }
 
     self.grid.anchorPoint = ccp(0.5,0.5);
@@ -64,6 +57,15 @@
     self.grid.position = ccp(0.5f, 0.59f);
     [self addChild:self.grid];
     
+    
+    NSString *moveStr = [NSString stringWithFormat:@"Move: %d",1];
+    self.moveLabel = [CCLabelTTF labelWithString:moveStr fontName:@"Chalkboard" fontSize:24.0f];
+    self.moveLabel.positionType = CCPositionTypeNormalized;
+    self.moveLabel.color = RED_COLOR;
+    self.moveLabel.anchorPoint = ccp(0.5,0.5);
+    self.moveLabel.position = ccp(0.78f, 0.96f); // Middle of screen
+    [self addChild:self.moveLabel];
+
     
     
     NSString *puzzle = [NSString stringWithFormat:@"%@ %@", @"Puzzle", level];
@@ -114,7 +116,15 @@
 }
 
 
+-(void) updateMove{
+    self.move = self.move + 1;
+    [self.moveLabel setString:[NSString stringWithFormat:@"Move: %d",self.move]];
+}
+
+
+
 -(void)gameSceneBackClicked{
+    [self.grid clean] ;
     [[CCDirector sharedDirector] replaceScene:self.backScene
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
 }

@@ -268,6 +268,7 @@
 		17132CEB1986DE290055DDD8 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Classes/GameScene.h; sourceTree = "<group>"; };
 		17132CEC1986DE290055DDD8 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameScene.m; path = Classes/GameScene.m; sourceTree = "<group>"; };
 		178289EA19804C9C00F70EEA /* PackTextures.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = Resources/PackTextures.sh; sourceTree = "<group>"; };
+		1793E55B1993E78F00BD43E6 /* GameSceneProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameSceneProtocol.h; path = Classes/GameSceneProtocol.h; sourceTree = "<group>"; };
 		17BC22B3198ACEC10076160B /* buttons-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "buttons-hd.plist"; path = "Resources/buttons-hd.plist"; sourceTree = "<group>"; };
 		17BC22B4198ACEC10076160B /* buttons-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "buttons-hd.pvr.ccz"; path = "Resources/buttons-hd.pvr.ccz"; sourceTree = "<group>"; };
 		17BC22B5198ACEC10076160B /* buttons-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "buttons-ipadhd.plist"; path = "Resources/buttons-ipadhd.plist"; sourceTree = "<group>"; };
@@ -755,6 +756,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1793E55C1993E79A00BD43E6 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				17BC22EE198D73920076160B /* GridSceneProtocol.h */,
+				1793E55B1993E78F00BD43E6 /* GameSceneProtocol.h */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		17BC22EF198D7DC80076160B /* CocosExt */ = {
 			isa = PBXGroup;
 			children = (
@@ -784,7 +794,7 @@
 				17BC22DA198D16AA0076160B /* GridScene.m */,
 				17BC22EB198D72690076160B /* ColorBlock.h */,
 				17BC22EC198D72690076160B /* ColorBlock.m */,
-				17BC22EE198D73920076160B /* GridSceneProtocol.h */,
+				1793E55C1993E79A00BD43E6 /* Protocol */,
 			);
 			name = Game;
 			sourceTree = "<group>";

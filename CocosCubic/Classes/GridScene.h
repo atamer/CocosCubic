@@ -9,19 +9,23 @@
 #import "ColorBlock.h"
 #import "CCSprite.h"
 #import "GridSceneProtocol.h"
+#import "GameSceneProtocol.h"
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
 
 @interface GridScene : CCSprite<GridSceneProtocol>
-+ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level;
++ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol;
 - (void) restart;
+- (void) clean;
+
 @property NSString* image;
 @property int level;
 @property  int size;
 
 @property  int hoverX;
 @property  int hoverY;
+@property id<GameSceneProtocol>gameSceneProtocol;
 
 @end
 

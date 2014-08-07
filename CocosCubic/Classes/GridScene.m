@@ -32,12 +32,12 @@ CGFloat borderX2_3;
 CGFloat borderY1_2;
 CGFloat borderY2_3;
 
-+ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level;
++ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
 {
-    return [[self alloc] initWithImageNamed:image size:size level:level ];
+    return [[self alloc] initWithImageNamed:image size:size level:level gameSceneProtocol:gameSceneProtocol ];
 }
 
-- (id) initWithImageNamed:(NSString*)imageName size:(int)size level:(NSString*)level;
+- (id) initWithImageNamed:(NSString*)imageName size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
 {
     self = [super initWithSpriteFrame:[CCSpriteFrame frameWithImageNamed:imageName]];
     if(!self)return (nil);
@@ -45,6 +45,7 @@ CGFloat borderY2_3;
     self.image = imageName;
     self.size = size;
     self.level = [level intValue];
+    self.gameSceneProtocol = gameSceneProtocol;
     
     CCSprite *parentNode = [CCSprite node ];
     
@@ -274,23 +275,7 @@ CGFloat borderY2_3;
     }
 }
 
--(void) hoverBlock{
-    ColorBlock *block =  blockArray[self.hoverY][self.hoverX];
-    
-    NSString *image = block.image ;
-    NSArray *testArray = [image componentsSeparatedByString:@"."];
-    NSString *name = (NSString*)testArray[0];
-    image = [NSString stringWithFormat:@"%@_hover.png", name];
-    [block changeImage:image];
-    
-    self.hoverX = self.hoverX + 1;
-    if(self.hoverX == self.size +1){
-        self.hoverX = 1 ;
-        self.hoverY = self.hoverY + 1;
-    }
-    
-    
-}
+
 
 
 
@@ -302,10 +287,10 @@ int randomCount;
     // just randomize
     randomizeCounter = 0;
     if(self.level == 1 ) {
-        randomCount = 2;
+        randomCount = 3;
         [self randomizeColors];
     }else if( self.level == 2 || self.level == 3  ){
-        randomCount = 3;
+        randomCount = 4;
         [self randomizeColors];
     }else{
         randomCount = self.level;
@@ -373,7 +358,7 @@ int randomCount;
 
 - (void) rightMoveComplete:(NSArray*)array{
     int row = [((NSNumber*)array[0]) intValue];
-    SEL callback;
+    SEL callback = nil;
     BOOL checkComplete = YES ;
     
     if([array count] >= 2){
@@ -399,7 +384,7 @@ int randomCount;
     
     // switch colors
     [self reflectFirstLastColors:checkComplete];
-    if(callback){
+    if(callback != nil){
         typedef void (*Func)(id, SEL);
         ((Func)objc_msgSend)(self, callback);
     }
@@ -443,7 +428,7 @@ int randomCount;
 
 
 - (void) leftMoveComplete:(NSArray*)array{
-    int row = array[0];
+    int row = [((NSNumber*)array[0]) intValue];;
     
     // change last node position manually
     ColorBlock *firstBlock = blockArray[row][0];
@@ -492,7 +477,7 @@ int randomCount;
 
 
 - (void) upMoveComplete:(NSArray*)array{
-    int column = array[0];
+    int column = [((NSNumber*)array[0]) intValue];;
     
     // change last node position manually
     ColorBlock *firstBlock = blockArray[0][column];
@@ -559,7 +544,7 @@ int randomCount;
 
 - (void) downMoveComplete:(NSArray*)array{
     int column = [((NSNumber*)array[0]) intValue];
-    SEL callback;
+    SEL callback = nil;
     BOOL checkComplete = YES ;
     
     if([array count] >= 2){
@@ -584,7 +569,7 @@ int randomCount;
     
     // switch colors
     [self reflectFirstLastColors:checkComplete];
-    if(callback){
+    if(callback != nil){
         typedef void (*Func)(id, SEL);
         ((Func)objc_msgSend)(self, callback);
     }
@@ -630,6 +615,7 @@ int randomCount;
     }
     
     if(checkComplete == YES){
+        [self.gameSceneProtocol updateMove];
         BOOL match = YES;
         // check horizontal match
         for (int i = 1 ; i < self.size +1 ; i++){
@@ -650,6 +636,7 @@ int randomCount;
         }
         
         if( match == NO){
+            match = YES;
             // check vertical match
             for (int i = 1 ; i < self.size +1 ; i++){
                 NSString *matchColor = nil;
@@ -676,7 +663,27 @@ int randomCount;
             [self schedule:@selector(hoverBlock) interval:interval repeat:(self.size * self.size ) delay:0];
         }
     }
+}
+
+
+-(void) hoverBlock{
+    ColorBlock *block =  blockArray[self.hoverY][self.hoverX];
     
+    NSString *image = block.image ;
+    NSArray *testArray = [image componentsSeparatedByString:@"."];
+    NSString *name = (NSString*)testArray[0];
+    image = [NSString stringWithFormat:@"%@_hover.png", name];
+    [block changeImage:image];
+    
+    self.hoverX = self.hoverX + 1;
+    if(self.hoverX == self.size +1){
+        self.hoverX = 1 ;
+        self.hoverY = self.hoverY + 1;
+    }
+    
+}
+
+-(void)clean{
     
 }
 

@@ -11,9 +11,10 @@
 #import "cocos2d-ui.h"
 #import "SelectLevelScene.h"
 #import "GridScene.h"
+#import "GameSceneProtocol.h"
 
 
-@interface GameScene : CCScene
+@interface GameScene : CCScene<GameSceneProtocol>
 
 + (GameScene *)scene:(NSString*)size level:(NSString*)level back:(SelectLevelScene*)back;
 
@@ -23,4 +24,6 @@
 @property NSString *level;
 @property SelectLevelScene* backScene;
 @property GridScene* grid;
+@property int move;
+@property CCLabelTTF* moveLabel;
 @end

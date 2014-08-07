@@ -14,8 +14,11 @@
 #define BACKGROUND_COLOR CCColorFromRGB(0xF0ECC9)
 #define RED_COLOR CCColorFromRGB(0xD34F28)
 
-
+static NSMutableArray *  SCORE_TABLE ;
 
 @interface Constants : NSObject
+
++(int) getScore:(int)size level:(int)level;
++(BOOL) setScore:(int)size level:(int)level score:(int)score;
 
 @end
