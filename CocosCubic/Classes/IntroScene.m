@@ -13,6 +13,7 @@
 #import "IntroScene.h"
 #import "Constants.h"
 #import "SelectSizeScene.h"
+#import "RecordScene.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - IntroScene
@@ -125,6 +126,9 @@
     // start spinning scene with transition
     [[CCDirector sharedDirector] replaceScene:[SelectSizeScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+   
+    
+   
 }
 
 

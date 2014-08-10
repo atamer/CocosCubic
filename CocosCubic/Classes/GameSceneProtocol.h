@@ -10,8 +10,7 @@
 
 @protocol GameSceneProtocol <NSObject>
 
-
 @required
 -(void) updateMove;
-
+-(void) finishGame;
 @end

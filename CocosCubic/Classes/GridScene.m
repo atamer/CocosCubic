@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "ColorBlock.h"
 #import "ExtActionCallFunc.h"
+#import "RecordScene.h"
 #import <objc/message.h>
 
 @implementation ActionMoveBlock{
@@ -287,7 +288,7 @@ int randomCount;
     // just randomize
     randomizeCounter = 0;
     if(self.level == 1 ) {
-        randomCount = 3;
+        randomCount = 1;
         [self randomizeColors];
     }else if( self.level == 2 || self.level == 3  ){
         randomCount = 4;
@@ -661,6 +662,8 @@ int randomCount;
             self.hoverX  = 1 ;
             float interval = 1.0f/(self.size * 1.5f);
             [self schedule:@selector(hoverBlock) interval:interval repeat:(self.size * self.size ) delay:0];
+            
+            
         }
     }
 }
@@ -679,6 +682,11 @@ int randomCount;
     if(self.hoverX == self.size +1){
         self.hoverX = 1 ;
         self.hoverY = self.hoverY + 1;
+    }
+    NSLog(@"%d %d",self.hoverX,self.hoverY);
+    if((self.hoverX >= self.size ) && (self.hoverY >= self.size)){
+        NSLog(@"------");
+        [self.gameSceneProtocol finishGame];
     }
     
 }

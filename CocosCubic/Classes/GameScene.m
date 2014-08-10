@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "SelectLevelScene.h"
 #import "GridScene.h"
+#import "RecordScene.h"
 
 @implementation GameScene
 
@@ -119,6 +120,16 @@
 -(void) updateMove{
     self.move = self.move + 1;
     [self.moveLabel setString:[NSString stringWithFormat:@"Move: %d",self.move]];
+}
+
+
+-(void) finishGame{
+    int bestScore = [Constants getScore:self.size level:self.level];
+    if(self.move < bestScore || bestScore == 0 ){
+        RecordScene *recordScene = [RecordScene scene:self.size level:self.level record:self.move];
+        [[CCDirector sharedDirector] replaceScene:recordScene
+                                   withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+    }
 }
 
 

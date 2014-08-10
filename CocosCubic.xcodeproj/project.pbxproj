@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		17132CED1986DE290055DDD8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17132CEC1986DE290055DDD8 /* GameScene.m */; };
+		17508A8E1997C91F006BE654 /* RecordScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17508A8D1997C91F006BE654 /* RecordScene.m */; };
+		17508A9519980217006BE654 /* ChalkboardBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17508A9419980217006BE654 /* ChalkboardBold.ttf */; };
 		1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */ = {isa = PBXBuildFile; fileRef = 170F0898198064450021108C /* CocosCubic-Art */; };
 		17BC22C5198ACEC10076160B /* buttons-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B3198ACEC10076160B /* buttons-hd.plist */; };
 		17BC22C6198ACEC10076160B /* buttons-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B4198ACEC10076160B /* buttons-hd.pvr.ccz */; };
@@ -267,6 +269,9 @@
 		170F0898198064450021108C /* CocosCubic-Art */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CocosCubic-Art"; path = "Resources/CocosCubic-Art"; sourceTree = "<group>"; };
 		17132CEB1986DE290055DDD8 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Classes/GameScene.h; sourceTree = "<group>"; };
 		17132CEC1986DE290055DDD8 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameScene.m; path = Classes/GameScene.m; sourceTree = "<group>"; };
+		17508A8C1997C91F006BE654 /* RecordScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordScene.h; path = Classes/RecordScene.h; sourceTree = "<group>"; };
+		17508A8D1997C91F006BE654 /* RecordScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordScene.m; path = Classes/RecordScene.m; sourceTree = "<group>"; };
+		17508A9419980217006BE654 /* ChalkboardBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ChalkboardBold.ttf; path = Resources/ChalkboardBold.ttf; sourceTree = "<group>"; };
 		178289EA19804C9C00F70EEA /* PackTextures.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = Resources/PackTextures.sh; sourceTree = "<group>"; };
 		1793E55B1993E78F00BD43E6 /* GameSceneProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameSceneProtocol.h; path = Classes/GameSceneProtocol.h; sourceTree = "<group>"; };
 		17BC22B3198ACEC10076160B /* buttons-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "buttons-hd.plist"; path = "Resources/buttons-hd.plist"; sourceTree = "<group>"; };
@@ -756,6 +761,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17508A8F1997C927006BE654 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				17508A8C1997C91F006BE654 /* RecordScene.h */,
+				17508A8D1997C91F006BE654 /* RecordScene.m */,
+			);
+			name = Record;
+			sourceTree = "<group>";
+		};
 		1793E55C1993E79A00BD43E6 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -872,6 +886,7 @@
 				17BC22C3198ACEC10076160B /* grid_5_6.plist */,
 				17BC22C4198ACEC10076160B /* grid_5_6.pvr.ccz */,
 				17FFE05D1983DE9800D9427A /* Chalkboard.ttc */,
+				17508A9419980217006BE654 /* ChalkboardBold.ttf */,
 				170F0898198064450021108C /* CocosCubic-Art */,
 				17C5C6B119801EDA0064B653 /* Default.png */,
 				17C5C6B319801EDA0064B653 /* Default@2x.png */,
@@ -1690,6 +1705,7 @@
 		17C5C93E19801EDC0064B653 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				17508A8F1997C927006BE654 /* Record */,
 				17BC22F3198D8F300076160B /* Level */,
 				17BC22EF198D7DC80076160B /* CocosExt */,
 				17BC22F4198D8F950076160B /* Game */,
@@ -1810,6 +1826,7 @@
 				17BC22D1198ACEC10076160B /* grid_5_6-hd.plist in Resources */,
 				17BC22E5198D71060076160B /* colors-hd.plist in Resources */,
 				17BC22E8198D71060076160B /* colors-ipadhd.pvr.ccz in Resources */,
+				17508A9519980217006BE654 /* ChalkboardBold.ttf in Resources */,
 				17C5C6CD19801EDA0064B653 /* Icon-Small.png in Resources */,
 				17C5C6CB19801EDA0064B653 /* Icon-Small-50.png in Resources */,
 				17C5C8B419801EDC0064B653 /* LICENSE_Kazmath.txt in Resources */,
@@ -1850,6 +1867,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17508A8E1997C91F006BE654 /* RecordScene.m in Sources */,
 				17C5C74619801EDA0064B653 /* CCParticleBatchNode.m in Sources */,
 				17C5C8BE19801EDC0064B653 /* CCBReader.m in Sources */,
 				17C5C86E19801EDB0064B653 /* CCButton.m in Sources */,

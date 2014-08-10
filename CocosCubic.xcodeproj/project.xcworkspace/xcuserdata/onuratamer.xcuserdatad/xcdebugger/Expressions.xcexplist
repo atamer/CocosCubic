@@ -34,16 +34,16 @@
                value = "playButton.boundingBox.size.height">
             </PersistentString>
             <PersistentString
-               value = "(screenWidth - buttonWidth)">
-            </PersistentString>
-            <PersistentString
-               value = "    playButton.contentSize.width">
-            </PersistentString>
-            <PersistentString
                value = "((screenWidth - buttonWidth) / (2 * screenWidth))">
             </PersistentString>
             <PersistentString
                value = "((screenWidth - buttonWidth) / 2 * screenWidth)">
+            </PersistentString>
+            <PersistentString
+               value = "(screenWidth - buttonWidth)">
+            </PersistentString>
+            <PersistentString
+               value = "    playButton.contentSize.width">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -162,6 +162,17 @@
             </PersistentString>
             <PersistentString
                value = "self.prop_y">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene hoverBlock]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.hoverX ">
+            </PersistentString>
+            <PersistentString
+               value = "self.size">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
