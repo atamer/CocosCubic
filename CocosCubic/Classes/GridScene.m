@@ -616,6 +616,7 @@ int randomCount;
     }
     
     if(checkComplete == YES){
+        [Constants playMoveItem];
         [self.gameSceneProtocol updateMove];
         BOOL match = YES;
         // check horizontal match

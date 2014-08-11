@@ -10,6 +10,12 @@
 		17132CED1986DE290055DDD8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17132CEC1986DE290055DDD8 /* GameScene.m */; };
 		17508A8E1997C91F006BE654 /* RecordScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17508A8D1997C91F006BE654 /* RecordScene.m */; };
 		17508A9519980217006BE654 /* ChalkboardBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17508A9419980217006BE654 /* ChalkboardBold.ttf */; };
+		17508AA519994C86006BE654 /* endgame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17508AA219994C86006BE654 /* endgame.mp3 */; };
+		17508AA619994C86006BE654 /* menuitem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17508AA319994C86006BE654 /* menuitem.mp3 */; };
+		17508AA719994C86006BE654 /* moveitem.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17508AA419994C86006BE654 /* moveitem.mp3 */; };
+		17508AAC19995E61006BE654 /* OptionsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17508AAB19995E61006BE654 /* OptionsScene.m */; };
+		17508AAF199964C8006BE654 /* HowToPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 17508AAE199964C8006BE654 /* HowToPlay.m */; };
+		17508AB2199964E3006BE654 /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17508AB1199964E3006BE654 /* AboutScene.m */; };
 		1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */ = {isa = PBXBuildFile; fileRef = 170F0898198064450021108C /* CocosCubic-Art */; };
 		17BC22C5198ACEC10076160B /* buttons-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B3198ACEC10076160B /* buttons-hd.plist */; };
 		17BC22C6198ACEC10076160B /* buttons-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B4198ACEC10076160B /* buttons-hd.pvr.ccz */; };
@@ -272,6 +278,15 @@
 		17508A8C1997C91F006BE654 /* RecordScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordScene.h; path = Classes/RecordScene.h; sourceTree = "<group>"; };
 		17508A8D1997C91F006BE654 /* RecordScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordScene.m; path = Classes/RecordScene.m; sourceTree = "<group>"; };
 		17508A9419980217006BE654 /* ChalkboardBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ChalkboardBold.ttf; path = Resources/ChalkboardBold.ttf; sourceTree = "<group>"; };
+		17508AA219994C86006BE654 /* endgame.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = endgame.mp3; path = Resources/endgame.mp3; sourceTree = "<group>"; };
+		17508AA319994C86006BE654 /* menuitem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = menuitem.mp3; path = Resources/menuitem.mp3; sourceTree = "<group>"; };
+		17508AA419994C86006BE654 /* moveitem.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = moveitem.mp3; path = Resources/moveitem.mp3; sourceTree = "<group>"; };
+		17508AAA19995E61006BE654 /* OptionsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OptionsScene.h; path = Classes/OptionsScene.h; sourceTree = "<group>"; };
+		17508AAB19995E61006BE654 /* OptionsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OptionsScene.m; path = Classes/OptionsScene.m; sourceTree = "<group>"; };
+		17508AAD199964C8006BE654 /* HowToPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HowToPlay.h; path = Classes/HowToPlay.h; sourceTree = "<group>"; };
+		17508AAE199964C8006BE654 /* HowToPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HowToPlay.m; path = Classes/HowToPlay.m; sourceTree = "<group>"; };
+		17508AB0199964E3006BE654 /* AboutScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AboutScene.h; path = Classes/AboutScene.h; sourceTree = "<group>"; };
+		17508AB1199964E3006BE654 /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutScene.m; path = Classes/AboutScene.m; sourceTree = "<group>"; };
 		178289EA19804C9C00F70EEA /* PackTextures.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = Resources/PackTextures.sh; sourceTree = "<group>"; };
 		1793E55B1993E78F00BD43E6 /* GameSceneProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameSceneProtocol.h; path = Classes/GameSceneProtocol.h; sourceTree = "<group>"; };
 		17BC22B3198ACEC10076160B /* buttons-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "buttons-hd.plist"; path = "Resources/buttons-hd.plist"; sourceTree = "<group>"; };
@@ -770,6 +785,29 @@
 			name = Record;
 			sourceTree = "<group>";
 		};
+		17508AA819994C8D006BE654 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				17508AA219994C86006BE654 /* endgame.mp3 */,
+				17508AA319994C86006BE654 /* menuitem.mp3 */,
+				17508AA419994C86006BE654 /* moveitem.mp3 */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		17508AA919995E05006BE654 /* Options */ = {
+			isa = PBXGroup;
+			children = (
+				17508AAA19995E61006BE654 /* OptionsScene.h */,
+				17508AAB19995E61006BE654 /* OptionsScene.m */,
+				17508AAD199964C8006BE654 /* HowToPlay.h */,
+				17508AAE199964C8006BE654 /* HowToPlay.m */,
+				17508AB0199964E3006BE654 /* AboutScene.h */,
+				17508AB1199964E3006BE654 /* AboutScene.m */,
+			);
+			name = Options;
+			sourceTree = "<group>";
+		};
 		1793E55C1993E79A00BD43E6 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,6 +899,7 @@
 		17C5C6B019801EDA0064B653 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17508AA819994C8D006BE654 /* Audio */,
 				17BC22DF198D71060076160B /* colors-hd.plist */,
 				17BC22E0198D71060076160B /* colors-hd.pvr.ccz */,
 				17BC22E1198D71060076160B /* colors-ipadhd.plist */,
@@ -1705,6 +1744,7 @@
 		17C5C93E19801EDC0064B653 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				17508AA919995E05006BE654 /* Options */,
 				17508A8F1997C927006BE654 /* Record */,
 				17BC22F3198D8F300076160B /* Level */,
 				17BC22EF198D7DC80076160B /* CocosExt */,
@@ -1810,6 +1850,7 @@
 				17BC22D0198ACEC10076160B /* grid_3_4.pvr.ccz in Resources */,
 				1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */,
 				17C5C6B419801EDA0064B653 /* Default@2x.png in Resources */,
+				17508AA719994C86006BE654 /* moveitem.mp3 in Resources */,
 				17C5C6C719801EDA0064B653 /* Icon-120.png in Resources */,
 				17BC22E9198D71060076160B /* colors.plist in Resources */,
 				17C5C8CB19801EDC0064B653 /* LICENSE_CCBReader.txt in Resources */,
@@ -1830,6 +1871,7 @@
 				17C5C6CD19801EDA0064B653 /* Icon-Small.png in Resources */,
 				17C5C6CB19801EDA0064B653 /* Icon-Small-50.png in Resources */,
 				17C5C8B419801EDC0064B653 /* LICENSE_Kazmath.txt in Resources */,
+				17508AA619994C86006BE654 /* menuitem.mp3 in Resources */,
 				17C5C6BF19801EDA0064B653 /* Icon-72.png in Resources */,
 				17C5C80D19801EDB0064B653 /* LICENSE_cocos2d.txt in Resources */,
 				17BC22CB198ACEC10076160B /* grid_3_4-hd.plist in Resources */,
@@ -1856,6 +1898,7 @@
 				17C5C89919801EDC0064B653 /* ChangeLog in Resources */,
 				17BC22CF198ACEC10076160B /* grid_3_4.plist in Resources */,
 				17BC22C6198ACEC10076160B /* buttons-hd.pvr.ccz in Resources */,
+				17508AA519994C86006BE654 /* endgame.mp3 in Resources */,
 				17C5C6D819801EDA0064B653 /* iTunesArtwork@2x in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1972,6 +2015,8 @@
 				17C5C72919801EDA0064B653 /* CCLabelTTF.m in Sources */,
 				17C5C7DE19801EDB0064B653 /* NSEvent+CC.m in Sources */,
 				17C5C83B19801EDB0064B653 /* ALDevice.m in Sources */,
+				17508AAF199964C8006BE654 /* HowToPlay.m in Sources */,
+				17508AAC19995E61006BE654 /* OptionsScene.m in Sources */,
 				17C5C8AE19801EDC0064B653 /* vec2.c in Sources */,
 				17C5C6DE19801EDA0064B653 /* CCAction.m in Sources */,
 				17C5C74219801EDA0064B653 /* CCParallaxNode.m in Sources */,
@@ -1985,6 +2030,7 @@
 				17C5C7E819801EDB0064B653 /* CCColor.m in Sources */,
 				17C5C83519801EDB0064B653 /* ALChannelSource.m in Sources */,
 				17C5C6E119801EDA0064B653 /* CCActionCatmullRom.m in Sources */,
+				17508AB2199964E3006BE654 /* AboutScene.m in Sources */,
 				17BC22F2198D7E460076160B /* ExtActionCallFunc.m in Sources */,
 				17C5C7F919801EDB0064B653 /* NSAttributedString+CCAdditions.m in Sources */,
 				17FFE0671985630D00D9427A /* SelectLevelScene.m in Sources */,
@@ -2227,6 +2273,10 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocosCubic/Supporting Files/Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					DEBUG,
+					"COCOS2D_DEBUG=2",
+				);
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/kazmath/include\"",
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/chipmunk/include\"",

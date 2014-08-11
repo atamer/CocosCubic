@@ -111,11 +111,13 @@
 
 
 -(void)onBackClicked{
+    [Constants playMenuItem];
     [[CCDirector sharedDirector] replaceScene:self.backScene
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
 }
 
 -(void)onLevelSelected:(id)sender{
+    [Constants playMenuItem];
     CCButton *button = (CCButton*)sender;
     NSString *level = button.name;
 

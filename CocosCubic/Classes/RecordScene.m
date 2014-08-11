@@ -29,6 +29,19 @@
     CCNodeColor *background = [CCNodeColor nodeWithColor: BACKGROUND_COLOR ];
     [self addChild:background];
     
+    
+    CCButton *back = [CCButton buttonWithTitle:@"Back" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_button.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_button_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_button_highlight.png"]];
+    back.label.fontSize = 20;
+    back.anchorPoint = ccp(0.5,0.5);
+    back.name = @"size3";
+    back.positionType = CCPositionTypeNormalized;
+    [back setTarget:self selector:@selector(onBackClicked)];
+    back.position = ccp(0.12f, 0.96f);
+    [self addChild:back];
+
+    
+    
+    
     NSString *congrulationStr = [NSString stringWithFormat:@"CONGRATULATIONS"];
     CCLabelTTF *congrulation = [CCLabelTTF labelWithString:congrulationStr fontName:@"Chalkboard" fontSize:35.0f];
     congrulation.positionType = CCPositionTypeNormalized;
@@ -64,6 +77,10 @@
     [self addChild:sizeLabel];
     
     return self;
+    
+}
+
+-(void) onBackClicked{
     
 }
     

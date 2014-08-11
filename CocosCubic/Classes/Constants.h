@@ -15,10 +15,18 @@
 #define RED_COLOR CCColorFromRGB(0xD34F28)
 
 static NSMutableArray *  SCORE_TABLE ;
+static BOOL  SOUND = NO ;
 
 @interface Constants : NSObject
 
 +(int) getScore:(int)size level:(int)level;
 +(BOOL) setScore:(int)size level:(int)level score:(int)score;
 
++(BOOL)getSound;
++(void)setSound:(BOOL)sound;
++(void)switchSound;
+
++(void)playMenuItem;
++(void)playMoveItem;
++(void)playEndItem;
 @end

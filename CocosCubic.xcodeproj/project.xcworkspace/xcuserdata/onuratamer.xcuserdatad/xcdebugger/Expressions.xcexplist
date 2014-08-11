@@ -28,6 +28,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[OALAudioFile initWithUrl:reduceToMono:]:OALAudioFile.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "noErr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[IntroScene init]:IntroScene.m">
          <PersistentStrings>
             <PersistentString

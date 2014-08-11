@@ -7,6 +7,7 @@
 //
 
 #import "Constants.h"
+#import "OALSimpleAudio.h"
 
 @implementation Constants
 
@@ -47,6 +48,43 @@
     [scoreFile writeToFile:filePath atomically:YES
                   encoding:NSUTF8StringEncoding error:&error];
 }
+
++(void)playMenuItem{
+    if(SOUND == YES){
+        OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+        [audio playEffect:@"menuitem.mp3"];
+    }
+}
+
++(void)playMoveItem{
+    if(SOUND == YES){
+        OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+        [audio playEffect:@"moveitem.mp3"];
+    }
+}
+
++(void)playEndItem{
+    if(SOUND == YES){
+        OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+        [audio playEffect:@"endgame.mp3"];
+    }
+}
+
++(BOOL)getSound{
+    return SOUND;
+}
+
+
++(void)setSound:(BOOL)sound{
+    SOUND = sound;
+}
+
++(void)switchSound{
+    SOUND = !SOUND;
+}
+
+
+
 
 
 @end

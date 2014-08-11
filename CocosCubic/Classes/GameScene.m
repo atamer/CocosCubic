@@ -135,6 +135,7 @@
 
 
 -(void)gameSceneBackClicked{
+    [Constants playMenuItem];
     [self.grid clean] ;
     [[CCDirector sharedDirector] replaceScene:self.backScene
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];

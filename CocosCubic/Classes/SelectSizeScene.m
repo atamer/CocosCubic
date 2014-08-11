@@ -94,6 +94,8 @@
 
 -(void)onSizeSelected:(id)sender
 {
+    
+    [Constants playMenuItem];
     CCButton *button = (CCButton*)sender;
     NSString *name = button.name;
     self.selectLevel.size = name;
@@ -104,7 +106,7 @@
 }
 
 -(void)onBackClicked{
-
+	[Constants playMenuItem];
     [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
 }

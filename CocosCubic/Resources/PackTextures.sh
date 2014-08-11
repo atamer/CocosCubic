@@ -14,7 +14,9 @@ if [ "${ACTION}" = "clean" ]; then
 echo "cleaning..."
 
 rm -f Resources/*.pvr.ccz
-rm -f Resources/*.plist
+rm -f Resources/colors*.plist
+rm -f Resources/buttons*.plist
+rm -f Resources/grid*.plist
 
 
 # ....

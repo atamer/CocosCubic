@@ -11,6 +11,7 @@
 
 // Import the interfaces
 #import "IntroScene.h"
+#import "OptionsScene.h"
 #import "Constants.h"
 #import "SelectSizeScene.h"
 #import "RecordScene.h"
@@ -57,7 +58,12 @@
         [self createScoreFile:filePath];
     }
         
-    //
+    //load audios
+    OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+    // play background sound
+    [audio preloadEffect:@"endgame.mp3"];
+    [audio preloadEffect:@"menuitem.mp3"];
+    [audio preloadEffect:@"moveitem.mp3"];
     
     
     
@@ -123,23 +129,21 @@
 
 - (void)onPlayClicked:(id)sender
 {
+	[Constants playMenuItem];
     // start spinning scene with transition
     [[CCDirector sharedDirector] replaceScene:[SelectSizeScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
-   
-    
-   
+
 }
 
 
 - (void)onOptionsClicked:(id)sender
 {
-}
-
-- (void)onPuzzleClicked:(id)sender
-{
+    [Constants playMenuItem];
+    [[CCDirector sharedDirector] pushScene:[OptionsScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
     
 }
+
 
 -(void)createScoreFile:(NSString*)filePath{
     SCORE_TABLE = [NSMutableArray array];
