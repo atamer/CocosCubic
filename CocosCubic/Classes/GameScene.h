@@ -16,14 +16,16 @@
 
 @interface GameScene : CCScene<GameSceneProtocol>
 
-+ (GameScene *)scene:(NSString*)size level:(NSString*)level back:(SelectLevelScene*)back;
++ (GameScene *)scene:(NSString*)size level:(NSString*)level ;
 
 -(void)gameSceneBackClicked;
 
+
 @property NSString *size;
 @property NSString *level;
-@property SelectLevelScene* backScene;
 @property GridScene* grid;
 @property int move;
 @property CCLabelTTF* moveLabel;
+@property CCButton *restart;
+@property CCButton *revert;
 @end

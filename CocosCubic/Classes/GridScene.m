@@ -35,6 +35,9 @@ CGFloat borderX2_3;
 CGFloat borderY1_2;
 CGFloat borderY2_3;
 
+NSString *lastMove;
+int lastMoveIndex;
+
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
 {
     return [[self alloc] initWithImageNamed:image size:size level:level random:YES  reverse:NO gameSceneProtocol:gameSceneProtocol ];
@@ -346,9 +349,7 @@ int randomCount;
 }
 
 
--(void) restart{
-    
-}
+
 
 -(void) moveDown:(int)x{
     [self moveDown:x sel:@selector(randomizeColors) checkComplete:NO];
@@ -399,6 +400,9 @@ int randomCount;
     int row = [((NSNumber*)array[0]) intValue];
     SEL callback = nil;
     BOOL checkComplete = YES ;
+    
+    lastMove = @"right";
+    lastMoveIndex = row;
     
     if([array count] >= 2){
         callback = [((NSValue*)array[1]) pointerValue];
@@ -467,7 +471,11 @@ int randomCount;
 
 
 - (void) leftMoveComplete:(NSArray*)array{
+
     int row = [((NSNumber*)array[0]) intValue];;
+    
+    lastMove = @"left";
+    lastMoveIndex = row;
     
     // change last node position manually
     ColorBlock *firstBlock = blockArray[row][0];
@@ -516,7 +524,11 @@ int randomCount;
 
 
 - (void) upMoveComplete:(NSArray*)array{
+
     int column = [((NSNumber*)array[0]) intValue];;
+    
+    lastMove = @"up";
+    lastMoveIndex = column;
     
     // change last node position manually
     ColorBlock *firstBlock = blockArray[0][column];
@@ -582,9 +594,14 @@ int randomCount;
 
 
 - (void) downMoveComplete:(NSArray*)array{
+
     int column = [((NSNumber*)array[0]) intValue];
     SEL callback = nil;
     BOOL checkComplete = YES ;
+    
+    lastMove = @"down";
+    lastMoveIndex = column;
+
     
     if([array count] >= 2){
         callback = [((NSValue*)array[1]) pointerValue];
@@ -732,10 +749,26 @@ int randomCount;
 }
 
 -(void)clean{
-    
+    for(int y = 0 ; y < self.size + 2 ; y++  ){
+        for(int x = 0 ; x < self.size + 2 ; x++ ){
+            ColorBlock *block =  blockArray[y][x];
+            [block clean];
+        }
+    }
+    self.gameSceneProtocol = nil;
 }
 
--(void) reset{
+-(void)revert{
+    
+    if([lastMove isEqualToString:@"down"]){
+        [self moveUp:lastMoveIndex];
+    }else if([lastMove isEqualToString:@"up"]){
+        [self moveDown:lastMoveIndex];
+    }else if([lastMove isEqualToString:@"left"]){
+        [self moveRight:lastMoveIndex];
+    }else if([lastMove isEqualToString:@"right"]){
+        [self moveLeft:lastMoveIndex];
+    }
     
 }
 

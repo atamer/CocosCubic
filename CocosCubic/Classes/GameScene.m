@@ -15,19 +15,19 @@
 @implementation GameScene
 
 
-+ (GameScene *)scene:(NSString*)size level:(NSString*)level back:(SelectLevelScene*)back
++ (GameScene *)scene:(NSString*)size level:(NSString*)level
 {
-    return [[self alloc] init:size level:level back:back];
+    return [[self alloc] init:size level:level];
 }
 
-- (id)init:(NSString*)size level:(NSString*)level back:(SelectLevelScene*)backScene{
+- (id)init:(NSString*)size level:(NSString*)level {
     self = [super init ];
     if (!self) return(nil);
     
-    self.backScene = backScene;
+
     self.level = level;
     self.size = size;
-    self.move = 1;
+    self.move = 0;
     
     CCNodeColor *background = [CCNodeColor nodeWithColor: BACKGROUND_COLOR ];
     [self addChild:background];
@@ -59,7 +59,7 @@
     [self addChild:self.grid];
     
     
-    NSString *moveStr = [NSString stringWithFormat:@"Move: %d",1];
+    NSString *moveStr = [NSString stringWithFormat:@"Move: %d",0];
     self.moveLabel = [CCLabelTTF labelWithString:moveStr fontName:@"Chalkboard" fontSize:24.0f];
     self.moveLabel.positionType = CCPositionTypeNormalized;
     self.moveLabel.color = RED_COLOR;
@@ -96,22 +96,25 @@
     [self addChild:previous];
     
 
-    CCButton *restart = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_disabled.png"]];
-    restart.label.fontSize = 20;
-    restart.anchorPoint = ccp(0.5,0.5);
-    restart.positionType = CCPositionTypeNormalized;
-    [restart setTarget:self selector:@selector(restartClicked)];
-    restart.position = ccp(0.40f, 0.20f);
-    [self addChild:restart];
+     self.restart = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_disabled.png"]];
+    self.restart.label.fontSize = 20;
+    self.restart.anchorPoint = ccp(0.5,0.5);
+    self.restart.positionType = CCPositionTypeNormalized;
+    [self.restart setTarget:self selector:@selector(restartClicked)];
+    self.restart.position = ccp(0.40f, 0.20f);
+    [self addChild:self.restart];
+    self.restart.enabled = false;
     
     
-    CCButton *revert = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_disabled.png"]];
-    revert.label.fontSize = 20;
-    revert.anchorPoint = ccp(0.5,0.5);
-    revert.positionType = CCPositionTypeNormalized;
-    [revert setTarget:self selector:@selector(gameSceneBackClicked)];
-    revert.position = ccp(0.6f, 0.20f);
-    [self addChild:revert];
+    self.revert = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"revert_disabled.png"]];
+    self.revert.label.fontSize = 20;
+    self.revert.anchorPoint = ccp(0.5,0.5);
+    self.revert.positionType = CCPositionTypeNormalized;
+    [self.revert setTarget:self selector:@selector(revertClicked)];
+    self.revert.position = ccp(0.6f, 0.20f);
+    self.revert.enabled = false;
+    
+    [self addChild:self.revert];
 
     return self;
 }
@@ -120,6 +123,10 @@
 -(void) updateMove{
     self.move = self.move + 1;
     [self.moveLabel setString:[NSString stringWithFormat:@"Move: %d",self.move]];
+    if(self.move > 0){
+        self.restart.enabled = true;
+        self.revert.enabled = true;
+    }
 }
 
 
@@ -127,8 +134,8 @@
     int bestScore = [Constants getScore:self.size level:self.level];
     if(self.move < bestScore || bestScore == 0 ){
         RecordScene *recordScene = [RecordScene scene:self.size level:self.level record:self.move];
-        [[CCDirector sharedDirector] replaceScene:recordScene
-                                   withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+        
+         [[CCDirector sharedDirector] pushScene:recordScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
     }
 }
 
@@ -137,12 +144,42 @@
 -(void)gameSceneBackClicked{
     [Constants playMenuItem];
     [self.grid clean] ;
-    [[CCDirector sharedDirector] replaceScene:self.backScene
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+    
+    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+    
 }
 
 -(void)restartClicked{
-    [self.grid restart];
+
+    [self removeChild:self.grid];
+    [self.grid clean];
+    
+    if( [self.size isEqual: @"size3"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3 level:self.level gameSceneProtocol:self ];
+    }else if([self.size isEqual: @"size4"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4 level:self.level gameSceneProtocol:self];
+    }else if([self.size isEqual: @"size5"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5 level:self.level gameSceneProtocol:self];
+    }else if([self.size isEqual: @"size6"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6 level:self.level gameSceneProtocol:self];
+    }
+
+    self.grid.anchorPoint = ccp(0.5,0.5);
+    self.grid.positionType = CCPositionTypeNormalized;
+    self.grid.position = ccp(0.5f, 0.59f);
+    [self addChild:self.grid];
+    
+    self.move = 0;
+    [self.moveLabel setString:[NSString stringWithFormat:@"Move: %d",self.move]];
+    
+    self.restart.enabled = false;
+    
+    
+}
+
+-(void)revertClicked{
+    [self.grid revert];
+    self.revert.enabled = false;
 }
 
 @end

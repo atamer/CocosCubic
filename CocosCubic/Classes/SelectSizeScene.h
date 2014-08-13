@@ -19,6 +19,6 @@
 + (SelectSizeScene *)scene;
 - (id)init;
 
-@property SelectLevelScene* selectLevel;
+
 
 @end

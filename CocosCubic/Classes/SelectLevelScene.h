@@ -15,12 +15,12 @@
 @class SelectSizeScene;
 
 @interface SelectLevelScene : CCScene
-+ (SelectLevelScene *)scene:(NSString*)size backScene:(SelectSizeScene*)backScene;
-- (id)init:(NSString*)size backScene:(SelectSizeScene*)backScene;
+
++ (SelectLevelScene *)scene:(NSString*)size ;
+- (id)init:(NSString*)size;
 
 @property NSString* size;
 @property NSString* level;
-@property SelectSizeScene* backScene;
-@property GameScene* gameScene;
+
 
 @end

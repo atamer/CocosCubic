@@ -16,18 +16,17 @@
 
 
 
-+ (SelectLevelScene*)scene:(NSString*)size backScene:(SelectSizeScene*)backScene
++ (SelectLevelScene*)scene:(NSString*)size
 {
-    return [[self alloc] init:size backScene:backScene];
+    return [[self alloc] init:size ];
 }
 
 
-- (id)init:(NSString*)size backScene:(SelectSizeScene*)backScene{
+- (id)init:(NSString*)size{
     self = [super init ];
     if (!self) return(nil);
     
     self.size = size;
-    self.backScene = backScene;
     
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
@@ -111,9 +110,8 @@
 
 
 -(void)onBackClicked{
-    [Constants playMenuItem];
-    [[CCDirector sharedDirector] replaceScene:self.backScene
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+  
+    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
 }
 
 -(void)onLevelSelected:(id)sender{
@@ -123,11 +121,10 @@
 
     self.level = level;
     
-    self.gameScene = [GameScene scene:self.size level:self.level back:self];
+    GameScene *gameScene = [GameScene scene:self.size level:self.level];
     
-
-    [[CCDirector sharedDirector] replaceScene:self.gameScene
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    [[CCDirector sharedDirector] pushScene:gameScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    
 }
 
 @end

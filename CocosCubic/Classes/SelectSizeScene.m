@@ -86,29 +86,25 @@
     size6.position = ccp(0.5f, 0.2); // Middle of screen
     [self addChild:size6];
     
-    SelectLevelScene *selectLevel = [SelectLevelScene scene:@"dummy"backScene:self];
-    self.selectLevel = selectLevel;
     
     return self;
 }
 
 -(void)onSizeSelected:(id)sender
 {
-    
     [Constants playMenuItem];
     CCButton *button = (CCButton*)sender;
     NSString *name = button.name;
-    self.selectLevel.size = name;
     
-    [[CCDirector sharedDirector] replaceScene:self.selectLevel
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
-  
+    SelectLevelScene *selectLevel = [SelectLevelScene scene:name];
+    
+    [[CCDirector sharedDirector] pushScene:selectLevel withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    
 }
 
 -(void)onBackClicked{
-	[Constants playMenuItem];
-    [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
-                               withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+    
+     [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
 }
 
 @end

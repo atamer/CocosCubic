@@ -163,7 +163,7 @@ BOOL firstMove = YES;
 }
 
 -(void)clean{
-    
+    self.updateProtocol = nil;
 }
 
 -(CGFloat) width
