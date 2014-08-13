@@ -16,8 +16,14 @@
 
 @interface GridScene : CCSprite<GridSceneProtocol>
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol;
++ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level random:(BOOL)random gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol;
++ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level random:(BOOL)random  reverse:(BOOL)reverse gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol;
+
 - (void) restart;
 - (void) clean;
+-(void) moveDown:(int)x;
+-(void) moveRight:(int)y;
+-(void) reset;
 
 @property NSString* image;
 @property int level;

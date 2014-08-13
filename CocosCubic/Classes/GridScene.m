@@ -27,6 +27,8 @@ NSInteger actionDirection;
 CGPoint touchStartPoint;
 BOOL touchStart ;
 
+BOOL endGame;
+
 CGFloat borderX1_2;
 CGFloat borderX2_3;
 
@@ -35,14 +37,27 @@ CGFloat borderY2_3;
 
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
 {
-    return [[self alloc] initWithImageNamed:image size:size level:level gameSceneProtocol:gameSceneProtocol ];
+    return [[self alloc] initWithImageNamed:image size:size level:level random:YES  reverse:NO gameSceneProtocol:gameSceneProtocol ];
 }
 
-- (id) initWithImageNamed:(NSString*)imageName size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
++ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level random:(BOOL)random gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
+{
+    return [[self alloc] initWithImageNamed:image size:size level:level random:random reverse:NO gameSceneProtocol:gameSceneProtocol ];
+}
+
+
++ (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level random:(BOOL)random  reverse:(BOOL)reverse gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
+{
+    return [[self alloc] initWithImageNamed:image size:size level:level random:random reverse:reverse gameSceneProtocol:gameSceneProtocol ];
+}
+
+
+- (id) initWithImageNamed:(NSString*)imageName size:(int)size level:(NSString*)level random:(BOOL)random reverse:(BOOL)reverse gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
 {
     self = [super initWithSpriteFrame:[CCSpriteFrame frameWithImageNamed:imageName]];
     if(!self)return (nil);
     
+    endGame = NO;
     self.image = imageName;
     self.size = size;
     self.level = [level intValue];
@@ -57,15 +72,29 @@ CGFloat borderY2_3;
         NSMutableArray *rowPositionArray = [NSMutableArray array];
         for(int j = 0 ; j < self.size + 2 ; j++){
             NSString *image ;
-            if(i - 1 <= 0){
-                image = [NSString stringWithFormat:@"%@%d.png", @"color",1];
-            }else if(i < 7){
-                image = [NSString stringWithFormat:@"%@%d.png", @"color",i];
+            if(reverse == YES){
+                if(j - 1 <= 0){
+                    image = [NSString stringWithFormat:@"%@%d.png", @"color",1];
+                }else if(j < 7){
+                    image = [NSString stringWithFormat:@"%@%d.png", @"color",j];
+                }else{
+                    image = [NSString stringWithFormat:@"%@%d.png", @"color",6];
+                }
             }else{
-                image = [NSString stringWithFormat:@"%@%d.png", @"color",6];
+                if(i - 1 <= 0){
+                    image = [NSString stringWithFormat:@"%@%d.png", @"color",1];
+                }else if(i < 7){
+                    image = [NSString stringWithFormat:@"%@%d.png", @"color",i];
+                }else{
+                    image = [NSString stringWithFormat:@"%@%d.png", @"color",6];
+                }
             }
             
-            ColorBlock *color = [ColorBlock initWithColor:image x:j y:i contentSize:self.contentSize size:self.size updateProtocol:self];
+            ColorBlock *color ;
+            color = [ColorBlock initWithColor:image x:j y:i contentSize:self.contentSize size:self.size updateProtocol:self];
+
+
+            
             [rowArray  insertObject:color atIndex:j];
             [rowPositionArray insertObject:[NSValue valueWithCGPoint: color.position] atIndex:j];
             [parentNode addChild:color];
@@ -132,7 +161,10 @@ CGFloat borderY2_3;
     [self addChild:nodecc];
     [self reflectFirstLastColors:NO];
     
-    [self unmatchColors];
+    if(random == YES){
+        [self unmatchColors];
+    }
+
     
     return self;
 }
@@ -199,7 +231,7 @@ CGFloat borderY2_3;
 
 - (void) updateFunc:(float)differX differY:(float)differY x:(int)x y:(int)y{
     
-    if(touchStart == true){
+    if(touchStart == true && endGame == NO){
 
         float differX_abs = fabsf(differX);
         float differY_abs = fabsf(differY);
@@ -318,7 +350,13 @@ int randomCount;
     
 }
 
+-(void) moveDown:(int)x{
+    [self moveDown:x sel:@selector(randomizeColors) checkComplete:NO];
+}
 
+-(void) moveRight:(int)y{
+    [self moveRight:y sel:@selector(randomizeColors) checkComplete:NO];
+}
 
 -(void) moveRight:(int)y sel:(SEL)sel checkComplete:(BOOL)checkComplete{
     
@@ -659,6 +697,7 @@ int randomCount;
         }
         
         if(match == YES){
+            endGame = YES;
             self.hoverY  = 1 ;
             self.hoverX  = 1 ;
             float interval = 1.0f/(self.size * 1.5f);
@@ -693,6 +732,10 @@ int randomCount;
 }
 
 -(void)clean{
+    
+}
+
+-(void) reset{
     
 }
 

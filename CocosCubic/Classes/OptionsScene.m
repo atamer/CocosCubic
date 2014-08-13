@@ -8,6 +8,8 @@
 
 #import "OptionsScene.h"
 #import "Constants.h"
+#import "HowToPlay.h"
+#import  "AboutScene.h"
 
 @implementation OptionsScene
 
@@ -89,11 +91,16 @@
 }
 
 -(void) howToPlayClick{
+    [Constants playMenuItem];
+    HowToPlay *howToPlay = [HowToPlay scene];
+    howToPlay.play = 1;
+    [[CCDirector sharedDirector] pushScene:howToPlay withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
     
 }
 
 -(void) aboutClick{
-    
+    [Constants playMenuItem];
+    [[CCDirector sharedDirector] pushScene:[AboutScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
 }
 
 -(void) backClicked{

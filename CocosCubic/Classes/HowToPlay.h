@@ -7,7 +7,17 @@
 //
 
 #import "CCScene.h"
+#import "cocos2d.h"
+#import "cocos2d-ui.h"
+#import "GridScene.h"
 
-@interface HowToPlay : CCScene
+
+@interface HowToPlay : CCScene<GameSceneProtocol>
+
++ (HowToPlay *)scene;
+
+@property GridScene* grid;
+@property int play ;
+@property CCSprite *finger;
 
 @end

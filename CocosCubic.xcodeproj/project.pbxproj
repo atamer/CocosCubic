@@ -2275,7 +2275,7 @@
 				GCC_PREFIX_HEADER = "CocosCubic/Supporting Files/Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					DEBUG,
-					"COCOS2D_DEBUG=2",
+					"COCOS2D_DEBUG=1",
 				);
 				HEADER_SEARCH_PATHS = (
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/kazmath/include\"",
