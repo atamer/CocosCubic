@@ -60,7 +60,7 @@ int lastMoveIndex;
     self = [super initWithSpriteFrame:[CCSpriteFrame frameWithImageNamed:imageName]];
     if(!self)return (nil);
     
-    endGame = NO;
+    endGame = YES;
     self.image = imageName;
     self.size = size;
     self.level = [level intValue];
@@ -162,7 +162,7 @@ int lastMoveIndex;
     [nodecc addChild:parentNode];
     
     [self addChild:nodecc];
-    [self reflectFirstLastColors:NO];
+    [self reflectFirstLastColors:NO reverse:NO] ;
     
     if(random == YES){
         [self unmatchColors];
@@ -174,7 +174,7 @@ int lastMoveIndex;
 
 - (void) touchEndFunc:(UITouch*)uiTouch x:(int)x y:(int)y{
     
-    if(touchStart == true){
+    if(touchStart == true && endGame == NO){
         actionActive = NO;
         touchStart = false;
         // put to first position
@@ -269,12 +269,11 @@ int lastMoveIndex;
                 //move right
                 touchStart = false;
                 
-                [self moveRight:y sel:nil checkComplete:YES];
+                [self moveRight:y sel:nil checkComplete:YES revert:NO];
             }else if( block2.position.x < borderX1_2 || (block2.position.x + differX) < borderX1_2){
                 //move left
                 touchStart = false;
-                
-                [self moveLeft:y];
+                [self moveLeft:y checkComplete:YES revert:NO];
             }else{
                 //  CCLOG(@"move right %f %f",differX,block2.position.x );
                 for(int i = 0 ; i < self.size + 2 ; i++ ){
@@ -290,14 +289,14 @@ int lastMoveIndex;
             if( block2.position.y > borderY1_2 || (block2.position.y - differY)  > borderY1_2 ){
                 //move up
                 touchStart = false;
-                [self moveUp:x];
+                [self moveUp:x checkComplete:YES revert:NO];
 
            
           
             }else if( block1.position.y < borderY1_2 || (block1.position.y - differY)  < borderY1_2 ){
                 //move down
                 touchStart = false;
-                [self moveDown:x sel:nil checkComplete:YES];
+                [self moveDown:x sel:nil checkComplete:YES revert:NO];
                 
             }else{
                 for(int i = 0 ; i < self.size + 2 ; i++ ){
@@ -320,6 +319,7 @@ int randomizeCounter = 0 ;
 int randomCount;
 
 -(void) unmatchColors{
+    endGame = true;
     // just randomize
     randomizeCounter = 0;
     if(self.level == 1 ) {
@@ -340,10 +340,13 @@ int randomCount;
     if(randomizeCounter < randomCount){
         int random = rand() % self.size;
         if(randomizeCounter % 2 == 0){
-            [self moveDown:random sel:@selector(randomizeColors) checkComplete:NO];
+            [self moveDown:random sel:@selector(randomizeColors) checkComplete:NO revert:NO];
         }else{
-            [self moveRight:random sel:@selector(randomizeColors) checkComplete:NO];
+            [self moveRight:random sel:@selector(randomizeColors) checkComplete:NO revert:NO];
         }
+    }else{
+        [self.gameSceneProtocol randomizeFinished];
+        endGame = false;
     }
     randomizeCounter++;
 }
@@ -352,14 +355,14 @@ int randomCount;
 
 
 -(void) moveDown:(int)x{
-    [self moveDown:x sel:@selector(randomizeColors) checkComplete:NO];
+    [self moveDown:x sel:@selector(randomizeColors) checkComplete:NO revert:NO];
 }
 
 -(void) moveRight:(int)y{
-    [self moveRight:y sel:@selector(randomizeColors) checkComplete:NO];
+    [self moveRight:y sel:@selector(randomizeColors) checkComplete:NO revert:NO];
 }
 
--(void) moveRight:(int)y sel:(SEL)sel checkComplete:(BOOL)checkComplete{
+-(void) moveRight:(int)y sel:(SEL)sel checkComplete:(BOOL)checkComplete revert:(BOOL)revert{
     
     CCActionSequence *sequence;
     NSMutableArray *actionArray = [NSMutableArray array];
@@ -383,9 +386,15 @@ int randomCount;
     
     NSArray *array ;
     if(sel){
-        array = @[[NSNumber numberWithInt:y], [NSValue valueWithPointer:sel], [NSNumber numberWithBool:checkComplete]];
+        array = @[[NSNumber numberWithInt:y],
+                  [NSValue valueWithPointer:sel],
+                  [NSNumber numberWithBool:checkComplete],
+                  [NSNumber numberWithBool:revert]];
     }else{
-        array = @[[NSNumber numberWithInt:y]];
+        array = @[[NSNumber numberWithInt:y],
+                  [NSNull null],
+                  [NSNumber numberWithBool:checkComplete],
+                  [NSNumber numberWithBool:revert]];
     }
     
     // action0 and complete sequencially
@@ -399,19 +408,15 @@ int randomCount;
 - (void) rightMoveComplete:(NSArray*)array{
     int row = [((NSNumber*)array[0]) intValue];
     SEL callback = nil;
-    BOOL checkComplete = YES ;
+    if( ![(array[1]) isEqual:[NSNull null]] ){
+        callback = [((NSValue*)array[1]) pointerValue];
+    }
+    
+    BOOL checkComplete  = [((NSNumber*)array[2]) boolValue ];
+    BOOL revert  = [((NSNumber*)array[3]) boolValue ];
     
     lastMove = @"right";
     lastMoveIndex = row;
-    
-    if([array count] >= 2){
-        callback = [((NSValue*)array[1]) pointerValue];
-    }
-    if([array count] >= 3){
-        checkComplete = [((NSNumber*)array[2]) boolValue ];
-    }
-
-    
     
     // change last node position manually
     ColorBlock *lastBlock = blockArray[row][self.size + 1];
@@ -426,7 +431,7 @@ int randomCount;
     lastBlock.position = CGPointMake(firstPosition.x , firstPosition.y);
     
     // switch colors
-    [self reflectFirstLastColors:checkComplete];
+    [self reflectFirstLastColors:checkComplete reverse:revert];
     if(callback != nil){
         typedef void (*Func)(id, SEL);
         ((Func)objc_msgSend)(self, callback);
@@ -439,7 +444,7 @@ int randomCount;
 
 //left
 
--(void) moveLeft:(int)y{
+-(void) moveLeft:(int)y checkComplete:(BOOL)checkComplete revert:(BOOL)revert{
     
     CCActionSequence *sequence;
     NSMutableArray *actionArray = [NSMutableArray array];
@@ -460,7 +465,10 @@ int randomCount;
         [block runAction:actionMove];
     }
     
-    NSArray *array = [NSArray arrayWithObjects:[NSNumber numberWithInt:y], nil];
+    NSArray *array = [NSArray arrayWithObjects:[NSNumber numberWithInt:y],
+                      [NSNumber numberWithBool:checkComplete],
+                      [NSNumber numberWithBool:revert],
+                      nil];
     // action0 and complete sequencially
     sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(leftMoveComplete:) array:array]];
     
@@ -472,7 +480,10 @@ int randomCount;
 
 - (void) leftMoveComplete:(NSArray*)array{
 
-    int row = [((NSNumber*)array[0]) intValue];;
+    int row = [((NSNumber*)array[0]) intValue];
+    BOOL checkComplete = [((NSNumber*)array[1]) boolValue ];
+    BOOL revert = [((NSNumber*)array[2]) boolValue ];
+    
     
     lastMove = @"left";
     lastMoveIndex = row;
@@ -490,13 +501,13 @@ int randomCount;
     firstBlock.position = CGPointMake(lastPosition.x , lastPosition.y);
     
     // switch colors
-    [self reflectFirstLastColors:YES];
+    [self reflectFirstLastColors:checkComplete reverse:revert];
 }
 
 
 // move up
 
--(void) moveUp:(int)x{
+-(void) moveUp:(int)x checkComplete:(BOOL)checkComplete revert:(BOOL)revert{
     CCActionSequence *sequence;
     NSMutableArray *actionArray = [NSMutableArray array];
     
@@ -514,7 +525,10 @@ int randomCount;
         ColorBlock *block = blockArray[i+1][x];
         [block runAction:actionMove];
     }
-    NSArray *array = [NSArray arrayWithObjects:[NSNumber numberWithInt:x], nil];
+    NSArray *array = [NSArray arrayWithObjects:[NSNumber numberWithInt:x],
+                      [NSNumber numberWithBool:checkComplete],
+                      [NSNumber numberWithBool:revert],
+                      nil];
     // action0 and complete sequencially
     sequence = [CCActionSequence actionOne: actionArray[0] two:[ExtActionCallFunc actionWithTarget:self selector:@selector(upMoveComplete:) array:array]];
     
@@ -525,7 +539,9 @@ int randomCount;
 
 - (void) upMoveComplete:(NSArray*)array{
 
-    int column = [((NSNumber*)array[0]) intValue];;
+    int column = [((NSNumber*)array[0]) intValue];
+    BOOL checkComplete = [((NSNumber*)array[1]) boolValue ];
+    BOOL revert = [((NSNumber*)array[2]) boolValue ];
     
     lastMove = @"up";
     lastMoveIndex = column;
@@ -543,13 +559,13 @@ int randomCount;
     firstBlock.position = CGPointMake(lastPosition.x , lastPosition.y);
     
     // switch colors
-    [self reflectFirstLastColors:YES];
+    [self reflectFirstLastColors:checkComplete reverse:revert];
 }
 
 
 // move down
 
--(void) moveDown:(int)x sel:(SEL)sel checkComplete:(BOOL)checkComplete{
+-(void) moveDown:(int)x sel:(SEL)sel checkComplete:(BOOL)checkComplete revert:(BOOL)revert{
     CCActionSequence *sequence;
     
     NSMutableArray *actionArray = [NSMutableArray array];
@@ -570,14 +586,18 @@ int randomCount;
         [block runAction:actionMove];
     }
     
-  
-    
-//    NSArray *array = [NSArray arrayWithObjects:[NSNumber numberWithInt:x],sel,checkComplete, nil];
+
     NSArray *array ;
     if(sel){
-        array = @[[NSNumber numberWithInt:x], [NSValue valueWithPointer:sel], [NSNumber numberWithBool:checkComplete]];
+        array = @[[NSNumber numberWithInt:x],
+                  [NSValue valueWithPointer:sel],
+                  [NSNumber numberWithBool:checkComplete],
+                  [NSNumber numberWithBool:revert]];
     }else{
-        array = @[[NSNumber numberWithInt:x]];
+        array = @[[NSNumber numberWithInt:x],
+                  [NSNull null],
+                  [NSNumber numberWithBool:checkComplete],
+                  [NSNumber numberWithBool:revert]];
     }
 
     
@@ -597,19 +617,15 @@ int randomCount;
 
     int column = [((NSNumber*)array[0]) intValue];
     SEL callback = nil;
-    BOOL checkComplete = YES ;
+    if( ![(array[1]) isEqual:[NSNull null]] ){
+        callback = [((NSValue*)array[1]) pointerValue];
+    }
+
+    BOOL checkComplete  = [((NSNumber*)array[2]) boolValue ];
+    BOOL revert  = [((NSNumber*)array[3]) boolValue ];
     
     lastMove = @"down";
     lastMoveIndex = column;
-
-    
-    if([array count] >= 2){
-        callback = [((NSValue*)array[1]) pointerValue];
-    }
-    if([array count] >= 3){
-        checkComplete = [((NSNumber*)array[2]) boolValue ];
-    }
-
     
     // change last node position manually
     ColorBlock *lastBlock = blockArray[self.size + 1][column];
@@ -624,7 +640,7 @@ int randomCount;
     lastBlock.position = CGPointMake(firstPosition.x , firstPosition.y);
     
     // switch colors
-    [self reflectFirstLastColors:checkComplete];
+    [self reflectFirstLastColors:checkComplete reverse:revert];
     if(callback != nil){
         typedef void (*Func)(id, SEL);
         ((Func)objc_msgSend)(self, callback);
@@ -635,7 +651,7 @@ int randomCount;
 
 
 
--(void) reflectFirstLastColors:(BOOL)checkComplete{
+-(void) reflectFirstLastColors:(BOOL)checkComplete reverse:(BOOL)reverse{
     
     for(int y = 0 ; y < self.size + 2 ; y++  ){
         for(int x = 0 ; x < self.size + 2 ; x++ ){
@@ -672,7 +688,7 @@ int randomCount;
     
     if(checkComplete == YES){
         [Constants playMoveItem];
-        [self.gameSceneProtocol updateMove];
+        [self.gameSceneProtocol updateMove:reverse];
         BOOL match = YES;
         // check horizontal match
         for (int i = 1 ; i < self.size +1 ; i++){
@@ -761,13 +777,13 @@ int randomCount;
 -(void)revert{
     
     if([lastMove isEqualToString:@"down"]){
-        [self moveUp:lastMoveIndex];
+        [self moveUp:lastMoveIndex checkComplete:NO revert:YES];
     }else if([lastMove isEqualToString:@"up"]){
-        [self moveDown:lastMoveIndex];
+        [self moveDown:lastMoveIndex sel:nil checkComplete:NO revert:YES];
     }else if([lastMove isEqualToString:@"left"]){
-        [self moveRight:lastMoveIndex];
+        [self moveRight:lastMoveIndex sel:nil checkComplete:NO revert:YES];
     }else if([lastMove isEqualToString:@"right"]){
-        [self moveLeft:lastMoveIndex];
+        [self moveLeft:lastMoveIndex checkComplete:NO revert:YES];
     }
     
 }

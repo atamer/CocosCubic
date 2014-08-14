@@ -11,6 +11,7 @@
 @protocol GameSceneProtocol <NSObject>
 
 @required
--(void) updateMove;
+-(void) updateMove:(BOOL)reverse ;
 -(void) finishGame;
+-(void) randomizeFinished;
 @end

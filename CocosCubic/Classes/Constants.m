@@ -13,14 +13,57 @@
 
 
 +(int) getScore:(int)size level:(int)level{
-    NSNumber *num = (NSNumber*)SCORE_TABLE[size-3][level];
+    NSNumber *num = (NSNumber*)SCORE_TABLE[size-3][level-1];
     return [num intValue];
 }
 
++(void)createScoreFile:(NSString*)filePath{
+    SCORE_TABLE = [NSMutableArray array];
+    NSString *scoreFile = @"" ;
+    for(int i = 0 ; i < 4 ; i++ ){
+        NSMutableArray *levelScore =  [NSMutableArray array];
+        for(int j = 0 ; j < 15 ; j++){
+            NSString *line = [NSString stringWithFormat:@"%d:%d:0\n",i,j];
+            scoreFile = [scoreFile stringByAppendingString:line];
+            levelScore[j] = [NSNumber numberWithInt:0];
+        }
+        SCORE_TABLE[i] = [NSNumber numberWithInt:i];
+    }
+    NSError *error;
+    [scoreFile writeToFile:filePath atomically:YES
+                  encoding:NSUTF8StringEncoding error:&error];
+}
+
+
+
++(void)readScoreFile:(NSString*)filePath{
+    SCORE_TABLE = [NSMutableArray array];
+    
+    for(int i = 0 ; i<15 ; i++){
+        SCORE_TABLE[i] = [NSMutableArray array];
+    }
+    
+    NSError *error;
+    NSString *content = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    NSArray *scoreLines = [content componentsSeparatedByString:@"\n"];
+    for(int i = 0 ; i < [scoreLines count] - 1 ; i++){
+        NSString *line = scoreLines[i];
+        NSArray *score = [line componentsSeparatedByString:@":"];
+        
+        int size = [((NSString*)(score[0])) intValue];
+        int level = [((NSString*)(score[1])) intValue];
+        int record = [((NSString*)(score[2])) intValue];
+        
+        SCORE_TABLE[size][level] = [NSNumber numberWithInt:record];
+    }
+    
+}
+
+
 
 +(BOOL) setScore:(int)size level:(int)level score:(int)score{
-    if( [self getScore:size level:level] > score){
-        SCORE_TABLE[size-3][level] = [NSNumber numberWithInt:score];
+    if( [self getScore:size level:level] > score || [self getScore:size level:level] == 0){
+        SCORE_TABLE[size-3][level-1] = [NSNumber numberWithInt:score];
         [self saveScore];
         return YES;
     }else{
@@ -42,7 +85,6 @@
             scoreFile = [scoreFile stringByAppendingString:line];
             levelScore[j] = [NSNumber numberWithInt:0];
         }
-        SCORE_TABLE[i] = [NSNumber numberWithInt:i];
     }
     NSError *error;
     [scoreFile writeToFile:filePath atomically:YES

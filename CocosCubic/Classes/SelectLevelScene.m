@@ -91,7 +91,7 @@
     
     for (int i = 10 ; i < 15 ; i++) {
         NSString* level = [NSString stringWithFormat:@"%d",i+1];
-        CCButton *levelButton = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"lock.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"lock_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"lock_highlight.png"]];
+        CCButton *levelButton = [CCButton buttonWithTitle:level spriteFrame:[CCSpriteFrame frameWithImageNamed:@"small_button.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"small_button_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"small_button_highlight.png"]];
         levelButton.label.fontSize = 20;
         levelButton.anchorPoint = ccp(0.5,0.5);
         levelButton.positionType = CCPositionTypeNormalized;

@@ -28,4 +28,7 @@
 @property CCLabelTTF* moveLabel;
 @property CCButton *restart;
 @property CCButton *revert;
+@property CCButton *next;
+@property CCButton *previous;
+@property CCLabelTTF *puzzleLabel;
 @end

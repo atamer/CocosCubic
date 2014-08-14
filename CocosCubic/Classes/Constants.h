@@ -29,4 +29,6 @@ static BOOL  SOUND = NO ;
 +(void)playMenuItem;
 +(void)playMoveItem;
 +(void)playEndItem;
++(void)createScoreFile:(NSString*)filePath;
++(void)readScoreFile:(NSString*)filePath;
 @end

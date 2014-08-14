@@ -70,30 +70,31 @@
     
     
     NSString *puzzle = [NSString stringWithFormat:@"%@ %@", @"Puzzle", level];
-    CCLabelTTF *puzzleLabel = [CCLabelTTF labelWithString:puzzle fontName:@"Chalkboard" fontSize:24.0f];
-    puzzleLabel.positionType = CCPositionTypeNormalized;
-    puzzleLabel.color = RED_COLOR;
-    puzzleLabel.anchorPoint = ccp(0.5,0.5);
-    puzzleLabel.position = ccp(0.5f, 0.06f); // Middle of screen
-    [self addChild:puzzleLabel];
+    self.puzzleLabel = [CCLabelTTF labelWithString:puzzle fontName:@"Chalkboard" fontSize:24.0f];
+    self.puzzleLabel.positionType = CCPositionTypeNormalized;
+    self.puzzleLabel.color = RED_COLOR;
+    self.puzzleLabel.anchorPoint = ccp(0.5,0.5);
+    self.puzzleLabel.position = ccp(0.5f, 0.06f); // Middle of screen
+    [self addChild:self.puzzleLabel];
     
     
-     CCButton *next = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"next.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_disabled.png"]];
-    next.label.fontSize = 20;
-    next.anchorPoint = ccp(0.5,0.5);
-    next.positionType = CCPositionTypeNormalized;
-    [next setTarget:self selector:@selector(gameSceneBackClicked)];
-    next.position = ccp(0.9f, 0.06f);
-    [self addChild:next];
+     self.next = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"next.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_disabled.png"]];
+    self.next.label.fontSize = 20;
+    self.next.anchorPoint = ccp(0.5,0.5);
+    self.next.positionType = CCPositionTypeNormalized;
+    [self.next setTarget:self selector:@selector(nextClicked)];
+    self.next.position = ccp(0.9f, 0.06f);
+    [self addChild:self.next];
 
 
-    CCButton *previous = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"back.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_disabled.png"]];
-    previous.label.fontSize = 20;
-    previous.anchorPoint = ccp(0.5,0.5);
-    previous.positionType = CCPositionTypeNormalized;
-    [previous setTarget:self selector:@selector(gameSceneBackClicked)];
-    previous.position = ccp(0.1f, 0.06f);
-    [self addChild:previous];
+    self.previous = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"back.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_disabled.png"]];
+    self.previous.label.fontSize = 20;
+    self.previous.anchorPoint = ccp(0.5,0.5);
+    self.previous.positionType = CCPositionTypeNormalized;
+    [self.previous setTarget:self selector:@selector(prevClicked)];
+    self.previous.position = ccp(0.1f, 0.06f);
+    self.previous.enabled = false;
+    [self addChild:self.previous];
     
 
      self.restart = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_disabled.png"]];
@@ -115,27 +116,44 @@
     self.revert.enabled = false;
     
     [self addChild:self.revert];
+    
+    self.previous.enabled = false;
+    self.next.enabled = false;
 
     return self;
 }
 
 
--(void) updateMove{
-    self.move = self.move + 1;
+-(void) updateMove:(BOOL)reverse{
+    // reverting last move
+    if(reverse == true && self.move > 0){
+        self.move = self.move - 1;
+        self.revert.enabled = false;
+    }else{
+        self.revert.enabled = true;
+        self.move = self.move + 1;
+    }
     [self.moveLabel setString:[NSString stringWithFormat:@"Move: %d",self.move]];
+    
     if(self.move > 0){
         self.restart.enabled = true;
-        self.revert.enabled = true;
+    }else{
+        self.restart.enabled = false;
     }
+    
+
 }
 
 
 -(void) finishGame{
-    int bestScore = [Constants getScore:self.size level:self.level];
+    int sizeInt = [[self.size substringFromIndex:4] intValue];
+    int bestScore = [Constants getScore:sizeInt level:[self.level intValue]];
     if(self.move < bestScore || bestScore == 0 ){
         RecordScene *recordScene = [RecordScene scene:self.size level:self.level record:self.move];
         
          [[CCDirector sharedDirector] pushScene:recordScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+        
+        [Constants setScore:sizeInt level:[self.level intValue] score:self.move];
     }
 }
 
@@ -181,5 +199,87 @@
     [self.grid revert];
     self.revert.enabled = false;
 }
+
+-(void)prevClicked{
+    int newLevel = [self.level intValue] - 1 ;
+    self.level = [NSString stringWithFormat:@"%d",newLevel];
+    [self.puzzleLabel setString:[NSString stringWithFormat:@"Puzzle %@",self.level]];
+    self.next.enabled = false;
+    self.previous.enabled = false;
+
+
+    [self.grid clean];
+    [self removeChild:self.grid];
+    
+    if( [self.size isEqual: @"size3"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3 level:self.level gameSceneProtocol:self ];
+    }else if([self.size isEqual: @"size4"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4 level:self.level gameSceneProtocol:self];
+    }else if([self.size isEqual: @"size5"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5 level:self.level gameSceneProtocol:self];
+    }else if([self.size isEqual: @"size6"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6 level:self.level gameSceneProtocol:self];
+    }
+    
+    self.grid.anchorPoint = ccp(0.5,0.5);
+    self.grid.positionType = CCPositionTypeNormalized;
+    self.grid.position = ccp(0.5f, 0.59f);
+    [self addChild:self.grid];
+    
+    self.move = 0;
+    [self.moveLabel setString:[NSString stringWithFormat:@"Move: %d",self.move]];
+    self.restart.enabled = false;
+    self.revert.enabled = false;
+
+    
+}
+
+-(void)nextClicked{
+    int newLevel = [self.level intValue] + 1 ;
+    self.level = [NSString stringWithFormat:@"%d",newLevel];
+    [self.puzzleLabel setString:[NSString stringWithFormat:@"Puzzle %@",self.level]];
+    self.previous.enabled = false;
+    self.next.enabled = false;
+
+
+    [self.grid clean];
+    [self removeChild:self.grid];
+    
+    if( [self.size isEqual: @"size3"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3 level:self.level gameSceneProtocol:self ];
+    }else if([self.size isEqual: @"size4"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4 level:self.level gameSceneProtocol:self];
+    }else if([self.size isEqual: @"size5"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5 level:self.level gameSceneProtocol:self];
+    }else if([self.size isEqual: @"size6"]){
+        self.grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6 level:self.level gameSceneProtocol:self];
+    }
+    
+    self.grid.anchorPoint = ccp(0.5,0.5);
+    self.grid.positionType = CCPositionTypeNormalized;
+    self.grid.position = ccp(0.5f, 0.59f);
+    [self addChild:self.grid];
+    
+    self.move = 0;
+    [self.moveLabel setString:[NSString stringWithFormat:@"Move: %d",self.move]];
+    self.restart.enabled = false;
+    self.revert.enabled = false;
+    
+}
+
+-(void)randomizeFinished{
+    int currentLevel = [self.level intValue] ;
+    if(currentLevel > 1  && currentLevel < 15){
+        self.previous.enabled = true;
+        self.next.enabled = true;
+    }else if(currentLevel == 1){
+        self.previous.enabled = false;
+        self.next.enabled = true;
+    }else if(currentLevel == 15){
+        self.previous.enabled = true;
+        self.next.enabled = false;
+    }
+}
+
 
 @end

@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CocosCubic/Classes/GridScene.m"
-            timestampString = "429659038.772639"
+            timestampString = "429737961.09519"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "423"
-            endingLineNumber = "423"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
             landmarkName = "-rightMoveComplete:"
             landmarkType = "5">
          </BreakpointContent>
@@ -116,11 +116,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CocosCubic/Classes/Constants.m"
-            timestampString = "429484914.481584"
+            timestampString = "429740165.121012"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "+playMenuItem"
             landmarkType = "5">
          </BreakpointContent>
@@ -196,12 +196,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CocosCubic/Classes/GameScene.m"
-            timestampString = "429659324.006702"
+            timestampString = "429740911.615142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "-revertClicked"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CocosCubic/Classes/GameScene.m"
+            timestampString = "429740574.002221"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "-finishGame"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -211,13 +227,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CocosCubic/Classes/GameScene.m"
-            timestampString = "429659373.726373"
+            filePath = "CocosCubic/Classes/Constants.m"
+            timestampString = "429741411.132005"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-updateMove"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "+readScoreFile:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CocosCubic/Classes/Constants.m"
+            timestampString = "429741427.341631"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "+readScoreFile:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
