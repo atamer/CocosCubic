@@ -11,6 +11,7 @@
 #import "SelectLevelScene.h"
 #import "GridScene.h"
 #import "RecordScene.h"
+#import "GameOverScene.h"
 
 @implementation GameScene
 
@@ -154,6 +155,13 @@
          [[CCDirector sharedDirector] pushScene:recordScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
         
         [Constants setScore:sizeInt level:[self.level intValue] score:self.move];
+    }else{
+        GameOverScene *gameOverScene = [GameOverScene scene:self.size level:self.level record:self.move];
+        
+        [[CCDirector sharedDirector] pushScene:gameOverScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+        
+        [Constants setScore:sizeInt level:[self.level intValue] score:self.move];
+        
     }
 }
 
@@ -191,6 +199,7 @@
     [self.moveLabel setString:[NSString stringWithFormat:@"Move: %d",self.move]];
     
     self.restart.enabled = false;
+    self.revert.enabled = false;
     
     
 }

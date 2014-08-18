@@ -27,7 +27,7 @@
             scoreFile = [scoreFile stringByAppendingString:line];
             levelScore[j] = [NSNumber numberWithInt:0];
         }
-        SCORE_TABLE[i] = [NSNumber numberWithInt:i];
+        SCORE_TABLE[i] = levelScore;
     }
     NSError *error;
     [scoreFile writeToFile:filePath atomically:YES

@@ -17,13 +17,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[GridScene rightMoveComplete:]:GridScene.m">
+         contextName = "-[GameScene onBackClicked]:GameScene.m">
          <PersistentStrings>
             <PersistentString
-               value = "callback != nil">
-            </PersistentString>
-            <PersistentString
-               value = "array">
+               value = "size_">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -42,16 +39,16 @@
                value = "playButton.boundingBox.size.height">
             </PersistentString>
             <PersistentString
-               value = "((screenWidth - buttonWidth) / (2 * screenWidth))">
-            </PersistentString>
-            <PersistentString
-               value = "((screenWidth - buttonWidth) / 2 * screenWidth)">
-            </PersistentString>
-            <PersistentString
                value = "(screenWidth - buttonWidth)">
             </PersistentString>
             <PersistentString
                value = "    playButton.contentSize.width">
+            </PersistentString>
+            <PersistentString
+               value = "((screenWidth - buttonWidth) / (2 * screenWidth))">
+            </PersistentString>
+            <PersistentString
+               value = "((screenWidth - buttonWidth) / 2 * screenWidth)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -127,10 +124,24 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[GridScene initWithImageNamed:size:level:random:reverse:gameSceneProtocol:]:GridScene.m">
+      </ContextState>
+      <ContextState
          contextName = "-[CCNode convertContentSizeToPoints:type:]:CCNode.m">
          <PersistentStrings>
             <PersistentString
                value = "director.UIScaleFactor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene updateFunc:differ:]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "borderArrayY[index]">
+            </PersistentString>
+            <PersistentString
+               value = "borderArrayY[index+1]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -147,6 +158,20 @@
       </ContextState>
       <ContextState
          contextName = "-[GridScene initWithImageNamed:size:]:GridScene.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene touchMoved:withEvent:]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "borderArrayY">
+            </PersistentString>
+            <PersistentString
+               value = "borderArrayX">
+            </PersistentString>
+            <PersistentString
+               value = "blockIndex">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[GridScene updateFunc:differY:x:y:]:GridScene.m">
@@ -196,6 +221,9 @@
          contextName = "-[OALAudioFile dealloc]:OALAudioFile.m">
       </ContextState>
       <ContextState
+         contextName = "+[Constants readScoreFile:]:Constants.m">
+      </ContextState>
+      <ContextState
          contextName = "-[GameScene gameSceneBackClicked]:GameScene.m">
          <PersistentStrings>
             <PersistentString
@@ -229,6 +257,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "+[Constants saveScore]:Constants.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "SCORE_TABLE">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[GridScene moveDown:sel:checkComplete:]:GridScene.m">
          <PersistentStrings>
             <PersistentString
@@ -237,10 +273,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[GameScene onBackClicked]:GameScene.m">
+         contextName = "-[GridScene rightMoveComplete:]:GridScene.m">
          <PersistentStrings>
             <PersistentString
-               value = "size_">
+               value = "callback != nil">
+            </PersistentString>
+            <PersistentString
+               value = "array">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

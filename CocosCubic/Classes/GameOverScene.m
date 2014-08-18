@@ -1,18 +1,19 @@
 //
-//  RecordScene.m
+//  GameOverScene.m
 //  CocosCubic
 //
-//  Created by Onur Atamer on 10/08/14.
+//  Created by Onur Atamer on 17/08/14.
 //  Copyright (c) 2014 Onur Atamer. All rights reserved.
 //
 
-#import "RecordScene.h"
+#import "GameOverScene.h"
 #import "Constants.h"
 
-@implementation RecordScene
+@implementation GameOverScene
 
 
-+ (RecordScene *)scene:(NSString*)size level:(NSString*)level record:(int)record
+
++ (GameOverScene *)scene:(NSString*)size level:(NSString*)level record:(int)record
 {
     return [[self alloc] initRecordScene:size level:level record:record];
 }
@@ -22,13 +23,14 @@
     self = [super init ];
     if (!self) return(nil);
     
+    
     self.level = level;
     self.size = size;
     self.record = record;
     
     CCNodeColor *background = [CCNodeColor nodeWithColor: BACKGROUND_COLOR ];
     [self addChild:background];
-    
+
     
     CCButton *back = [CCButton buttonWithTitle:@"Back" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_button.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_button_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_button_highlight.png"]];
     back.label.fontSize = 20;
@@ -38,19 +40,22 @@
     [back setTarget:self selector:@selector(onBackClicked)];
     back.position = ccp(0.12f, 0.96f);
     [self addChild:back];
-
     
     
     
-    NSString *congrulationStr = [NSString stringWithFormat:@"CONGRATULATIONS"];
-    CCLabelTTF *congrulation = [CCLabelTTF labelWithString:congrulationStr fontName:@"Chalkboard" fontSize:32.0f];
+    
+    NSString *congrulationStr = [NSString stringWithFormat:@"Game Over"];
+    CCLabelTTF *congrulation = [CCLabelTTF labelWithString:congrulationStr fontName:@"Chalkboard" fontSize:35.0f];
     congrulation.positionType = CCPositionTypeNormalized;
     congrulation.color = RED_COLOR;
     congrulation.anchorPoint = ccp(0.5,0.5);
     congrulation.position = ccp(0.50f, 0.76f); // Middle of screen
     [self addChild:congrulation];
+
     
-    NSString *newRecordStr = [NSString stringWithFormat:@"New Record: %d",record];
+    
+
+    NSString *newRecordStr = [NSString stringWithFormat:@"Total Move: %d",record];
     CCLabelTTF *newRecordLabel= [CCLabelTTF labelWithString:newRecordStr fontName:@"Chalkboard" fontSize:30.0f];
     newRecordLabel.positionType = CCPositionTypeNormalized;
     newRecordLabel.color = RED_COLOR;
@@ -75,17 +80,20 @@
     sizeLabel.anchorPoint = ccp(0.5,0.5);
     sizeLabel.position = ccp(0.50f, 0.26f); // Middle of screen
     [self addChild:sizeLabel];
+
+    
+    
     
     return self;
-    
 }
 
 -(void) onBackClicked{
     [[CCDirector sharedDirector] popScene];
     
     [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
-
-}
     
+}
+
+
 
 @end

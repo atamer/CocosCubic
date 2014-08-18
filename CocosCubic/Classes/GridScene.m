@@ -19,15 +19,19 @@
 
 @implementation GridScene
 
+
 NSMutableArray *blockArray;
 NSMutableArray *positionArray;
+NSMutableArray *borderArrayX;
+NSMutableArray *borderArrayY;
 
 BOOL actionActive ;
 NSInteger actionDirection;
 CGPoint touchStartPoint;
-BOOL touchStart ;
+BOOL directionFound  ;
 
 BOOL endGame;
+BOOL touchStart;
 
 CGFloat borderX1_2;
 CGFloat borderX2_3;
@@ -37,6 +41,7 @@ CGFloat borderY2_3;
 
 NSString *lastMove;
 int lastMoveIndex;
+int blockIndex  ;
 
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
 {
@@ -61,6 +66,7 @@ int lastMoveIndex;
     if(!self)return (nil);
     
     endGame = YES;
+    touchStart = NO;
     self.image = imageName;
     self.size = size;
     self.level = [level intValue];
@@ -112,11 +118,33 @@ int lastMoveIndex;
     borderX1_2 = (pointX1.x + pointX2.x)/2;
     borderX2_3 = (pointX2.x + pointX3.x)/2;
     
+    
     CGPoint  pointY1 =   [positionArray[1][1] CGPointValue];
     CGPoint  pointY2 =   [positionArray[2][1] CGPointValue];
     CGPoint  pointY3 =   [positionArray[3][1] CGPointValue];
     borderY1_2 = (pointY1.y + pointY2.y)/2;
     borderY2_3 = (pointY2.y + pointY3.y)/2;
+    
+    
+    borderArrayX = [NSMutableArray array];
+    borderArrayY = [NSMutableArray array];
+    
+    for(int i = 0 ; i < self.size +1 ; i++){
+        CGPoint  tempX1 = [positionArray[1][i] CGPointValue];
+        CGPoint  tempX2 = [positionArray[1][i+1] CGPointValue];
+        CGFloat middle =  (tempX1.x + tempX2.x) / 2;
+        [borderArrayX insertObject:[NSNumber numberWithFloat:middle] atIndex:i];
+    }
+    
+
+    for(int i = 0 ; i < self.size +1 ; i++){
+        CGPoint  tempX1 = [positionArray[i][1] CGPointValue];
+        CGPoint  tempX2 = [positionArray[i+1][1] CGPointValue];
+        CGFloat middle =  (tempX1.y + tempX2.y) / 2;
+        [borderArrayY insertObject:[NSNumber numberWithFloat:middle] atIndex:i];
+    }
+
+    
     
 
     CGPoint point1;
@@ -168,15 +196,15 @@ int lastMoveIndex;
         [self unmatchColors];
     }
 
-    
+    self.userInteractionEnabled = true;
     return self;
 }
 
 - (void) touchEndFunc:(UITouch*)uiTouch x:(int)x y:(int)y{
     
-    if(touchStart == true && endGame == NO){
+    if(directionFound == true && endGame == NO){
         actionActive = NO;
-        touchStart = false;
+        directionFound = false;
         // put to first position
         NSMutableArray *actionMoveArray = [NSMutableArray new];
         CCActionMoveTo *actionMove;
@@ -231,10 +259,182 @@ int lastMoveIndex;
 }
 
 
+-(void) touchMoved:(UITouch *)touchParam withEvent:(UIEvent *)event{
+    
+    if(touchStart == YES){
+        CGPoint touchLocation = [touchParam locationInNode:self];
+        
+        float x_differ = fabsf(touchStartPoint.x - touchLocation.x);
+        float y_differ = fabsf(touchStartPoint.y - touchLocation.y);
+        
+        float x_differ_sign = touchStartPoint.x - touchLocation.x;
+        float y_differ_sign = touchStartPoint.y - touchLocation.y;
+        
+        touchStartPoint = touchLocation;
+        
+        // sliding animation may be in use
+        if(actionActive == NO && endGame == NO){
+            if(directionFound == NO){
+                // difference for trigger
+                if(x_differ > 2 || y_differ > 2){
+                    directionFound = YES;
+                    // if movement is active do not change direction
+                    if(x_differ > y_differ){
+                        actionDirection = 1;
+                        [self findBlockIndex:touchParam];
+                        [self updateFunc:touchLocation differ: x_differ_sign ];
+                    }else{
+                        actionDirection = -1;
+                        [self findBlockIndex:touchParam];
+                        [self updateFunc:touchLocation differ:y_differ_sign ];
+                    }
+                }
+            }else{
+                if(actionDirection == 1 ){
+                    [self updateFunc:touchLocation differ:x_differ_sign];
+                }else{
+                    [self updateFunc:touchLocation differ:y_differ_sign ];
+                }
+                
+            }
+        }
+        
+ 
+    }
+}
+
+-(void) findBlockIndex:(UITouch *)touch{
+    CGPoint touchLocation = [touch locationInNode:self];
+    blockIndex = 0 ;
+    if(actionDirection == 1){
+        //horizontal movement
+        // find out block
+        // Y axis is reversible
+        for( blockIndex = 0 ; blockIndex < self.size  ; blockIndex++){
+            if( [((NSNumber*)borderArrayY[blockIndex]) floatValue] >= touchLocation.y &&
+               [((NSNumber*)borderArrayY[blockIndex+1]) floatValue] < touchLocation.y ){
+                break;
+            }
+        }
+    }else{
+        for( blockIndex = 0 ; blockIndex < self.size  ; blockIndex++){
+            if( [((NSNumber*)borderArrayX[blockIndex]) floatValue] < touchLocation.x &&
+               [((NSNumber*)borderArrayX[blockIndex+1]) floatValue] >= touchLocation.x ){
+                break;
+            }
+        }
+    }
+    blockIndex++;
+
+}
+
+-(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    touchStartPoint = [touch locationInNode:self];
+    touchStart = YES;
+    
+}
+
+- (void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+
+    directionFound = false;
+    if(endGame == NO && actionActive == NO){
+       
+        // put to first position
+        NSMutableArray *actionMoveArray = [NSMutableArray new];
+        CCActionMoveTo *actionMove;
+        ColorBlock *block;
+        CGPoint point;
+        
+        
+        if(actionDirection == 1){
+            //horizontal
+            for(int i = 0 ; i < self.size + 2 ; i++){
+                point = [positionArray[blockIndex][i] CGPointValue];
+                block = blockArray[blockIndex][i];
+                actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(point.x,point.y)];
+                
+                ActionMoveBlock *actionMoveBlock = [[ActionMoveBlock alloc] init];
+                actionMoveBlock.action = actionMove;
+                actionMoveBlock.block = block;
+                
+                [actionMoveArray addObject:actionMoveBlock];
+            }
+        }else{
+            //vertical
+            for(int i = 0 ; i < self.size + 2 ; i++){
+                point = [positionArray[i][blockIndex] CGPointValue];
+                block = blockArray[i][blockIndex];
+                actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(point.x,point.y)];
+                
+                ActionMoveBlock *actionMoveBlock = [[ActionMoveBlock alloc ]init];
+                actionMoveBlock.action = actionMove;
+                actionMoveBlock.block = block;
+                
+                [actionMoveArray addObject:actionMoveBlock];
+            }
+        }
+        
+        for(ActionMoveBlock *moveBlock in actionMoveArray){
+            CCActionMoveTo *action = moveBlock.action;
+            ColorBlock *block = moveBlock.block;
+            [block runAction:action];
+        }
+    }
+    
+}
+
+
+- (void) updateFunc:(CGPoint)touchLocation differ:(CGFloat)differ{
+    
+    // check movement pattern
+    
+    ColorBlock *block1;
+    ColorBlock *block2;
+
+    if(actionDirection == 1){
+        // moves horizontal
+        block1 = blockArray[blockIndex][1];
+        block2 = blockArray[blockIndex][2];
+        if( (block1.position.x > borderX1_2  ) || (block1.position.x - differ) > borderX1_2 ){
+            //move right
+            directionFound = false;
+            [self moveRight:blockIndex sel:nil checkComplete:YES revert:NO];
+        }else if( block2.position.x < borderX1_2 || (block2.position.x + differ) < borderX1_2){
+            //move left
+            directionFound = false;
+            [self moveLeft:blockIndex checkComplete:YES revert:NO];
+        }else{
+            //  CCLOG(@"move right %f %f",differX,block2.position.x );
+            for(int i = 0 ; i < self.size + 2 ; i++ ){
+                ColorBlock *block = blockArray[blockIndex][i];
+                block.position = CGPointMake(block.position.x - differ , block.position.y );
+            }
+        }
+    }else{
+        // moves vertical
+        block1 = blockArray[1][blockIndex];
+        block2 = blockArray[2][blockIndex];
+        if( block2.position.y > borderY1_2 || (block2.position.y - differ)  > borderY1_2 ){
+            //move up
+            directionFound = false;
+            [self moveUp:blockIndex checkComplete:YES revert:NO];
+        }else if( block1.position.y < borderY1_2 || (block1.position.y - differ)  < borderY1_2 ){
+            //move down
+            directionFound = false;
+            [self moveDown:blockIndex sel:nil checkComplete:YES revert:NO];
+            
+        }else{
+            for(int i = 0 ; i < self.size + 2 ; i++ ){
+                ColorBlock *block = blockArray[i][blockIndex];
+                block.position = CGPointMake(block.position.x , block.position.y - differ);
+            }
+        }
+    }
+}
 
 - (void) updateFunc:(float)differX differY:(float)differY x:(int)x y:(int)y{
     
-    if(touchStart == true && endGame == NO){
+/*    if(touchStart == true && endGame == NO){
 
         float differX_abs = fabsf(differX);
         float differY_abs = fabsf(differY);
@@ -250,15 +450,8 @@ int lastMoveIndex;
             actionActive = YES;
         }
         
-
-        
-       
         ColorBlock *block1;
         ColorBlock *block2;
-        
-        ColorBlock *selectedBlock;
-        selectedBlock = blockArray[y][x];
-        
         
         if(actionDirection == 1){
             
@@ -308,6 +501,7 @@ int lastMoveIndex;
             
         }
     }
+ */
 }
 
 
@@ -346,6 +540,7 @@ int randomCount;
         }
     }else{
         [self.gameSceneProtocol randomizeFinished];
+        [self reflectFirstLastColors:false reverse:false];
         endGame = false;
     }
     randomizeCounter++;
@@ -363,7 +558,7 @@ int randomCount;
 }
 
 -(void) moveRight:(int)y sel:(SEL)sel checkComplete:(BOOL)checkComplete revert:(BOOL)revert{
-    
+    actionActive = YES;
     CCActionSequence *sequence;
     NSMutableArray *actionArray = [NSMutableArray array];
     
@@ -445,7 +640,7 @@ int randomCount;
 //left
 
 -(void) moveLeft:(int)y checkComplete:(BOOL)checkComplete revert:(BOOL)revert{
-    
+    actionActive = YES;
     CCActionSequence *sequence;
     NSMutableArray *actionArray = [NSMutableArray array];
     
@@ -508,6 +703,7 @@ int randomCount;
 // move up
 
 -(void) moveUp:(int)x checkComplete:(BOOL)checkComplete revert:(BOOL)revert{
+    actionActive = YES;
     CCActionSequence *sequence;
     NSMutableArray *actionArray = [NSMutableArray array];
     
@@ -566,6 +762,7 @@ int randomCount;
 // move down
 
 -(void) moveDown:(int)x sel:(SEL)sel checkComplete:(BOOL)checkComplete revert:(BOOL)revert{
+    actionActive = YES;
     CCActionSequence *sequence;
     
     NSMutableArray *actionArray = [NSMutableArray array];
@@ -652,7 +849,9 @@ int randomCount;
 
 
 -(void) reflectFirstLastColors:(BOOL)checkComplete reverse:(BOOL)reverse{
-    
+    actionActive = NO;
+    directionFound = NO;
+    touchStart = NO;
     for(int y = 0 ; y < self.size + 2 ; y++  ){
         for(int x = 0 ; x < self.size + 2 ; x++ ){
             ColorBlock *block =  blockArray[y][x];
@@ -683,6 +882,8 @@ int randomCount;
                 [blockLast changeImage:blockFirst.image];
             }
             
+            CGPoint  orgPoint =   [positionArray[y][x] CGPointValue];
+            block.position = CGPointMake(orgPoint.x, orgPoint.y);
         }
     }
     
@@ -756,7 +957,7 @@ int randomCount;
         self.hoverX = 1 ;
         self.hoverY = self.hoverY + 1;
     }
-    NSLog(@"%d %d",self.hoverX,self.hoverY);
+//    NSLog(@"%d %d",self.hoverX,self.hoverY);
     if((self.hoverX >= self.size ) && (self.hoverY >= self.size)){
         NSLog(@"------");
         [self.gameSceneProtocol finishGame];

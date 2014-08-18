@@ -17,6 +17,7 @@
 		17508AAF199964C8006BE654 /* HowToPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 17508AAE199964C8006BE654 /* HowToPlay.m */; };
 		17508AB2199964E3006BE654 /* AboutScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17508AB1199964E3006BE654 /* AboutScene.m */; };
 		1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */ = {isa = PBXBuildFile; fileRef = 170F0898198064450021108C /* CocosCubic-Art */; };
+		17AC025519A13B1100F655C1 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AC025419A13B1100F655C1 /* GameOverScene.m */; };
 		17BC22C5198ACEC10076160B /* buttons-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B3198ACEC10076160B /* buttons-hd.plist */; };
 		17BC22C6198ACEC10076160B /* buttons-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B4198ACEC10076160B /* buttons-hd.pvr.ccz */; };
 		17BC22C7198ACEC10076160B /* buttons-ipadhd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B5198ACEC10076160B /* buttons-ipadhd.plist */; };
@@ -289,6 +290,8 @@
 		17508AB1199964E3006BE654 /* AboutScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AboutScene.m; path = Classes/AboutScene.m; sourceTree = "<group>"; };
 		178289EA19804C9C00F70EEA /* PackTextures.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = Resources/PackTextures.sh; sourceTree = "<group>"; };
 		1793E55B1993E78F00BD43E6 /* GameSceneProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameSceneProtocol.h; path = Classes/GameSceneProtocol.h; sourceTree = "<group>"; };
+		17AC025319A13B1100F655C1 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Classes/GameOverScene.h; sourceTree = "<group>"; };
+		17AC025419A13B1100F655C1 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverScene.m; path = Classes/GameOverScene.m; sourceTree = "<group>"; };
 		17BC22B3198ACEC10076160B /* buttons-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "buttons-hd.plist"; path = "Resources/buttons-hd.plist"; sourceTree = "<group>"; };
 		17BC22B4198ACEC10076160B /* buttons-hd.pvr.ccz */ = {isa = PBXFileReference; lastKnownFileType = file; name = "buttons-hd.pvr.ccz"; path = "Resources/buttons-hd.pvr.ccz"; sourceTree = "<group>"; };
 		17BC22B5198ACEC10076160B /* buttons-ipadhd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "buttons-ipadhd.plist"; path = "Resources/buttons-ipadhd.plist"; sourceTree = "<group>"; };
@@ -348,7 +351,6 @@
 		17C5C6CE19801EDA0064B653 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icons/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		17C5C6D019801EDA0064B653 /* Icon-Spotlight-iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Spotlight-iOS7.png"; path = "Resources/Icons/Icon-Spotlight-iOS7.png"; sourceTree = "<group>"; };
 		17C5C6D219801EDA0064B653 /* Icon-Spotlight-iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Spotlight-iOS7@2x.png"; path = "Resources/Icons/Icon-Spotlight-iOS7@2x.png"; sourceTree = "<group>"; };
-		17C5C6D419801EDA0064B653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = "<group>"; };
 		17C5C6D519801EDA0064B653 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = ../iTunesArtwork; sourceTree = "<group>"; };
 		17C5C6D719801EDA0064B653 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iTunesArtwork@2x"; path = "../iTunesArtwork@2x"; sourceTree = "<group>"; };
 		17C5C6DC19801EDA0064B653 /* CCAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCAction.h; path = Libraries/cocos2d/CCAction.h; sourceTree = "<group>"; };
@@ -781,6 +783,8 @@
 			children = (
 				17508A8C1997C91F006BE654 /* RecordScene.h */,
 				17508A8D1997C91F006BE654 /* RecordScene.m */,
+				17AC025319A13B1100F655C1 /* GameOverScene.h */,
+				17AC025419A13B1100F655C1 /* GameOverScene.m */,
 			);
 			name = Record;
 			sourceTree = "<group>";
@@ -931,7 +935,6 @@
 				17C5C6B319801EDA0064B653 /* Default@2x.png */,
 				17C5C6B519801EDA0064B653 /* Default-568h@2x.png */,
 				17C5C6B719801EDA0064B653 /* Default-Landscape~ipad.png */,
-				17C5C6D419801EDA0064B653 /* Info.plist */,
 				17C5C6D519801EDA0064B653 /* iTunesArtwork */,
 				17C5C6D719801EDA0064B653 /* iTunesArtwork@2x */,
 				17C5C6B919801EDA0064B653 /* Icons */,
@@ -1821,6 +1824,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Onur Atamer";
+				TargetAttributes = {
+					17C5C69319801EDA0064B653 = {
+						DevelopmentTeam = 2A2526SQKU;
+					};
+				};
 			};
 			buildConfigurationList = 17C5C68F19801EDA0064B653 /* Build configuration list for PBXProject "CocosCubic" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1943,6 +1951,7 @@
 				17BC22DB198D16AA0076160B /* GridScene.m in Sources */,
 				17C5C71E19801EDA0064B653 /* ccGLStateCache.m in Sources */,
 				17C5C81619801EDB0064B653 /* OALActionManager.m in Sources */,
+				17AC025519A13B1100F655C1 /* GameOverScene.m in Sources */,
 				17C5C77519801EDA0064B653 /* CCScheduler.m in Sources */,
 				17C5C74919801EDA0064B653 /* CCParticleExamples.m in Sources */,
 				17C5C87B19801EDB0064B653 /* CCSlider.m in Sources */,
@@ -2269,6 +2278,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2282,7 +2293,7 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/chipmunk/include\"",
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
-				INFOPLIST_FILE = CocosCubic/Resources/Info.plist;
+				INFOPLIST_FILE = CocosCubic/Resources/CocosCubic.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -2290,6 +2301,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2300,6 +2312,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CocosCubic/Supporting Files/Prefix.pch";
@@ -2308,7 +2322,7 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/chipmunk/include\"",
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
-				INFOPLIST_FILE = CocosCubic/Resources/Info.plist;
+				INFOPLIST_FILE = CocosCubic/Resources/CocosCubic.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -2316,6 +2330,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

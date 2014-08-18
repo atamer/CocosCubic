@@ -108,7 +108,7 @@ BOOL firstMove = YES;
     }
     
     self.anchorPoint = CGPointMake(0.5f, 0.5f);
-    self.userInteractionEnabled = true;
+    self.userInteractionEnabled = false;
     
     self.zOrder = 9;
 
@@ -121,6 +121,7 @@ BOOL firstMove = YES;
 -(void) changeImage:(NSString*) newimage{
     self.image = newimage;
     [self setSpriteFrame:[CCSpriteFrame frameWithImageNamed:newimage]];
+
 }
 
 -(void) touchMoved:(UITouch *)touchParam withEvent:(UIEvent *)event

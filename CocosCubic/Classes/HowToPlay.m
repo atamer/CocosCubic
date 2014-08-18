@@ -43,6 +43,14 @@
     return self;
 }
 
+-(void) randomizeFinished{
+    
+}
+
+-(void) updateMove:(BOOL)reverse{
+    
+}
+
 -(void)howToPlayBackClicked{
      [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
 }

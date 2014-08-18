@@ -11,6 +11,10 @@
 
 #define CCColorFromRGB(rgbValue) [CCColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
+#define isSetCGPoint(cgpoint) (cgpoint.x == -99999 && cgpoint.y == -99999)
+#define unSetCGPoint CGPointMake(-99999,-99999)
+
+
 #define BACKGROUND_COLOR CCColorFromRGB(0xF0ECC9)
 #define RED_COLOR CCColorFromRGB(0xD34F28)
 
