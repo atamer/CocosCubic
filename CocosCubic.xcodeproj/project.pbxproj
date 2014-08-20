@@ -72,8 +72,6 @@
 		17C5C6CF19801EDA0064B653 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C6CE19801EDA0064B653 /* Icon-Small@2x.png */; };
 		17C5C6D119801EDA0064B653 /* Icon-Spotlight-iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C6D019801EDA0064B653 /* Icon-Spotlight-iOS7.png */; };
 		17C5C6D319801EDA0064B653 /* Icon-Spotlight-iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C6D219801EDA0064B653 /* Icon-Spotlight-iOS7@2x.png */; };
-		17C5C6D619801EDA0064B653 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C6D519801EDA0064B653 /* iTunesArtwork */; };
-		17C5C6D819801EDA0064B653 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C6D719801EDA0064B653 /* iTunesArtwork@2x */; };
 		17C5C6DE19801EDA0064B653 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C6DD19801EDA0064B653 /* CCAction.m */; };
 		17C5C6E119801EDA0064B653 /* CCActionCatmullRom.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C6E019801EDA0064B653 /* CCActionCatmullRom.m */; };
 		17C5C6E419801EDA0064B653 /* CCActionEase.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C6E319801EDA0064B653 /* CCActionEase.m */; };
@@ -351,8 +349,8 @@
 		17C5C6CE19801EDA0064B653 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icons/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		17C5C6D019801EDA0064B653 /* Icon-Spotlight-iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Spotlight-iOS7.png"; path = "Resources/Icons/Icon-Spotlight-iOS7.png"; sourceTree = "<group>"; };
 		17C5C6D219801EDA0064B653 /* Icon-Spotlight-iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Spotlight-iOS7@2x.png"; path = "Resources/Icons/Icon-Spotlight-iOS7@2x.png"; sourceTree = "<group>"; };
-		17C5C6D519801EDA0064B653 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; name = iTunesArtwork; path = ../iTunesArtwork; sourceTree = "<group>"; };
-		17C5C6D719801EDA0064B653 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; name = "iTunesArtwork@2x"; path = "../iTunesArtwork@2x"; sourceTree = "<group>"; };
+		17C5C6D519801EDA0064B653 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; name = iTunesArtwork; path = ../iTunesArtwork; sourceTree = "<group>"; };
+		17C5C6D719801EDA0064B653 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iTunesArtwork@2x"; path = "../iTunesArtwork@2x"; sourceTree = "<group>"; };
 		17C5C6DC19801EDA0064B653 /* CCAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCAction.h; path = Libraries/cocos2d/CCAction.h; sourceTree = "<group>"; };
 		17C5C6DD19801EDA0064B653 /* CCAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CCAction.m; path = Libraries/cocos2d/CCAction.m; sourceTree = "<group>"; };
 		17C5C6DF19801EDA0064B653 /* CCActionCatmullRom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCActionCatmullRom.h; path = Libraries/cocos2d/CCActionCatmullRom.h; sourceTree = "<group>"; };
@@ -1893,7 +1891,6 @@
 				17C5C6B619801EDA0064B653 /* Default-568h@2x.png in Resources */,
 				17BC22EA198D71060076160B /* colors.pvr.ccz in Resources */,
 				17BC22E7198D71060076160B /* colors-ipadhd.plist in Resources */,
-				17C5C6D619801EDA0064B653 /* iTunesArtwork in Resources */,
 				17C5C6D119801EDA0064B653 /* Icon-Spotlight-iOS7.png in Resources */,
 				17BC22C8198ACEC10076160B /* buttons-ipadhd.pvr.ccz in Resources */,
 				17BC22D5198ACEC10076160B /* grid_5_6.plist in Resources */,
@@ -1907,7 +1904,6 @@
 				17BC22CF198ACEC10076160B /* grid_3_4.plist in Resources */,
 				17BC22C6198ACEC10076160B /* buttons-hd.pvr.ccz in Resources */,
 				17508AA519994C86006BE654 /* endgame.mp3 in Resources */,
-				17C5C6D819801EDA0064B653 /* iTunesArtwork@2x in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
