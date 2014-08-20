@@ -100,7 +100,7 @@ int blockIndex  ;
             }
             
             ColorBlock *color ;
-            color = [ColorBlock initWithColor:image x:j y:i contentSize:self.contentSize size:self.size updateProtocol:self];
+            color = [ColorBlock initWithColor:image x:j y:i contentSize:self.contentSize size:self.size];
 
 
             
@@ -432,78 +432,6 @@ int blockIndex  ;
     }
 }
 
-- (void) updateFunc:(float)differX differY:(float)differY x:(int)x y:(int)y{
-    
-/*    if(touchStart == true && endGame == NO){
-
-        float differX_abs = fabsf(differX);
-        float differY_abs = fabsf(differY);
-        
-        
-        if(actionActive == NO){
-            // if movement is active do not change direction
-            if(differX_abs > differY_abs){
-                actionDirection = 1;
-            }else{
-                actionDirection = -1;
-            }
-            actionActive = YES;
-        }
-        
-        ColorBlock *block1;
-        ColorBlock *block2;
-        
-        if(actionDirection == 1){
-            
-            // moves horizontal
-            block1 = blockArray[y][1];
-            block2 = blockArray[y][2];
-            if( (block1.position.x > borderX1_2  ) || (block1.position.x - differX) > borderX1_2 ){
-                //move right
-                touchStart = false;
-                
-                [self moveRight:y sel:nil checkComplete:YES revert:NO];
-            }else if( block2.position.x < borderX1_2 || (block2.position.x + differX) < borderX1_2){
-                //move left
-                touchStart = false;
-                [self moveLeft:y checkComplete:YES revert:NO];
-            }else{
-                //  CCLOG(@"move right %f %f",differX,block2.position.x );
-                for(int i = 0 ; i < self.size + 2 ; i++ ){
-                    ColorBlock *block = blockArray[y][i];
-                    block.position = CGPointMake(block.position.x - differX , block.position.y );
-                }
-            }
-        }else{
-            // moves vertical
-            block1 = blockArray[1][x];
-            block2 = blockArray[2][x];
-            
-            if( block2.position.y > borderY1_2 || (block2.position.y - differY)  > borderY1_2 ){
-                //move up
-                touchStart = false;
-                [self moveUp:x checkComplete:YES revert:NO];
-
-           
-          
-            }else if( block1.position.y < borderY1_2 || (block1.position.y - differY)  < borderY1_2 ){
-                //move down
-                touchStart = false;
-                [self moveDown:x sel:nil checkComplete:YES revert:NO];
-                
-            }else{
-                for(int i = 0 ; i < self.size + 2 ; i++ ){
-                    ColorBlock *block = blockArray[i][x];
-                    block.position = CGPointMake(block.position.x , block.position.y - differY);
-                }
-                
-            }
-            
-        }
-    }
- */
-}
-
 
 
 
@@ -517,10 +445,10 @@ int randomCount;
     // just randomize
     randomizeCounter = 0;
     if(self.level == 1 ) {
-        randomCount = 1;
+        randomCount = 5;
         [self randomizeColors];
-    }else if( self.level == 2 || self.level == 3  ){
-        randomCount = 4;
+    }else if( self.level == 2 || self.level == 3 || self.level == 4 ){
+        randomCount = 5;
         [self randomizeColors];
     }else{
         randomCount = self.level;
@@ -531,7 +459,8 @@ int randomCount;
 
 -(void) randomizeColors{
 
-    if(randomizeCounter < randomCount){
+    
+    if(randomizeCounter < randomCount || [self checkComplete] == YES){
         int random = rand() % self.size;
         if(randomizeCounter % 2 == 0){
             [self moveDown:random sel:@selector(randomizeColors) checkComplete:NO revert:NO];
@@ -542,10 +471,25 @@ int randomCount;
         [self.gameSceneProtocol randomizeFinished];
         [self reflectFirstLastColors:false reverse:false];
         endGame = false;
+
     }
     randomizeCounter++;
 }
 
+-(void)printPositions{
+    
+    printf("--------------------------\n");
+    for(int y = 0 ; y < self.size + 2 ; y++  ){
+        for(int x = 0 ; x < self.size + 2 ; x++ ){
+            ColorBlock *block =  blockArray[y][x];
+            printf("%f:%f  ",block.position.x,block.position.y );
+        }
+        printf("\n");
+    }
+    printf("--------------------------\n");
+
+    
+}
 
 
 
@@ -890,16 +834,50 @@ int randomCount;
     if(checkComplete == YES){
         [Constants playMoveItem];
         [self.gameSceneProtocol updateMove:reverse];
-        BOOL match = YES;
-        // check horizontal match
+        
+        BOOL match = [self checkComplete];
+        if(match == YES){
+            endGame = YES;
+            self.hoverY  = 1 ;
+            self.hoverX  = 1 ;
+            float interval = 1.0f/(self.size * 1.5f);
+            [self schedule:@selector(hoverBlock) interval:interval repeat:(self.size * self.size ) delay:0];
+        }
+    }
+}
+
+
+-(BOOL)checkComplete{
+    BOOL match = YES;
+    // check horizontal match
+    for (int i = 1 ; i < self.size +1 ; i++){
+        NSString *matchColor = nil;
+        for(int j = 1 ; j < self.size + 1 ; j++){
+            ColorBlock *block = blockArray[i][j];
+            if(!matchColor){
+                matchColor = block.image;
+            }
+            if( ![matchColor isEqualToString:block.image]  ){
+                match = NO;
+                break;
+            }
+        }
+        if(match == false){
+            break;
+        }
+    }
+    
+    if( match == NO){
+        match = YES;
+        // check vertical match
         for (int i = 1 ; i < self.size +1 ; i++){
             NSString *matchColor = nil;
             for(int j = 1 ; j < self.size + 1 ; j++){
-                ColorBlock *block = blockArray[i][j];
+                ColorBlock *block = blockArray[j][i];
                 if(!matchColor){
                     matchColor = block.image;
                 }
-                if( ![matchColor isEqualToString:block.image]  ){
+                if(![matchColor isEqualToString:block.image]  ){
                     match = NO;
                     break;
                 }
@@ -908,40 +886,9 @@ int randomCount;
                 break;
             }
         }
-        
-        if( match == NO){
-            match = YES;
-            // check vertical match
-            for (int i = 1 ; i < self.size +1 ; i++){
-                NSString *matchColor = nil;
-                for(int j = 1 ; j < self.size + 1 ; j++){
-                    ColorBlock *block = blockArray[j][i];
-                    if(!matchColor){
-                        matchColor = block.image;
-                    }
-                    if(![matchColor isEqualToString:block.image]  ){
-                        match = NO;
-                        break;
-                    }
-                }
-                if(match == false){
-                    break;
-                }
-            }
-        }
-        
-        if(match == YES){
-            endGame = YES;
-            self.hoverY  = 1 ;
-            self.hoverX  = 1 ;
-            float interval = 1.0f/(self.size * 1.5f);
-            [self schedule:@selector(hoverBlock) interval:interval repeat:(self.size * self.size ) delay:0];
-            
-            
-        }
     }
+    return match;
 }
-
 
 -(void) hoverBlock{
     ColorBlock *block =  blockArray[self.hoverY][self.hoverX];
@@ -959,19 +906,12 @@ int randomCount;
     }
 //    NSLog(@"%d %d",self.hoverX,self.hoverY);
     if((self.hoverX >= self.size ) && (self.hoverY >= self.size)){
-        NSLog(@"------");
         [self.gameSceneProtocol finishGame];
     }
     
 }
 
 -(void)clean{
-    for(int y = 0 ; y < self.size + 2 ; y++  ){
-        for(int x = 0 ; x < self.size + 2 ; x++ ){
-            ColorBlock *block =  blockArray[y][x];
-            [block clean];
-        }
-    }
     self.gameSceneProtocol = nil;
 }
 

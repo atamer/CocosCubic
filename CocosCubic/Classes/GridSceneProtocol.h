@@ -11,9 +11,6 @@
 @protocol GridSceneProtocol <NSObject>
 
 @required
-- (void) updateFunc:(float)differX differY:(float)differY x:(int)x y:(int)y;
-- (void) touchEndFunc:(UITouch*)uiTouch x:(int)x y:(int)y;
-- (void) touchBeginFunc:(UITouch*)uiTouch x:(int)x y:(int)y;
 
 
 @end

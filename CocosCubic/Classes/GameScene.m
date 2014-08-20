@@ -43,15 +43,20 @@
     [self addChild:back];
     
     
-
+    int levelInt = [level intValue];
+    int record = 0;
     if( [size isEqual: @"size3"]){
         self.grid = [GridScene spriteWithImageNamed:@"grid3.png" size:3 level:self.level gameSceneProtocol:self ];
+        record = [Constants getScore:3 level:levelInt];
     }else if([size isEqual: @"size4"]){
         self.grid = [GridScene spriteWithImageNamed:@"grid4.png" size:4 level:self.level gameSceneProtocol:self];
+        record = [Constants getScore:4 level:levelInt];
     }else if([size isEqual: @"size5"]){
         self.grid = [GridScene spriteWithImageNamed:@"grid5.png" size:5 level:self.level gameSceneProtocol:self];
+        record = [Constants getScore:5 level:levelInt];
     }else if([size isEqual: @"size6"]){
         self.grid = [GridScene spriteWithImageNamed:@"grid6.png" size:6 level:self.level gameSceneProtocol:self];
+        record = [Constants getScore:6 level:levelInt];
     }
 
     self.grid.anchorPoint = ccp(0.5,0.5);
@@ -65,9 +70,23 @@
     self.moveLabel.positionType = CCPositionTypeNormalized;
     self.moveLabel.color = RED_COLOR;
     self.moveLabel.anchorPoint = ccp(0.5,0.5);
-    self.moveLabel.position = ccp(0.78f, 0.96f); // Middle of screen
+    self.moveLabel.position = ccp(0.78f, 0.95f); // Middle of screen
     [self addChild:self.moveLabel];
 
+
+    NSString *recordStr = @"";
+    if(record != 0){
+        recordStr = [NSString stringWithFormat:@"Record: %d",record];
+    }
+    
+    self.recordLabel = [CCLabelTTF labelWithString:recordStr fontName:@"Chalkboard" fontSize:15.0f];
+    self.recordLabel.positionType = CCPositionTypeNormalized;
+    self.recordLabel.color = RED_COLOR;
+    self.recordLabel.anchorPoint = ccp(0.5,0.5);
+    self.recordLabel.position = ccp(0.82f, 0.235f); // Middle of screen
+    [self addChild:self.recordLabel];
+    
+    
     
     
     NSString *puzzle = [NSString stringWithFormat:@"%@ %@", @"Puzzle", level];
@@ -103,7 +122,7 @@
     self.restart.anchorPoint = ccp(0.5,0.5);
     self.restart.positionType = CCPositionTypeNormalized;
     [self.restart setTarget:self selector:@selector(restartClicked)];
-    self.restart.position = ccp(0.40f, 0.20f);
+    self.restart.position = ccp(0.40f, 0.17f);
     [self addChild:self.restart];
     self.restart.enabled = false;
     
@@ -113,7 +132,7 @@
     self.revert.anchorPoint = ccp(0.5,0.5);
     self.revert.positionType = CCPositionTypeNormalized;
     [self.revert setTarget:self selector:@selector(revertClicked)];
-    self.revert.position = ccp(0.6f, 0.20f);
+    self.revert.position = ccp(0.6f, 0.17f);
     self.revert.enabled = false;
     
     [self addChild:self.revert];

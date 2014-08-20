@@ -25,7 +25,10 @@
 @property NSString *level;
 @property GridScene* grid;
 @property int move;
+
 @property CCLabelTTF* moveLabel;
+@property CCLabelTTF* recordLabel;
+
 @property CCButton *restart;
 @property CCButton *revert;
 @property CCButton *next;

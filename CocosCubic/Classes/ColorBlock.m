@@ -19,18 +19,15 @@ BOOL firstTouch = YES;
 BOOL firstMove = YES;
 
 
-
-
-
-+(id)initWithColor:(NSString*)color x:(int)_x y:(int)_y  contentSize:(CGSize)contentSize size:(int)size updateProtocol:(id<GridSceneProtocol>)updateProtocol
++(id)initWithColor:(NSString*)color x:(int)_x y:(int)_y  contentSize:(CGSize)contentSize size:(int)size
 {
-    return [[self alloc] initWithImageNamed:color x:_x y:_y contentSize:contentSize size:size updateProtocol:updateProtocol];
+    return [[self alloc] initWithImageNamed:color x:_x y:_y contentSize:contentSize size:size];
    
 }
 
 
 
-- (id) initWithImageNamed:(NSString*)imageName x:(int)_x y:(int)_y contentSize:(CGSize)parentContentSize size:(int)size updateProtocol:(id<GridSceneProtocol>)updateProtocol
+- (id) initWithImageNamed:(NSString*)imageName x:(int)_x y:(int)_y contentSize:(CGSize)parentContentSize size:(int)size
 {
     self = [self initWithSpriteFrame:[CCSpriteFrame frameWithImageNamed:imageName]];
     if(!self)return (nil);
@@ -39,7 +36,6 @@ BOOL firstMove = YES;
     self.prop_x = _x;
     self.parentContentSize  = parentContentSize;
     self.size = size;
-    self.updateProtocol = updateProtocol;
     self.image = imageName;
     
     float pos_x ;
@@ -113,7 +109,7 @@ BOOL firstMove = YES;
     self.zOrder = 9;
 
     self.position = ccp(pos_x , pos_y);
-    CCLOG(@"%f %f",pos_x, pos_y);
+
     
     return self;
 }
@@ -122,49 +118,6 @@ BOOL firstMove = YES;
     self.image = newimage;
     [self setSpriteFrame:[CCSpriteFrame frameWithImageNamed:newimage]];
 
-}
-
--(void) touchMoved:(UITouch *)touchParam withEvent:(UIEvent *)event
-{
-    CGPoint touchLocation = [touchParam locationInNode:self.parent];
-    
-    float x_differ = lastTouchLocation.x - touchLocation.x;
-    float y_differ = lastTouchLocation.y - touchLocation.y;
-
-    
-    lastTouchLocation = touchLocation;
-    
-    if(firstMove == NO){
-        if(fabsf(x_differ) > 2 || fabsf(y_differ) > 2){
-            [self.updateProtocol updateFunc:x_differ differY:y_differ x:self.prop_x y:self.prop_y];
-            firstMove = YES;
-        }
-    }else{
-        [self.updateProtocol updateFunc:x_differ differY:y_differ x:self.prop_x y:self.prop_y];
-    }
-    
-    firstTouch = NO;
-    
-}
-
--(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-
-    CGPoint touchLoc = [touch locationInNode:self.parent];
-    firstTouch = NO;
-    firstMove = NO;
-    lastTouchLocation = touchLoc;
-    [self.updateProtocol touchBeginFunc:touch x:self.prop_x y:self.prop_y];
-    // Log touch location
-    // CCLOG(@"Move sprite to @ %@",NSStringFromCGPoint(touchLoc));
-}
-
-- (void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
-    firstTouch = YES;
-    [self.updateProtocol touchEndFunc:touch x:self.prop_x y:self.prop_y];
-}
-
--(void)clean{
-    self.updateProtocol = nil;
 }
 
 -(CGFloat) width
