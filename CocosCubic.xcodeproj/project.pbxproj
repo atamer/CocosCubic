@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170F3CB319A89D3400DA1C35 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 170F3CB219A89D3400DA1C35 /* Images-2.xcassets */; };
 		17132CED1986DE290055DDD8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17132CEC1986DE290055DDD8 /* GameScene.m */; };
 		17508A8E1997C91F006BE654 /* RecordScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17508A8D1997C91F006BE654 /* RecordScene.m */; };
 		17508A9519980217006BE654 /* ChalkboardBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17508A9419980217006BE654 /* ChalkboardBold.ttf */; };
@@ -272,6 +273,7 @@
 
 /* Begin PBXFileReference section */
 		170F0898198064450021108C /* CocosCubic-Art */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CocosCubic-Art"; path = "Resources/CocosCubic-Art"; sourceTree = "<group>"; };
+		170F3CB219A89D3400DA1C35 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		17132CEB1986DE290055DDD8 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Classes/GameScene.h; sourceTree = "<group>"; };
 		17132CEC1986DE290055DDD8 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameScene.m; path = Classes/GameScene.m; sourceTree = "<group>"; };
 		17508A8C1997C91F006BE654 /* RecordScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordScene.h; path = Classes/RecordScene.h; sourceTree = "<group>"; };
@@ -893,6 +895,7 @@
 				17C5C6B019801EDA0064B653 /* Resources */,
 				17C5C6D919801EDA0064B653 /* Libraries */,
 				17C5C93E19801EDC0064B653 /* Classes */,
+				170F3CB219A89D3400DA1C35 /* Images-2.xcassets */,
 				17C5C93A19801EDC0064B653 /* Supporting Files */,
 			);
 			path = CocosCubic;
@@ -1890,6 +1893,7 @@
 				17FFE05E1983DE9800D9427A /* Chalkboard.ttc in Resources */,
 				17C5C6B619801EDA0064B653 /* Default-568h@2x.png in Resources */,
 				17BC22EA198D71060076160B /* colors.pvr.ccz in Resources */,
+				170F3CB319A89D3400DA1C35 /* Images-2.xcassets in Resources */,
 				17BC22E7198D71060076160B /* colors-ipadhd.plist in Resources */,
 				17C5C6D119801EDA0064B653 /* Icon-Spotlight-iOS7.png in Resources */,
 				17BC22C8198ACEC10076160B /* buttons-ipadhd.pvr.ccz in Resources */,
@@ -2274,6 +2278,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -2308,6 +2314,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
