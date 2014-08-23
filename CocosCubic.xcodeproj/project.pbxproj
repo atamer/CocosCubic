@@ -56,7 +56,6 @@
 		17C5C6A619801EDA0064B653 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C6A519801EDA0064B653 /* CoreGraphics.framework */; };
 		17C5C6A819801EDA0064B653 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C6A719801EDA0064B653 /* CoreText.framework */; };
 		17C5C6AE19801EDA0064B653 /* libObjectiveChipmunk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C5C6AB19801EDA0064B653 /* libObjectiveChipmunk.a */; };
-		17C5C6B219801EDA0064B653 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C6B119801EDA0064B653 /* Default.png */; };
 		17C5C6B419801EDA0064B653 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C6B319801EDA0064B653 /* Default@2x.png */; };
 		17C5C6B619801EDA0064B653 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C6B519801EDA0064B653 /* Default-568h@2x.png */; };
 		17C5C6B819801EDA0064B653 /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 17C5C6B719801EDA0064B653 /* Default-Landscape~ipad.png */; };
@@ -248,6 +247,7 @@
 		17C5C93D19801EDC0064B653 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C93C19801EDC0064B653 /* main.m */; };
 		17C5C94119801EDC0064B653 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C94019801EDC0064B653 /* AppDelegate.m */; };
 		17C5C94719801EDC0064B653 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C5C94619801EDC0064B653 /* IntroScene.m */; };
+		17D7933519A8BDD50086868A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D7933419A8BDD50086868A /* Default.png */; };
 		17FFE05E1983DE9800D9427A /* Chalkboard.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 17FFE05D1983DE9800D9427A /* Chalkboard.ttc */; };
 		17FFE061198416C900D9427A /* SelectSizeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FFE060198416C900D9427A /* SelectSizeScene.m */; };
 		17FFE0641985041700D9427A /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FFE0631985041700D9427A /* Constants.m */; };
@@ -334,7 +334,6 @@
 		17C5C6A519801EDA0064B653 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		17C5C6A719801EDA0064B653 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		17C5C6AB19801EDA0064B653 /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveChipmunk.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		17C5C6B119801EDA0064B653 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		17C5C6B319801EDA0064B653 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		17C5C6B519801EDA0064B653 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
 		17C5C6B719801EDA0064B653 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Resources/Default-Landscape~ipad.png"; sourceTree = "<group>"; };
@@ -748,6 +747,7 @@
 		17C5C94019801EDC0064B653 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		17C5C94519801EDC0064B653 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		17C5C94619801EDC0064B653 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
+		17D7933419A8BDD50086868A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		17FFE05D1983DE9800D9427A /* Chalkboard.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; name = Chalkboard.ttc; path = Resources/Chalkboard.ttc; sourceTree = "<group>"; };
 		17FFE05F198416C900D9427A /* SelectSizeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectSizeScene.h; path = Classes/SelectSizeScene.h; sourceTree = "<group>"; };
 		17FFE060198416C900D9427A /* SelectSizeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectSizeScene.m; path = Classes/SelectSizeScene.m; sourceTree = "<group>"; };
@@ -932,7 +932,7 @@
 				17FFE05D1983DE9800D9427A /* Chalkboard.ttc */,
 				17508A9419980217006BE654 /* ChalkboardBold.ttf */,
 				170F0898198064450021108C /* CocosCubic-Art */,
-				17C5C6B119801EDA0064B653 /* Default.png */,
+				17D7933419A8BDD50086868A /* Default.png */,
 				17C5C6B319801EDA0064B653 /* Default@2x.png */,
 				17C5C6B519801EDA0064B653 /* Default-568h@2x.png */,
 				17C5C6B719801EDA0064B653 /* Default-Landscape~ipad.png */,
@@ -1867,7 +1867,6 @@
 				17C5C6BD19801EDA0064B653 /* Icon@2x.png in Resources */,
 				17C5C6CF19801EDA0064B653 /* Icon-Small@2x.png in Resources */,
 				17C5C6C119801EDA0064B653 /* Icon-72@2x.png in Resources */,
-				17C5C6B219801EDA0064B653 /* Default.png in Resources */,
 				17BC22CC198ACEC10076160B /* grid_3_4-hd.pvr.ccz in Resources */,
 				17BC22C9198ACEC10076160B /* buttons.plist in Resources */,
 				17C5C6BB19801EDA0064B653 /* Icon.png in Resources */,
@@ -1893,6 +1892,7 @@
 				17FFE05E1983DE9800D9427A /* Chalkboard.ttc in Resources */,
 				17C5C6B619801EDA0064B653 /* Default-568h@2x.png in Resources */,
 				17BC22EA198D71060076160B /* colors.pvr.ccz in Resources */,
+				17D7933519A8BDD50086868A /* Default.png in Resources */,
 				170F3CB319A89D3400DA1C35 /* Images-2.xcassets in Resources */,
 				17BC22E7198D71060076160B /* colors-ipadhd.plist in Resources */,
 				17C5C6D119801EDA0064B653 /* Icon-Spotlight-iOS7.png in Resources */,
