@@ -8,6 +8,12 @@
 // -----------------------------------------------------------------------
 
 #import "cocos2d.h"
+#import "GADInterstitialDelegate.h"
+#import "GADInterstitial.h"
 
-@interface AppDelegate : CCAppDelegate
+@interface AppDelegate : CCAppDelegate<UIApplicationDelegate,GADInterstitialDelegate>{
+    GADInterstitial     *interstitial_;
+}
+
+
 @end
