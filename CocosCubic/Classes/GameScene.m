@@ -12,6 +12,8 @@
 #import "GridScene.h"
 #import "RecordScene.h"
 #import "GameOverScene.h"
+#import "GADHolderView.h"
+
 
 @implementation GameScene
 
@@ -229,6 +231,10 @@
 }
 
 -(void)prevClicked{
+    
+    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
+    
+    
     int newLevel = [self.level intValue] - 1 ;
     self.level = [NSString stringWithFormat:@"%d",newLevel];
     [self.puzzleLabel setString:[NSString stringWithFormat:@"Puzzle %@",self.level]];
@@ -263,6 +269,11 @@
 }
 
 -(void)nextClicked{
+    
+    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
+
+    
+    
     int newLevel = [self.level intValue] + 1 ;
     self.level = [NSString stringWithFormat:@"%d",newLevel];
     [self.puzzleLabel setString:[NSString stringWithFormat:@"Puzzle %@",self.level]];
@@ -307,6 +318,10 @@
         self.previous.enabled = true;
         self.next.enabled = false;
     }
+}
+
+-(void)loadAdv{
+    [[GADHolderView sharedCenter] loadInterstitial:self showCallback:nil dismissCallback:nil];
 }
 
 

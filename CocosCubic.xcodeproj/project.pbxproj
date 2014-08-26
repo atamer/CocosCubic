@@ -24,6 +24,7 @@
 		17609EED19AA71300048F187 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17609EEC19AA71300048F187 /* StoreKit.framework */; };
 		17609EEF19AA714D0048F187 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17609EEE19AA714D0048F187 /* SystemConfiguration.framework */; };
 		17609EF119AA71600048F187 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17609EF019AA71600048F187 /* MediaPlayer.framework */; };
+		178DF18B19ABDA1600FEDA46 /* GADHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 178DF18A19ABDA1600FEDA46 /* GADHolderView.m */; };
 		1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */ = {isa = PBXBuildFile; fileRef = 170F0898198064450021108C /* CocosCubic-Art */; };
 		17AC025519A13B1100F655C1 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AC025419A13B1100F655C1 /* GameOverScene.m */; };
 		17BC22C5198ACEC10076160B /* buttons-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B3198ACEC10076160B /* buttons-hd.plist */; };
@@ -316,6 +317,8 @@
 		17609EEE19AA714D0048F187 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		17609EF019AA71600048F187 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		178289EA19804C9C00F70EEA /* PackTextures.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = PackTextures.sh; path = Resources/PackTextures.sh; sourceTree = "<group>"; };
+		178DF18919ABDA1600FEDA46 /* GADHolderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADHolderView.h; path = Classes/GADHolderView.h; sourceTree = "<group>"; };
+		178DF18A19ABDA1600FEDA46 /* GADHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GADHolderView.m; path = Classes/GADHolderView.m; sourceTree = "<group>"; };
 		1793E55B1993E78F00BD43E6 /* GameSceneProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameSceneProtocol.h; path = Classes/GameSceneProtocol.h; sourceTree = "<group>"; };
 		17AC025319A13B1100F655C1 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Classes/GameOverScene.h; sourceTree = "<group>"; };
 		17AC025419A13B1100F655C1 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverScene.m; path = Classes/GameOverScene.m; sourceTree = "<group>"; };
@@ -1822,6 +1825,8 @@
 				17C5C94619801EDC0064B653 /* IntroScene.m */,
 				17FFE0621985041700D9427A /* Constants.h */,
 				17FFE0631985041700D9427A /* Constants.m */,
+				178DF18919ABDA1600FEDA46 /* GADHolderView.h */,
+				178DF18A19ABDA1600FEDA46 /* GADHolderView.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -2081,6 +2086,7 @@
 				17C5C79119801EDB0064B653 /* CCSprite9Slice.m in Sources */,
 				17C5C7A319801EDB0064B653 /* CCTextureAtlas.m in Sources */,
 				17C5C86419801EDB0064B653 /* OALAudioFile.m in Sources */,
+				178DF18B19ABDA1600FEDA46 /* GADHolderView.m in Sources */,
 				17C5C78A19801EDB0064B653 /* ccShaders.m in Sources */,
 				17C5C89E19801EDC0064B653 /* matrix.c in Sources */,
 				17C5C7B019801EDB0064B653 /* CCTiledMapLayer.m in Sources */,

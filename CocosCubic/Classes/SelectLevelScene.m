@@ -10,6 +10,7 @@
 #import "SelectSizeScene.h"
 #import "Constants.h"
 #import "GameScene.h"
+#import "GADHolderView.h"
 
 
 @implementation SelectLevelScene
@@ -115,6 +116,9 @@
 }
 
 -(void)onLevelSelected:(id)sender{
+    
+    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
+    
     [Constants playMenuItem];
     CCButton *button = (CCButton*)sender;
     NSString *level = button.name;
@@ -126,5 +130,10 @@
     [[CCDirector sharedDirector] pushScene:gameScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
     
 }
+
+-(void)loadAdv{
+    [[GADHolderView sharedCenter] loadInterstitial:self showCallback:nil dismissCallback:nil];
+}
+
 
 @end

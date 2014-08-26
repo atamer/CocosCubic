@@ -11,8 +11,8 @@
 #import "GADInterstitialDelegate.h"
 #import "GADInterstitial.h"
 
-@interface AppDelegate : CCAppDelegate<UIApplicationDelegate,GADInterstitialDelegate>{
-    GADInterstitial     *interstitial_;
+@interface AppDelegate : CCAppDelegate{
+
 }
 
 

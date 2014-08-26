@@ -24,7 +24,7 @@
 	// If you want more flexibility, you can configure Cocos2D yourself instead of calling setupCocos2dWithOptions:.
 	[self setupCocos2dWithOptions:@{
 		// Show the FPS and draw call label.
-		CCSetupShowDebugStats: @(YES),
+		CCSetupShowDebugStats: @(NO),
 		CCSetupDepthFormat: @GL_DEPTH24_STENCIL8_OES,
 		// More examples of options you might want to fiddle with:
 		// (See CCAppDelegate.h for more information)
@@ -47,8 +47,6 @@
 //    [[CCFileUtils sharedFileUtils] setiPadContentScaleFactor:1.0f];
 
     
-    [self preLoadInterstitial];
-    
 	return YES;
 }
 
@@ -58,45 +56,6 @@
 	return [IntroScene scene];
 }
 
-- (void)preLoadInterstitial {
-    //Call this method as soon as you can - loadRequest will run in the background and your interstitial will be ready when you need to show it
-    GADRequest *request = [GADRequest request];
-    interstitial_ = [[GADInterstitial alloc] init];
-    interstitial_.delegate = self;
-    interstitial_.adUnitID = @"ca-app-pub-8854429305629377/7909765340";
-    
-    UIDevice *device = [UIDevice currentDevice];
-    NSUUID *uniqueIdentifier = [device identifierForVendor];
 
-    NSString *uuid = uniqueIdentifier.UUIDString;
-    request.testDevices = @[
-                            // TODO: Add your device/simulator test identifiers here. Your device identifier is printed to
-                            // the console when the app is launched.
-                            uuid
-                            ];
-    
-    [interstitial_ loadRequest:request];
-}
-
-- (void)interstitialDidDismissScreen:(GADInterstitial *)ad
-{
-    //An interstitial object can only be used once - so it's useful to automatically load a new one when the current one is dismissed
-    [self preLoadInterstitial];
-}
-
-- (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
-{
-    //If an error occurs and the interstitial is not received you might want to retry automatically after a certain interval
-    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(preLoadInterstitial) userInfo:nil repeats:NO];
-    NSLog(@"%@",error.userInfo[@"NSLocalizedDescription"]);
-    
-}
-
-- (void) showInterstitial
-{
-    //Call this method when you want to show the interstitial - the method should double check that the interstitial has not been used before trying to present it
-    if (!interstitial_.hasBeenUsed)
-        [interstitial_ presentFromRootViewController:nil];
-}
 
 @end

@@ -9,29 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CocosCubic/Classes/AppDelegate.m"
-            timestampString = "430605229.173849"
+            filePath = "CocosCubic/Classes/SelectLevelScene.m"
+            timestampString = "430774953.294395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-preLoadInterstitial"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CocosCubic/Classes/AppDelegate.m"
-            timestampString = "430605843.865225"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
-            landmarkName = "-interstitial:didFailToReceiveAdWithError:"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "-onLevelSelected:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,29 +25,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CocosCubic/Classes/AppDelegate.m"
-            timestampString = "430605564.644846"
+            filePath = "CocosCubic/Classes/GameScene.m"
+            timestampString = "430775085.933711"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-interstitialDidDismissScreen:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CocosCubic/Classes/AppDelegate.m"
-            timestampString = "430605843.865225"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "-showInterstitial"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
+            landmarkName = "-nextClicked"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
