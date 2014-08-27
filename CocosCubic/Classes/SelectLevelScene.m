@@ -117,7 +117,12 @@
 
 -(void)onLevelSelected:(id)sender{
     
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
+    if(self.timer != nil){
+        [self.timer invalidate];
+    }
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
+    
+
     
     [Constants playMenuItem];
     CCButton *button = (CCButton*)sender;

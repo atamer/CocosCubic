@@ -26,6 +26,10 @@
 		17609EF119AA71600048F187 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17609EF019AA71600048F187 /* MediaPlayer.framework */; };
 		178DF18B19ABDA1600FEDA46 /* GADHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 178DF18A19ABDA1600FEDA46 /* GADHolderView.m */; };
 		1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */ = {isa = PBXBuildFile; fileRef = 170F0898198064450021108C /* CocosCubic-Art */; };
+		179D50FC19AE606D0072DCA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D50FB19AE606D0072DCA4 /* CoreData.framework */; };
+		179D50FE19AE60830072DCA4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D50FD19AE60830072DCA4 /* libz.dylib */; };
+		179D510019AE61000072DCA4 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D50FF19AE61000072DCA4 /* libGoogleAnalyticsServices.a */; };
+		179D510219AE647B0072DCA4 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D510119AE647B0072DCA4 /* libsqlite3.0.dylib */; };
 		17AC025519A13B1100F655C1 /* GameOverScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AC025419A13B1100F655C1 /* GameOverScene.m */; };
 		17BC22C5198ACEC10076160B /* buttons-hd.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B3198ACEC10076160B /* buttons-hd.plist */; };
 		17BC22C6198ACEC10076160B /* buttons-hd.pvr.ccz in Resources */ = {isa = PBXBuildFile; fileRef = 17BC22B4198ACEC10076160B /* buttons-hd.pvr.ccz */; };
@@ -320,6 +324,20 @@
 		178DF18919ABDA1600FEDA46 /* GADHolderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GADHolderView.h; path = Classes/GADHolderView.h; sourceTree = "<group>"; };
 		178DF18A19ABDA1600FEDA46 /* GADHolderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GADHolderView.m; path = Classes/GADHolderView.m; sourceTree = "<group>"; };
 		1793E55B1993E78F00BD43E6 /* GameSceneProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameSceneProtocol.h; path = Classes/GameSceneProtocol.h; sourceTree = "<group>"; };
+		179D50F119AE5CFD0072DCA4 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		179D50F219AE5CFD0072DCA4 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		179D50F319AE5CFD0072DCA4 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		179D50F419AE5CFD0072DCA4 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		179D50F519AE5CFD0072DCA4 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		179D50F619AE5CFD0072DCA4 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		179D50F719AE5CFD0072DCA4 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		179D50F819AE5CFD0072DCA4 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		179D50F919AE5CFD0072DCA4 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		179D50FA19AE5CFD0072DCA4 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		179D50FB19AE606D0072DCA4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		179D50FD19AE60830072DCA4 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		179D50FF19AE61000072DCA4 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "../../../Downloads/GoogleAnalyticsServicesiOS_3.09 2/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
+		179D510119AE647B0072DCA4 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		17AC025319A13B1100F655C1 /* GameOverScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameOverScene.h; path = Classes/GameOverScene.h; sourceTree = "<group>"; };
 		17AC025419A13B1100F655C1 /* GameOverScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameOverScene.m; path = Classes/GameOverScene.m; sourceTree = "<group>"; };
 		17BC22B3198ACEC10076160B /* buttons-hd.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "buttons-hd.plist"; path = "Resources/buttons-hd.plist"; sourceTree = "<group>"; };
@@ -793,8 +811,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17609EF119AA71600048F187 /* MediaPlayer.framework in Frameworks */,
+				179D510219AE647B0072DCA4 /* libsqlite3.0.dylib in Frameworks */,
+				179D510019AE61000072DCA4 /* libGoogleAnalyticsServices.a in Frameworks */,
+				179D50FE19AE60830072DCA4 /* libz.dylib in Frameworks */,
 				17609EEF19AA714D0048F187 /* SystemConfiguration.framework in Frameworks */,
+				179D50FC19AE606D0072DCA4 /* CoreData.framework in Frameworks */,
+				17609EF119AA71600048F187 /* MediaPlayer.framework in Frameworks */,
 				17609EED19AA71300048F187 /* StoreKit.framework in Frameworks */,
 				17609EEB19AA70D90048F187 /* MessageUI.framework in Frameworks */,
 				17609EE919AA70B40048F187 /* CoreTelephony.framework in Frameworks */,
@@ -880,6 +902,23 @@
 			name = Protocol;
 			sourceTree = "<group>";
 		};
+		179D50F019AE5CA30072DCA4 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				179D50F119AE5CFD0072DCA4 /* GAI.h */,
+				179D50F219AE5CFD0072DCA4 /* GAIDictionaryBuilder.h */,
+				179D50F319AE5CFD0072DCA4 /* GAIEcommerceFields.h */,
+				179D50F419AE5CFD0072DCA4 /* GAIEcommerceProduct.h */,
+				179D50F519AE5CFD0072DCA4 /* GAIEcommerceProductAction.h */,
+				179D50F619AE5CFD0072DCA4 /* GAIEcommercePromotion.h */,
+				179D50F719AE5CFD0072DCA4 /* GAIFields.h */,
+				179D50F819AE5CFD0072DCA4 /* GAILogger.h */,
+				179D50F919AE5CFD0072DCA4 /* GAITrackedViewController.h */,
+				179D50FA19AE5CFD0072DCA4 /* GAITracker.h */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
 		17BC22EF198D7DC80076160B /* CocosExt */ = {
 			isa = PBXGroup;
 			children = (
@@ -935,6 +974,10 @@
 		17C5C69619801EDA0064B653 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				179D510119AE647B0072DCA4 /* libsqlite3.0.dylib */,
+				179D50FF19AE61000072DCA4 /* libGoogleAnalyticsServices.a */,
+				179D50FD19AE60830072DCA4 /* libz.dylib */,
+				179D50FB19AE606D0072DCA4 /* CoreData.framework */,
 				17609EF019AA71600048F187 /* MediaPlayer.framework */,
 				17609EEE19AA714D0048F187 /* SystemConfiguration.framework */,
 				17609EEC19AA71300048F187 /* StoreKit.framework */,
@@ -957,6 +1000,7 @@
 		17C5C6AF19801EDA0064B653 /* CocosCubic */ = {
 			isa = PBXGroup;
 			children = (
+				179D50F019AE5CA30072DCA4 /* Analytics */,
 				17609ED719AA6E6B0048F187 /* Banner */,
 				17C5C6B019801EDA0064B653 /* Resources */,
 				17C5C6D919801EDA0064B653 /* Libraries */,
@@ -2284,6 +2328,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "c3a4ec51-f01f-49f7-b31b-47e37309f411";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2304,6 +2349,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "c3a4ec51-f01f-49f7-b31b-47e37309f411";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2366,10 +2412,12 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
 				INFOPLIST_FILE = CocosCubic/Resources/CocosCubic.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CocosCubic/Banner",
+					/Users/onuratamer/Downloads/GoogleAnalyticsServicesiOS_3.09,
+					2,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -2400,10 +2448,12 @@
 					"\"$(SRCROOT)/$(PROJECT_NAME)/Libraries/Chipmunk/objectivec/include\"",
 				);
 				INFOPLIST_FILE = CocosCubic/Resources/CocosCubic.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CocosCubic/Banner",
+					/Users/onuratamer/Downloads/GoogleAnalyticsServicesiOS_3.09,
+					2,
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

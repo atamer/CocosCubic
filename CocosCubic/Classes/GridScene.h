@@ -10,6 +10,9 @@
 #import "CCSprite.h"
 #import "GridSceneProtocol.h"
 #import "GameSceneProtocol.h"
+#import "GAITracker.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 
@@ -32,6 +35,7 @@
 @property  int hoverX;
 @property  int hoverY;
 @property id<GameSceneProtocol>gameSceneProtocol;
+@property id<GAITracker> tracker;
 
 @end
 

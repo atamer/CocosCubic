@@ -27,7 +27,8 @@
     self = [super init ];
     if (!self) return(nil);
     
-
+    self.tracker = [[GAI sharedInstance] defaultTracker];
+    
     self.level = level;
     self.size = size;
     self.move = 0;
@@ -168,6 +169,15 @@
 
 
 -(void) finishGame{
+    
+    
+    NSString *label = [NSString stringWithFormat:@"%@ %@",self.size ,self.level];
+    
+    [self.tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"finishgame"     // Event category
+                                                               action:@"finish"  // Event action (required)
+                                                                label:label
+                                                                value:nil] build]];    // Event valu
+    
     int sizeInt = [[self.size substringFromIndex:4] intValue];
     int bestScore = [Constants getScore:sizeInt level:[self.level intValue]];
     if(self.move < bestScore || bestScore == 0 ){
@@ -232,7 +242,11 @@
 
 -(void)prevClicked{
     
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
+    if(self.timer != nil){
+        [self.timer invalidate];
+    }
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
+
     
     
     int newLevel = [self.level intValue] - 1 ;
@@ -270,7 +284,10 @@
 
 -(void)nextClicked{
     
-    [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
+    if(self.timer != nil){
+        [self.timer invalidate];
+    }
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
 
     
     

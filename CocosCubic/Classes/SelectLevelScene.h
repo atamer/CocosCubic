@@ -21,6 +21,7 @@
 
 @property NSString* size;
 @property NSString* level;
+@property NSTimer *timer;
 
 
 @end

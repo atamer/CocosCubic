@@ -65,6 +65,9 @@ int blockIndex  ;
     self = [super initWithSpriteFrame:[CCSpriteFrame frameWithImageNamed:imageName]];
     if(!self)return (nil);
     
+    
+    self.tracker = [[GAI sharedInstance] defaultTracker];
+    
     endGame = YES;
     touchStart = NO;
     self.image = imageName;
@@ -793,6 +796,14 @@ int randomCount;
 
 
 -(void) reflectFirstLastColors:(BOOL)checkComplete reverse:(BOOL)reverse{
+    
+    NSString *label = [NSString stringWithFormat:@"%d %d",self.size ,self.level];
+    
+    [self.tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"movegrid"     // Event category
+                                                          action:@"move"  // Event action (required)
+                                                           label:label         // Event label
+                                                           value:nil] build]];    // Event valu
+    
     actionActive = NO;
     directionFound = NO;
     touchStart = NO;
