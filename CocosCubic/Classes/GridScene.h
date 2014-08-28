@@ -15,13 +15,14 @@
 #import "GAIDictionaryBuilder.h"
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
+#import "GADHolderView.h"
 
 
 @interface GridScene : CCSprite
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol;
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level random:(BOOL)random gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol;
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level random:(BOOL)random  reverse:(BOOL)reverse gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol;
-
+-(void)showAdv;
 
 - (void) clean;
 -(void) moveDown:(int)x;
@@ -36,7 +37,11 @@
 @property  int hoverY;
 @property id<GameSceneProtocol>gameSceneProtocol;
 @property id<GAITracker> tracker;
+@property NSTimer *timer;
 
+
+@property UITouch* currentTouchParam ;
+@property UIEvent* currentUIEvent ;
 @end
 
 @interface ActionMoveBlock:NSObject{

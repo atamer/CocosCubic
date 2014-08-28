@@ -35,5 +35,5 @@
 @property CCButton *previous;
 @property CCLabelTTF *puzzleLabel;
 @property id<GAITracker> tracker;
-@property NSTimer *timer;
+
 @end

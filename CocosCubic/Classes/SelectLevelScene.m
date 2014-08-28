@@ -117,13 +117,6 @@
 
 -(void)onLevelSelected:(id)sender{
     
-    if(self.timer != nil){
-        [self.timer invalidate];
-    }
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(loadAdv) userInfo:nil repeats:NO];
-    
-
-    
     [Constants playMenuItem];
     CCButton *button = (CCButton*)sender;
     NSString *level = button.name;
@@ -136,9 +129,7 @@
     
 }
 
--(void)loadAdv{
-    [[GADHolderView sharedCenter] loadInterstitial:self showCallback:nil dismissCallback:nil];
-}
+
 
 
 @end

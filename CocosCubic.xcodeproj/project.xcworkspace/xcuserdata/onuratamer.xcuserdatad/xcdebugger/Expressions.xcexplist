@@ -3,92 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[IntroScene onPlayClicked:]:IntroScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "id">
-            </PersistentString>
-            <PersistentString
-               value = "sender.boundingBox.size.width">
-            </PersistentString>
-            <PersistentString
-               value = " b.boundingBox.size.width;">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[GameScene onBackClicked]:GameScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "size_">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[OALAudioFile initWithUrl:reduceToMono:]:OALAudioFile.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "noErr">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[IntroScene init]:IntroScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "playButton.boundingBox.size.height">
-            </PersistentString>
-            <PersistentString
-               value = "(screenWidth - buttonWidth)">
-            </PersistentString>
-            <PersistentString
-               value = "    playButton.contentSize.width">
-            </PersistentString>
-            <PersistentString
-               value = "((screenWidth - buttonWidth) / (2 * screenWidth))">
-            </PersistentString>
-            <PersistentString
-               value = "((screenWidth - buttonWidth) / 2 * screenWidth)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[CCSpriteFrame rect]:CCSpriteFrame.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.texture.contentScale">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[CCButton layout]:CCButton.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.preferredSize">
-            </PersistentString>
-            <PersistentString
-               value = "self.maxSize">
-            </PersistentString>
-            <PersistentString
-               value = "_label.contentSize">
-            </PersistentString>
-            <PersistentString
-               value = "self.contentSizeType">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[CCSpriteFrame(Proxy) proxy]:CCSpriteFrameCache.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[CCSpriteFrame originalSize]:CCSpriteFrame.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.texture.contentScale">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[IntroScene readScoreFile:]:IntroScene.m">
          <PersistentStrings>
             <PersistentString
@@ -96,146 +10,6 @@
             </PersistentString>
             <PersistentString
                value = "[scoreLines count] ">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "+[Constants setScore:level:score:]:Constants.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "[self getScore:size level:level] ">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[ColorBlock initWithImageNamed:x:y:contentSize:size:updateProtocol:]:ColorBlock.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.prop_x">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[CCButton initWithTitle:spriteFrame:highlightedSpriteFrame:disabledSpriteFrame:]:CCButton.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "spriteFrame.originalSize">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[GridScene initWithImageNamed:size:level:random:reverse:gameSceneProtocol:]:GridScene.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[CCNode convertContentSizeToPoints:type:]:CCNode.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "director.UIScaleFactor">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[GridScene updateFunc:differ:]:GridScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "borderArrayY[index]">
-            </PersistentString>
-            <PersistentString
-               value = "borderArrayY[index+1]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[GridScene reflectFirstLastColors]:GridScene.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[GameScene init]:GameScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "size_">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[GridScene initWithImageNamed:size:]:GridScene.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[GridScene touchMoved:withEvent:]:GridScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "borderArrayY">
-            </PersistentString>
-            <PersistentString
-               value = "borderArrayX">
-            </PersistentString>
-            <PersistentString
-               value = "blockIndex">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[GridScene updateFunc:differY:x:y:]:GridScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "block2.position.x">
-            </PersistentString>
-            <PersistentString
-               value = "positionArray">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "+[CCSpriteFrame frameWithImageNamed:]:CCSpriteFrame.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "frame.target">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[ColorBlock initWithImageNamed:x:y:]:ColorBlock.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "size_">
-            </PersistentString>
-            <PersistentString
-               value = "revy">
-            </PersistentString>
-            <PersistentString
-               value = "self.prop_y">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[GridScene hoverBlock]:GridScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.hoverX ">
-            </PersistentString>
-            <PersistentString
-               value = "self.size">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[OALAudioFile dealloc]:OALAudioFile.m">
-      </ContextState>
-      <ContextState
-         contextName = "+[Constants readScoreFile:]:Constants.m">
-      </ContextState>
-      <ContextState
-         contextName = "-[GameScene gameSceneBackClicked]:GameScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "size_">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "+[Constants getScore:level:]:Constants.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "SCORE_TABLE[0][0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -257,10 +31,194 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "+[Constants saveScore]:Constants.m">
+         contextName = "-[ColorBlock initWithImageNamed:x:y:]:ColorBlock.m">
          <PersistentStrings>
             <PersistentString
-               value = "SCORE_TABLE">
+               value = "size_">
+            </PersistentString>
+            <PersistentString
+               value = "revy">
+            </PersistentString>
+            <PersistentString
+               value = "self.prop_y">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameScene gameSceneBackClicked]:GameScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "size_">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCSpriteFrame rect]:CCSpriteFrame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.texture.contentScale">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene touchMoved:withEvent:]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "borderArrayX">
+            </PersistentString>
+            <PersistentString
+               value = "blockArray">
+            </PersistentString>
+            <PersistentString
+               value = "borderArrayY">
+            </PersistentString>
+            <PersistentString
+               value = "blockIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[OALAudioFile dealloc]:OALAudioFile.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[CCSpriteFrame frameWithImageNamed:]:CCSpriteFrame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "frame.target">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[Constants readScoreFile:]:Constants.m">
+      </ContextState>
+      <ContextState
+         contextName = "+[Constants setScore:level:score:]:Constants.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[self getScore:size level:level] ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCButton layout]:CCButton.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.preferredSize">
+            </PersistentString>
+            <PersistentString
+               value = "self.maxSize">
+            </PersistentString>
+            <PersistentString
+               value = "_label.contentSize">
+            </PersistentString>
+            <PersistentString
+               value = "self.contentSizeType">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCSpriteFrame originalSize]:CCSpriteFrame.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.texture.contentScale">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ColorBlock initWithImageNamed:x:y:contentSize:size:updateProtocol:]:ColorBlock.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.prop_x">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCButton initWithTitle:spriteFrame:highlightedSpriteFrame:disabledSpriteFrame:]:CCButton.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "spriteFrame.originalSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCNode convertContentSizeToPoints:type:]:CCNode.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "director.UIScaleFactor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene rightMoveComplete:]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "callback != nil">
+            </PersistentString>
+            <PersistentString
+               value = "array">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene initWithImageNamed:size:level:random:reverse:gameSceneProtocol:]:GridScene.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CCResponderManager cancelResponder:]:CCResponderManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_responderList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene reflectFirstLastColors]:GridScene.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[GameScene init]:GameScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "size_">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene hoverBlock]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.hoverX ">
+            </PersistentString>
+            <PersistentString
+               value = "self.size">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameScene onBackClicked]:GameScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "size_">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCSpriteFrame(Proxy) proxy]:CCSpriteFrameCache.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[CCResponderManager touchesMoved:withEvent:]:CCResponderManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_responderList">
+            </PersistentString>
+            <PersistentString
+               value = "    self.userInteractionEnabled = true;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[Constants getScore:level:]:Constants.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "SCORE_TABLE[0][0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -273,13 +231,128 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[GridScene rightMoveComplete:]:GridScene.m">
+         contextName = "-[CCResponderManager cancelAllResponders]:CCResponderManager.m">
          <PersistentStrings>
             <PersistentString
-               value = "callback != nil">
+               value = "_responderList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCActionSequence initOne:two:]:CCActionInterval.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[one duration]">
             </PersistentString>
             <PersistentString
-               value = "array">
+               value = "[two duration]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCResponderManager buildResponderList:]:CCResponderManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "node.isUserInteractionEnabled">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "+[Constants saveScore]:Constants.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "SCORE_TABLE">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCResponderManager buildResponderList]:CCResponderManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_responderList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[OALAudioFile initWithUrl:reduceToMono:]:OALAudioFile.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "noErr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene updateFunc:differ:]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "borderArrayY[index]">
+            </PersistentString>
+            <PersistentString
+               value = "borderArrayY[index+1]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GADHolderView interstitialDidDismissScreen:]:GADHolderView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.dissmisCallback">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[IntroScene init]:IntroScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "playButton.boundingBox.size.height">
+            </PersistentString>
+            <PersistentString
+               value = "((screenWidth - buttonWidth) / (2 * screenWidth))">
+            </PersistentString>
+            <PersistentString
+               value = "((screenWidth - buttonWidth) / 2 * screenWidth)">
+            </PersistentString>
+            <PersistentString
+               value = "(screenWidth - buttonWidth)">
+            </PersistentString>
+            <PersistentString
+               value = "    playButton.contentSize.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CCResponderManager setEnabled:]:CCResponderManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_responderList">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[IntroScene onPlayClicked:]:IntroScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "id">
+            </PersistentString>
+            <PersistentString
+               value = "sender.boundingBox.size.width">
+            </PersistentString>
+            <PersistentString
+               value = " b.boundingBox.size.width;">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene initWithImageNamed:size:]:GridScene.m">
+      </ContextState>
+      <ContextState
+         contextName = "-[GridScene updateFunc:differY:x:y:]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "block2.position.x">
+            </PersistentString>
+            <PersistentString
+               value = "positionArray">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

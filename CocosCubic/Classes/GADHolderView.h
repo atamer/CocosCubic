@@ -14,13 +14,15 @@
 
 
 -(id)init;
--(void)loadInterstitial:(id)target showCallback:(SEL)showCallback dismissCallback:(SEL)dismissCallback;
+-(BOOL)loadInterstitial:(id)target showCallback:(SEL)showCallback dismissCallback:(SEL)dismissCallback;
 + (GADHolderView *)sharedCenter;
+-(NSTimer*)getTimer:(id)target loadAdv:(SEL)loadAdv;
 
 @property GADInterstitial *interstitial;
 @property id target;
 @property SEL showCallback;
 @property SEL dissmisCallback;
 @property BOOL pending ;
+@property NSTimer *timer;
 
 @end

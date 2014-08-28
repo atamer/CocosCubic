@@ -17,6 +17,10 @@
     return [num intValue];
 }
 
+
+
+
+
 +(void)createScoreFile:(NSString*)filePath{
     SCORE_TABLE = [NSMutableArray array];
     NSString *scoreFile = @"" ;

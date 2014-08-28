@@ -30,33 +30,34 @@ static GADHolderView *sharedGADCenter = nil;
     return self;
 }
 
+-(NSTimer*)getTimer:(id)target loadAdv:(SEL)loadAdv{
+    if(self.timer != nil){
+        [self.timer invalidate];
+    }
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:target selector:@selector(loadAdv) userInfo:nil repeats:NO];
+    
+    return self.timer;
+}
 
--(void)loadInterstitial:(id)target showCallback:(SEL)showCallback dismissCallback:(SEL)dismissCallback{
+
+-(BOOL)loadInterstitial:(id)target showCallback:(SEL)showCallback dismissCallback:(SEL)dismissCallback{
     
     if(self.pending == false){
         self.pending = true;
         self.dissmisCallback = dismissCallback;
         self.showCallback = showCallback;
-        
+        self.target = target;
         
         GADRequest *request = [GADRequest request];
         self.interstitial = [[GADInterstitial alloc] init];
         self.interstitial.delegate = self;
         self.interstitial.adUnitID = @"ca-app-pub-8854429305629377/3481174946";
         
-        
-        /*UIDevice *device = [UIDevice currentDevice];
-         NSUUID *uniqueIdentifier = [device identifierForVendor];
-         
-         NSString *uuid = uniqueIdentifier.UUIDString;
-         request.testDevices = @[
-         // TODO: Add your device/simulator test identifiers here. Your device identifier is printed to
-         // the console when the app is launched.
-         uuid
-         ];
-         */
+     
         [self.interstitial loadRequest:request];
-
+        return true;
+    }else{
+        return false;
     }
     
 }
@@ -91,6 +92,8 @@ static GADHolderView *sharedGADCenter = nil;
         ((Func)objc_msgSend)(self.target, self.showCallback);
     }
 }
+
+
 
 
 

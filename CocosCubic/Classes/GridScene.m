@@ -42,6 +42,7 @@ CGFloat borderY2_3;
 NSString *lastMove;
 int lastMoveIndex;
 int blockIndex  ;
+CCTime ANIM_TIME  ;
 
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
 {
@@ -193,6 +194,8 @@ int blockIndex  ;
     [nodecc addChild:parentNode];
     
     [self addChild:nodecc];
+    
+    
     [self reflectFirstLastColors:NO reverse:NO] ;
     
     if(random == YES){
@@ -200,6 +203,8 @@ int blockIndex  ;
     }
 
     self.userInteractionEnabled = true;
+    [self showAdv];
+    
     return self;
 }
 
@@ -219,7 +224,7 @@ int blockIndex  ;
             for(int i = 0 ; i < self.size + 2 ; i++){
                 point = [positionArray[y][i] CGPointValue];
                 block = blockArray[y][i];
-                actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(point.x,point.y)];
+                actionMove = [CCActionMoveTo actionWithDuration:ANIM_TIME position:CGPointMake(point.x,point.y)];
                 
                 ActionMoveBlock *actionMoveBlock = [[ActionMoveBlock alloc] init];
                 actionMoveBlock.action = actionMove;
@@ -232,7 +237,7 @@ int blockIndex  ;
             for(int i = 0 ; i < self.size + 2 ; i++){
                 point = [positionArray[i][x] CGPointValue];
                 block = blockArray[i][x];
-                actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(point.x,point.y)];
+                actionMove = [CCActionMoveTo actionWithDuration:ANIM_TIME position:CGPointMake(point.x,point.y)];
                 
                 ActionMoveBlock *actionMoveBlock = [[ActionMoveBlock alloc ]init];
                 actionMoveBlock.action = actionMove;
@@ -263,6 +268,9 @@ int blockIndex  ;
 
 
 -(void) touchMoved:(UITouch *)touchParam withEvent:(UIEvent *)event{
+    
+    self.currentTouchParam = touchParam;
+    self.currentUIEvent = event;
     
     if(touchStart == YES){
         CGPoint touchLocation = [touchParam locationInNode:self];
@@ -335,10 +343,16 @@ int blockIndex  ;
     touchStartPoint = [touch locationInNode:self];
     touchStart = YES;
     
+    self.currentTouchParam = touch;
+    self.currentUIEvent = event;
+    
 }
 
 - (void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
 
+    self.currentTouchParam = touch;
+    self.currentUIEvent = event;
+    
     directionFound = false;
     if(endGame == NO && actionActive == NO){
        
@@ -354,7 +368,7 @@ int blockIndex  ;
             for(int i = 0 ; i < self.size + 2 ; i++){
                 point = [positionArray[blockIndex][i] CGPointValue];
                 block = blockArray[blockIndex][i];
-                actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(point.x,point.y)];
+                actionMove = [CCActionMoveTo actionWithDuration:ANIM_TIME position:CGPointMake(point.x,point.y)];
                 
                 ActionMoveBlock *actionMoveBlock = [[ActionMoveBlock alloc] init];
                 actionMoveBlock.action = actionMove;
@@ -367,7 +381,7 @@ int blockIndex  ;
             for(int i = 0 ; i < self.size + 2 ; i++){
                 point = [positionArray[i][blockIndex] CGPointValue];
                 block = blockArray[i][blockIndex];
-                actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(point.x,point.y)];
+                actionMove = [CCActionMoveTo actionWithDuration:ANIM_TIME position:CGPointMake(point.x,point.y)];
                 
                 ActionMoveBlock *actionMoveBlock = [[ActionMoveBlock alloc ]init];
                 actionMoveBlock.action = actionMove;
@@ -444,6 +458,7 @@ int randomizeCounter = 0 ;
 int randomCount;
 
 -(void) unmatchColors{
+    ANIM_TIME = 0.4;
     endGame = true;
     // just randomize
     randomizeCounter = 0;
@@ -472,6 +487,7 @@ int randomCount;
         }
     }else{
         [self.gameSceneProtocol randomizeFinished];
+        ANIM_TIME = 0.1;
         [self reflectFirstLastColors:false reverse:false];
         endGame = false;
 
@@ -513,7 +529,7 @@ int randomCount;
         if( i != 0 ){
             CGPoint pos = [positionArray[y][i] CGPointValue];
             
-            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
+            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:ANIM_TIME position:CGPointMake(pos.x,pos.y)];
             actionArray[i-1] = actionMove;
         }
     }
@@ -594,7 +610,7 @@ int randomCount;
     for(int i = 0 ; i < self.size + 2 ; i++ ){
         if( i != self.size + 1  ){
             CGPoint pos = [positionArray[y][i] CGPointValue];
-            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
+            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:ANIM_TIME position:CGPointMake(pos.x,pos.y)];
             actionArray[i] = actionMove;
         }
     }
@@ -657,7 +673,7 @@ int randomCount;
     for(int i = 0 ; i < self.size + 2 ; i++ ){
         if( i != self.size + 1  ){
             CGPoint pos = [positionArray[i][x] CGPointValue];
-            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
+            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:ANIM_TIME position:CGPointMake(pos.x,pos.y)];
             actionArray[i] = actionMove;
         }
     }
@@ -717,7 +733,7 @@ int randomCount;
     for(int i = 0 ; i < self.size + 2 ; i++ ){
         if( i != 0 ){
             CGPoint pos = [positionArray[i][x] CGPointValue];
-            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:0.1 position:CGPointMake(pos.x,pos.y)];
+            CCActionMoveTo *actionMove = [CCActionMoveTo actionWithDuration:ANIM_TIME position:CGPointMake(pos.x,pos.y)];
             actionArray[i-1] = actionMove;
         }
         
@@ -841,7 +857,8 @@ int randomCount;
             block.position = CGPointMake(orgPoint.x, orgPoint.y);
         }
     }
-    
+    [self printPositions];
+
     if(checkComplete == YES){
         [Constants playMoveItem];
         [self.gameSceneProtocol updateMove:reverse];
@@ -940,6 +957,34 @@ int randomCount;
     
 }
 
+-(void)onEnter
+{
+    [super onEnter];
+    self.userInteractionEnabled = true;
+}
 
+-(void)showAdv{
+    [[GADHolderView sharedCenter] getTimer:self loadAdv:@selector(loadAdv)];
+}
+
+-(void)loadAdv{
+
+   BOOL loadSuccess =  [[GADHolderView sharedCenter] loadInterstitial:self showCallback:nil dismissCallback:@selector(advDismissed)];
+    if(loadSuccess == TRUE){
+        self.userInteractionEnabled = NO;
+         [self reflectFirstLastColors:NO reverse:NO];
+    }
+
+}
+
+-(void)advDismissed{
+
+    [[CCDirector sharedDirector].responderManager setEnabled:FALSE];
+    [[CCDirector sharedDirector].responderManager setEnabled:TRUE];
+    self.userInteractionEnabled = true;
+    //[self touchCancelled:self.currentTouchParam withEvent:self.currentUIEvent];
+
+    [self reflectFirstLastColors:NO reverse:NO];
+}
 
 @end
