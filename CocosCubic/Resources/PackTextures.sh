@@ -6,6 +6,7 @@
 #  Created by Onur Atamer on 23/07/14.
 #  Copyright (c) 2014 Onur Atamer. All rights reserved.
 
+exit 0
 
 TP="/usr/local/bin/TexturePacker"
 cd ${PROJECT_DIR}/${PROJECT}

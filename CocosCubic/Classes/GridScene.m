@@ -477,7 +477,7 @@ int randomCount;
 
 -(void) randomizeColors{
 
-    
+  //  NSLog(@"%d %d %d ",randomizeCounter, randomCount , [self checkComplete]);
     if(randomizeCounter < randomCount || [self checkComplete] == YES){
         int random = rand() % self.size;
         if(randomizeCounter % 2 == 0){
@@ -857,7 +857,10 @@ int randomCount;
             block.position = CGPointMake(orgPoint.x, orgPoint.y);
         }
     }
-    [self printPositions];
+
+    if(reverse == TRUE){
+        [self.gameSceneProtocol updateMove:reverse];
+    }
 
     if(checkComplete == YES){
         [Constants playMoveItem];
@@ -970,11 +973,11 @@ int randomCount;
 -(void)loadAdv{
 
    BOOL loadSuccess =  [[GADHolderView sharedCenter] loadInterstitial:self showCallback:nil dismissCallback:@selector(advDismissed)];
-    if(loadSuccess == TRUE){
+/*    if(loadSuccess == TRUE){
         self.userInteractionEnabled = NO;
          [self reflectFirstLastColors:NO reverse:NO];
     }
-
+*/
 }
 
 -(void)advDismissed{

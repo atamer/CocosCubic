@@ -76,7 +76,7 @@ static GADHolderView *sharedGADCenter = nil;
 - (void)interstitial:(GADInterstitial *)ad didFailToReceiveAdWithError:(GADRequestError *)error
 {
     //If an error occurs and the interstitial is not received you might want to retry automatically after a certain interval
-    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(preLoadInterstitial) userInfo:nil repeats:NO];
+//    [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(preLoadInterstitial) userInfo:nil repeats:NO];
    
     
 }

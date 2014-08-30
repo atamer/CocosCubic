@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		170F3CB319A89D3400DA1C35 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 170F3CB219A89D3400DA1C35 /* Images-2.xcassets */; };
 		17132CED1986DE290055DDD8 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17132CEC1986DE290055DDD8 /* GameScene.m */; };
+		1726DA7519B1C92E00A25900 /* CocosCubic.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1726DA7419B1C92E00A25900 /* CocosCubic.plist */; };
 		17508A8E1997C91F006BE654 /* RecordScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17508A8D1997C91F006BE654 /* RecordScene.m */; };
 		17508A9519980217006BE654 /* ChalkboardBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 17508A9419980217006BE654 /* ChalkboardBold.ttf */; };
 		17508AA519994C86006BE654 /* endgame.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 17508AA219994C86006BE654 /* endgame.mp3 */; };
@@ -25,7 +26,6 @@
 		17609EEF19AA714D0048F187 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17609EEE19AA714D0048F187 /* SystemConfiguration.framework */; };
 		17609EF119AA71600048F187 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17609EF019AA71600048F187 /* MediaPlayer.framework */; };
 		178DF18B19ABDA1600FEDA46 /* GADHolderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 178DF18A19ABDA1600FEDA46 /* GADHolderView.m */; };
-		1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */ = {isa = PBXBuildFile; fileRef = 170F0898198064450021108C /* CocosCubic-Art */; };
 		179D50FC19AE606D0072DCA4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D50FB19AE606D0072DCA4 /* CoreData.framework */; };
 		179D50FE19AE60830072DCA4 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D50FD19AE60830072DCA4 /* libz.dylib */; };
 		179D510019AE61000072DCA4 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 179D50FF19AE61000072DCA4 /* libGoogleAnalyticsServices.a */; };
@@ -285,10 +285,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		170F0898198064450021108C /* CocosCubic-Art */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CocosCubic-Art"; path = "Resources/CocosCubic-Art"; sourceTree = "<group>"; };
 		170F3CB219A89D3400DA1C35 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		17132CEB1986DE290055DDD8 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = Classes/GameScene.h; sourceTree = "<group>"; };
 		17132CEC1986DE290055DDD8 /* GameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameScene.m; path = Classes/GameScene.m; sourceTree = "<group>"; };
+		1726DA7419B1C92E00A25900 /* CocosCubic.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = CocosCubic.plist; path = Resources/CocosCubic.plist; sourceTree = "<group>"; };
+		1726DA7E19B1DDAE00A25900 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		1726DA7F19B1DDBB00A25900 /* icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72@2x.png"; sourceTree = "<group>"; };
+		1726DA8019B1DDCF00A25900 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		1726DA8119B1DDDC00A25900 /* icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-60@2x.png"; sourceTree = "<group>"; };
+		1726DA8219B1DDED00A25900 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
+		1726DA8319B1DDFA00A25900 /* icon-76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76.png"; sourceTree = "<group>"; };
+		1726DA8419B1DE0400A25900 /* icon-76@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-76@2x.png"; sourceTree = "<group>"; };
+		1726DA8519B1E0A100A25900 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		1726DA8619B1E0B200A25900 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		1726DA8819B1E0D100A25900 /* Icon-Small-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50.png"; sourceTree = "<group>"; };
+		1726DA8919B1E0E000A25900 /* Icon-Small-50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-50@2x.png"; sourceTree = "<group>"; };
+		1726DA8A19B1E0EB00A25900 /* Icon-Small-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40.png"; sourceTree = "<group>"; };
+		1726DA8B19B1E13000A25900 /* Icon-Small-40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small-40@2x.png"; sourceTree = "<group>"; };
+		1726DA8C19B1E45400A25900 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1726DA8D19B1E46B00A25900 /* Default~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~iphone.png"; sourceTree = "<group>"; };
+		1726DA8E19B1E5BC00A25900 /* Default~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default~ipad.png"; sourceTree = "<group>"; };
+		1726DA8F19B1E5CF00A25900 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
 		17508A8C1997C91F006BE654 /* RecordScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecordScene.h; path = Classes/RecordScene.h; sourceTree = "<group>"; };
 		17508A8D1997C91F006BE654 /* RecordScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecordScene.m; path = Classes/RecordScene.m; sourceTree = "<group>"; };
 		17508A9419980217006BE654 /* ChalkboardBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ChalkboardBold.ttf; path = Resources/ChalkboardBold.ttf; sourceTree = "<group>"; };
@@ -398,8 +415,6 @@
 		17C5C6CE19801EDA0064B653 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resources/Icons/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		17C5C6D019801EDA0064B653 /* Icon-Spotlight-iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Spotlight-iOS7.png"; path = "Resources/Icons/Icon-Spotlight-iOS7.png"; sourceTree = "<group>"; };
 		17C5C6D219801EDA0064B653 /* Icon-Spotlight-iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Spotlight-iOS7@2x.png"; path = "Resources/Icons/Icon-Spotlight-iOS7@2x.png"; sourceTree = "<group>"; };
-		17C5C6D519801EDA0064B653 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = text; name = iTunesArtwork; path = ../iTunesArtwork; sourceTree = "<group>"; };
-		17C5C6D719801EDA0064B653 /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = text; name = "iTunesArtwork@2x"; path = "../iTunesArtwork@2x"; sourceTree = "<group>"; };
 		17C5C6DC19801EDA0064B653 /* CCAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCAction.h; path = Libraries/cocos2d/CCAction.h; sourceTree = "<group>"; };
 		17C5C6DD19801EDA0064B653 /* CCAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CCAction.m; path = Libraries/cocos2d/CCAction.m; sourceTree = "<group>"; };
 		17C5C6DF19801EDA0064B653 /* CCActionCatmullRom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCActionCatmullRom.h; path = Libraries/cocos2d/CCActionCatmullRom.h; sourceTree = "<group>"; };
@@ -956,6 +971,23 @@
 		17C5C68B19801EDA0064B653 = {
 			isa = PBXGroup;
 			children = (
+				1726DA8F19B1E5CF00A25900 /* Default-Portrait@2x~ipad.png */,
+				1726DA8E19B1E5BC00A25900 /* Default~ipad.png */,
+				1726DA8D19B1E46B00A25900 /* Default~iphone.png */,
+				1726DA8C19B1E45400A25900 /* Default.png */,
+				1726DA8B19B1E13000A25900 /* Icon-Small-40@2x.png */,
+				1726DA8A19B1E0EB00A25900 /* Icon-Small-40.png */,
+				1726DA8919B1E0E000A25900 /* Icon-Small-50@2x.png */,
+				1726DA8819B1E0D100A25900 /* Icon-Small-50.png */,
+				1726DA8619B1E0B200A25900 /* Icon-Small@2x.png */,
+				1726DA8519B1E0A100A25900 /* Icon-Small.png */,
+				1726DA8419B1DE0400A25900 /* icon-76@2x.png */,
+				1726DA8319B1DDFA00A25900 /* icon-76.png */,
+				1726DA8219B1DDED00A25900 /* icon-72.png */,
+				1726DA8119B1DDDC00A25900 /* icon-60@2x.png */,
+				1726DA8019B1DDCF00A25900 /* icon@2x.png */,
+				1726DA7F19B1DDBB00A25900 /* icon-72@2x.png */,
+				1726DA7E19B1DDAE00A25900 /* icon.png */,
 				17C5C6AF19801EDA0064B653 /* CocosCubic */,
 				17C5C69619801EDA0064B653 /* Frameworks */,
 				17C5C69519801EDA0064B653 /* Products */,
@@ -1014,6 +1046,7 @@
 		17C5C6B019801EDA0064B653 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1726DA7419B1C92E00A25900 /* CocosCubic.plist */,
 				17508AA819994C8D006BE654 /* Audio */,
 				17BC22DF198D71060076160B /* colors-hd.plist */,
 				17BC22E0198D71060076160B /* colors-hd.pvr.ccz */,
@@ -1041,13 +1074,10 @@
 				17BC22C4198ACEC10076160B /* grid_5_6.pvr.ccz */,
 				17FFE05D1983DE9800D9427A /* Chalkboard.ttc */,
 				17508A9419980217006BE654 /* ChalkboardBold.ttf */,
-				170F0898198064450021108C /* CocosCubic-Art */,
 				17D7933419A8BDD50086868A /* Default.png */,
 				17C5C6B319801EDA0064B653 /* Default@2x.png */,
 				17C5C6B519801EDA0064B653 /* Default-568h@2x.png */,
 				17C5C6B719801EDA0064B653 /* Default-Landscape~ipad.png */,
-				17C5C6D519801EDA0064B653 /* iTunesArtwork */,
-				17C5C6D719801EDA0064B653 /* iTunesArtwork@2x */,
 				17C5C6B919801EDA0064B653 /* Icons */,
 				178289EA19804C9C00F70EEA /* PackTextures.sh */,
 			);
@@ -1969,7 +1999,6 @@
 			files = (
 				17BC22C7198ACEC10076160B /* buttons-ipadhd.plist in Resources */,
 				17BC22D0198ACEC10076160B /* grid_3_4.pvr.ccz in Resources */,
-				1790B50819806CE50051A0A8 /* CocosCubic-Art in Resources */,
 				17C5C6B419801EDA0064B653 /* Default@2x.png in Resources */,
 				17508AA719994C86006BE654 /* moveitem.mp3 in Resources */,
 				17C5C6C719801EDA0064B653 /* Icon-120.png in Resources */,
@@ -2007,6 +2036,7 @@
 				17BC22EA198D71060076160B /* colors.pvr.ccz in Resources */,
 				17D7933519A8BDD50086868A /* Default.png in Resources */,
 				170F3CB319A89D3400DA1C35 /* Images-2.xcassets in Resources */,
+				1726DA7519B1C92E00A25900 /* CocosCubic.plist in Resources */,
 				17BC22E7198D71060076160B /* colors-ipadhd.plist in Resources */,
 				17C5C6D119801EDA0064B653 /* Icon-Spotlight-iOS7.png in Resources */,
 				17BC22C8198ACEC10076160B /* buttons-ipadhd.pvr.ccz in Resources */,

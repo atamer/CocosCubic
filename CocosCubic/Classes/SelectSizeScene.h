@@ -9,7 +9,7 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "SelectLevelScene.h"
-
+#import "GameScene.h"
 
 @class SelectLevelScene;
 

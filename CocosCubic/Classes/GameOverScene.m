@@ -64,21 +64,13 @@
     [self addChild:newRecordLabel];
     
     
-    NSString *levelStr = [NSString stringWithFormat:@"Level: %@",level];
-    CCLabelTTF *levelLabel = [CCLabelTTF labelWithString:levelStr fontName:@"Chalkboard" fontSize:20.0f];
-    levelLabel.positionType = CCPositionTypeNormalized;
-    levelLabel.color = RED_COLOR;
-    levelLabel.anchorPoint = ccp(0.5,0.5);
-    levelLabel.position = ccp(0.50f, 0.36f); // Middle of screen
-    [self addChild:levelLabel];
-    
     
     NSString *sizeStr = [NSString stringWithFormat:@"Size: %@X%@",[size substringFromIndex:4],[size substringFromIndex:4]];
     CCLabelTTF *sizeLabel = [CCLabelTTF labelWithString:sizeStr fontName:@"Chalkboard" fontSize:20.0f];
     sizeLabel.positionType = CCPositionTypeNormalized;
     sizeLabel.color = RED_COLOR;
     sizeLabel.anchorPoint = ccp(0.5,0.5);
-    sizeLabel.position = ccp(0.50f, 0.26f); // Middle of screen
+    sizeLabel.position = ccp(0.50f, 0.36f); // Middle of screen
     [self addChild:sizeLabel];
 
     

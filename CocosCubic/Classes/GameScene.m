@@ -98,7 +98,7 @@
     self.puzzleLabel.color = RED_COLOR;
     self.puzzleLabel.anchorPoint = ccp(0.5,0.5);
     self.puzzleLabel.position = ccp(0.5f, 0.06f); // Middle of screen
-    [self addChild:self.puzzleLabel];
+  //  [self addChild:self.puzzleLabel];
     
     
      self.next = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"next.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"next_disabled.png"]];
@@ -107,7 +107,7 @@
     self.next.positionType = CCPositionTypeNormalized;
     [self.next setTarget:self selector:@selector(nextClicked)];
     self.next.position = ccp(0.9f, 0.06f);
-    [self addChild:self.next];
+   // [self addChild:self.next];
 
 
     self.previous = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"back.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"back_disabled.png"]];
@@ -117,7 +117,7 @@
     [self.previous setTarget:self selector:@selector(prevClicked)];
     self.previous.position = ccp(0.1f, 0.06f);
     self.previous.enabled = false;
-    [self addChild:self.previous];
+//    [self addChild:self.previous];
     
 
      self.restart = [CCButton buttonWithTitle:@"" spriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart.png"] highlightedSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_highlight.png"] disabledSpriteFrame:[CCSpriteFrame frameWithImageNamed:@"restart_disabled.png"]];

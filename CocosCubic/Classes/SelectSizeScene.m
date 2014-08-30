@@ -96,9 +96,10 @@
     CCButton *button = (CCButton*)sender;
     NSString *name = button.name;
     
-    SelectLevelScene *selectLevel = [SelectLevelScene scene:name];
+    GameScene *gameScene = [GameScene scene:name level:@"6"];
     
-    [[CCDirector sharedDirector] pushScene:selectLevel withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    [[CCDirector sharedDirector] pushScene:gameScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    
     
 }
 
