@@ -148,7 +148,7 @@
 }
 
 
--(void) updateMove:(BOOL)reverse{
+-(int) updateMove:(BOOL)reverse{
     // reverting last move
     if(reverse == true && self.move > 0){
         self.move = self.move - 1;
@@ -164,6 +164,7 @@
     }else{
         self.restart.enabled = false;
     }
+    return self.move;
     
 
 }
@@ -201,6 +202,7 @@
 
 -(void)gameSceneBackClicked{
     [Constants playMenuItem];
+    [self.grid back:self.move] ;
     [self.grid clean] ;
     
     [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];

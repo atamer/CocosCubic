@@ -9,8 +9,10 @@
 
 #import "AppDelegate.h"
 #import "IntroScene.h"
+#import "GAITracker.h"
 #import "CCFileUtils.h"
 #import "GAI.h"
+#import "GAIFields.h"
 
 @implementation AppDelegate
 
@@ -26,10 +28,29 @@
     
     [GAI sharedInstance].trackUncaughtExceptions = YES;
     [GAI sharedInstance].dispatchInterval = 10;
-//    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     
     // Initialize tracker. Replace with your tracking ID.
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-31321094-4"];
+    
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    
+    UIDevice *device = [UIDevice currentDevice];
+    NSString  *currentDeviceId = [[device identifierForVendor]UUIDString];
+    
+    NSString *dimensionValue = currentDeviceId;
+    [tracker set:[GAIFields customDimensionForIndex:4] value:dimensionValue];
+    
+   
+    
+    NSDateFormatter *objDateformat = [[NSDateFormatter alloc] init];
+    [objDateformat setDateFormat:@"yyyy-MM-dd"];
+    NSString *strTime = [objDateformat stringFromDate:[NSDate date]];
+    
+    
+    dimensionValue = strTime;
+    [tracker set:[GAIFields customDimensionForIndex:5] value:dimensionValue];
     
 	[self setupCocos2dWithOptions:@{
 		// Show the FPS and draw call label.

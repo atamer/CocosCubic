@@ -24,6 +24,7 @@
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level random:(BOOL)random  reverse:(BOOL)reverse gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol;
 -(void)showAdv;
 
+- (void) back:(int)move;
 - (void) clean;
 -(void) moveDown:(int)x;
 -(void) moveRight:(int)y;
@@ -39,6 +40,7 @@
 @property id<GAITracker> tracker;
 @property NSTimer *timer;
 
+@property double currentTime;
 
 @property UITouch* currentTouchParam ;
 @property UIEvent* currentUIEvent ;

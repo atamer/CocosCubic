@@ -11,6 +11,7 @@
 #import "ColorBlock.h"
 #import "ExtActionCallFunc.h"
 #import "RecordScene.h"
+#import "GAIFields.h"
 #import <objc/message.h>
 
 @implementation ActionMoveBlock{
@@ -67,7 +68,19 @@ CCTime ANIM_TIME  ;
     if(!self)return (nil);
     
     
+    self.currentTime = CACurrentMediaTime();
+    
     self.tracker = [[GAI sharedInstance] defaultTracker];
+    
+    [self.tracker set:kGAIScreenName
+                value:[NSString stringWithFormat:@"/gridscene_%d",size]];
+    
+    NSString *dimensionValue = [NSString stringWithFormat:@"%d",size];
+
+    [self.tracker send:[[[GAIDictionaryBuilder createAppView] set:dimensionValue
+                                                      forKey:[GAIFields customDimensionForIndex:1]] build]];
+    
+    
     
     endGame = YES;
     touchStart = NO;
@@ -815,10 +828,12 @@ int randomCount;
     
     NSString *label = [NSString stringWithFormat:@"%d %d",self.size ,self.level];
     
-    [self.tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"movegrid"     // Event category
+/*    [self.tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"movegrid"     // Event category
                                                           action:@"move"  // Event action (required)
                                                            label:label         // Event label
                                                            value:nil] build]];    // Event valu
+  */
+
     
     actionActive = NO;
     directionFound = NO;
@@ -864,10 +879,30 @@ int randomCount;
 
     if(checkComplete == YES){
         [Constants playMoveItem];
-        [self.gameSceneProtocol updateMove:reverse];
+        int currentMove = [self.gameSceneProtocol updateMove:reverse];
         
         BOOL match = [self checkComplete];
         if(match == YES){
+            
+            NSString *timingName = [NSString stringWithFormat:@"%d",self.size];
+            NSNumber* intervalTime =[NSNumber numberWithDouble:CACurrentMediaTime() - self.currentTime ] ;
+            
+            NSDictionary *builder = [[GAIDictionaryBuilder createTimingWithCategory:@"finish"    // Timing category (required)
+                                                                           interval:intervalTime        // Timing interval (required)
+                                                                               name:timingName  // Timing name
+                                                                              label:[@(currentMove) stringValue]] build];
+            [self.tracker send:builder];
+            
+            
+            NSString *metricValue = [@(currentMove)stringValue] ;
+            [self.tracker set:[GAIFields customMetricForIndex:1] value:metricValue];
+            
+            [self.tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"finish_event"     // Event category (required)
+                                                                       action:@"finish"  // Event action (required)
+                                                                        label:timingName          // Event label
+                                                                        value:nil] build]];
+            
+            
             endGame = YES;
             self.hoverY  = 1 ;
             self.hoverX  = 1 ;
@@ -875,6 +910,19 @@ int randomCount;
             [self schedule:@selector(hoverBlock) interval:interval repeat:(self.size * self.size ) delay:0];
         }
     }
+}
+
+- (void) back:(int)currentMove{
+    NSString *timingName = [NSString stringWithFormat:@"%d",self.size];
+    NSNumber* intervalTime =[NSNumber numberWithDouble: CACurrentMediaTime() - self.currentTime ] ;
+    
+    NSDictionary *builder = [[GAIDictionaryBuilder createTimingWithCategory:@"notfinish"    // Timing category (required)
+                                                                   interval:intervalTime        // Timing interval (required)
+                                                                       name:timingName  // Timing name
+                                                                      label:[@(currentMove) stringValue]] build];
+
+    [self.tracker send:builder];
+        
 }
 
 
