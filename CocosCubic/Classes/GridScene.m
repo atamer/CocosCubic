@@ -49,6 +49,8 @@ NSString *lastMove;
 int lastMoveIndex;
 int blockIndex  ;
 CCTime ANIM_TIME  ;
+int randomX = -1;
+int randomY = -1;
 
 + (GridScene *)spriteWithImageNamed:(NSString*)image size:(int)size level:(NSString*)level gameSceneProtocol:(id<GameSceneProtocol>)gameSceneProtocol
 {
@@ -504,14 +506,24 @@ int randomCount;
 
 
 -(void) randomizeColors{
-
+    [NSThread sleepForTimeInterval:1];
   //  NSLog(@"%d %d %d ",randomizeCounter, randomCount , [self checkComplete]);
     if(randomizeCounter < randomCount || [self checkComplete] == YES){
-        int random = rand() % self.size;
+        int random;
         if(randomizeCounter % 2 == 0){
-            [self moveDown:random sel:@selector(randomizeColors) checkComplete:NO revert:NO];
+            do{
+                random = rand() % self.size;
+            }while(randomX == random);
+            randomX = random;
+            NSLog(@"randomX ---------- %d",randomX);
+            [self moveDown:randomX sel:@selector(randomizeColors) checkComplete:NO revert:NO];
         }else{
-            [self moveRight:random sel:@selector(randomizeColors) checkComplete:NO revert:NO];
+            do{
+                random = rand() % self.size;
+            }while(randomY == random);
+            randomY = random;
+            NSLog(@"randomY ---------- %d",randomY);
+            [self moveRight:randomY sel:@selector(randomizeColors) checkComplete:NO revert:NO];
         }
     }else{
         [self.gameSceneProtocol randomizeFinished];
@@ -1034,7 +1046,7 @@ int randomCount;
 }
 
 -(void)showAdv{
-    [[GADHolderView sharedCenter] getTimer:self loadAdv:@selector(loadAdv)];
+   // [[GADHolderView sharedCenter] getTimer:self loadAdv:@selector(loadAdv)];
 }
 
 -(void)loadAdv{
