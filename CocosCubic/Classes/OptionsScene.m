@@ -94,17 +94,17 @@
     [Constants playMenuItem];
     HowToPlay *howToPlay = [HowToPlay scene];
     howToPlay.play = 1;
-    [[CCDirector sharedDirector] pushScene:howToPlay withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    [[CCDirector sharedDirector] pushScene:howToPlay withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.3f]];
     
 }
 
 -(void) aboutClick{
     [Constants playMenuItem];
-    [[CCDirector sharedDirector] pushScene:[AboutScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    [[CCDirector sharedDirector] pushScene:[AboutScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.3f]];
 }
 
 -(void) backClicked{
-    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.3f]];
 }
 
 

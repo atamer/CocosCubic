@@ -112,7 +112,7 @@
 
 -(void)onBackClicked{
   
-    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.3f]];
 }
 
 -(void)onLevelSelected:(id)sender{
@@ -125,7 +125,7 @@
     
     GameScene *gameScene = [GameScene scene:self.size level:self.level];
     
-    [[CCDirector sharedDirector] pushScene:gameScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    [[CCDirector sharedDirector] pushScene:gameScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.3f]];
     
 }
 

@@ -185,13 +185,13 @@
     if(self.move < bestScore || bestScore == 0 ){
         RecordScene *recordScene = [RecordScene scene:self.size level:self.level record:self.move];
         
-         [[CCDirector sharedDirector] pushScene:recordScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+         [[CCDirector sharedDirector] pushScene:recordScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.3f]];
         
         [Constants setScore:sizeInt level:[self.level intValue] score:self.move];
     }else{
         GameOverScene *gameOverScene = [GameOverScene scene:self.size level:self.level record:self.move];
         
-        [[CCDirector sharedDirector] pushScene:gameOverScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+        [[CCDirector sharedDirector] pushScene:gameOverScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.3f]];
         
         [Constants setScore:sizeInt level:[self.level intValue] score:self.move];
         
@@ -205,7 +205,7 @@
     [self.grid back:self.move] ;
     [self.grid clean] ;
     
-    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+    [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.3f]];
     
 }
 

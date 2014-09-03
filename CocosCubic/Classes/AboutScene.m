@@ -76,7 +76,7 @@
 
 
 -(void)aboutSceneBackClicked{
-     [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+     [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.3f]];
 }
 
 @end

@@ -98,14 +98,14 @@
     
     GameScene *gameScene = [GameScene scene:name level:@"6"];
     
-    [[CCDirector sharedDirector] pushScene:gameScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    [[CCDirector sharedDirector] pushScene:gameScene withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.3f]];
     
     
 }
 
 -(void)onBackClicked{
     
-     [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.6f]];
+     [[CCDirector sharedDirector] popSceneWithTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:0.3f]];
 }
 
 @end

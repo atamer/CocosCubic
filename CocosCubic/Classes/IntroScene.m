@@ -131,7 +131,7 @@
 {
 	[Constants playMenuItem];
     // start spinning scene with transition
-     [[CCDirector sharedDirector] pushScene:[SelectSizeScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+     [[CCDirector sharedDirector] pushScene:[SelectSizeScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.3f]];
     
 }
 
@@ -139,7 +139,7 @@
 - (void)onOptionsClicked:(id)sender
 {
     [Constants playMenuItem];
-    [[CCDirector sharedDirector] pushScene:[OptionsScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.6f]];
+    [[CCDirector sharedDirector] pushScene:[OptionsScene scene] withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:0.3f]];
     
 }
 
