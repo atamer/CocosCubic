@@ -14,9 +14,14 @@
 #import "GAIFields.h"
 #import <objc/message.h>
 
+
+
+
 @implementation ActionMoveBlock{
 }
 @end
+
+
 
 @implementation GridScene
 
@@ -77,10 +82,20 @@ CCTime ANIM_TIME  ;
     
     NSString *dimensionValue = [NSString stringWithFormat:@"%d",size];
 
-    [self.tracker send:[[[GAIDictionaryBuilder createAppView] set:dimensionValue
-                                                      forKey:[GAIFields customDimensionForIndex:1]] build]];
+    
+    if ([gameSceneProtocol isKindOfClass:[HowToPlay class]]){
+        self.sendAnalytic = FALSE;
+    }else{
+        self.sendAnalytic = TRUE;
+    }
+
+    if(self.sendAnalytic == TRUE){
+        [self.tracker send:[[[GAIDictionaryBuilder createAppView] set:dimensionValue
+                                                               forKey:[GAIFields customDimensionForIndex:1]] build]];
+    }
     
     
+
     
     endGame = YES;
     touchStart = NO;
@@ -884,24 +899,26 @@ int randomCount;
         BOOL match = [self checkComplete];
         if(match == YES){
             
-            NSString *timingName = [NSString stringWithFormat:@"%d",self.size];
-            NSNumber* intervalTime =[NSNumber numberWithDouble:CACurrentMediaTime() - self.currentTime ] ;
-            
-            NSDictionary *builder = [[GAIDictionaryBuilder createTimingWithCategory:@"finish"    // Timing category (required)
-                                                                           interval:intervalTime        // Timing interval (required)
-                                                                               name:timingName  // Timing name
-                                                                              label:[@(currentMove) stringValue]] build];
-            [self.tracker send:builder];
-            
-            
-            NSString *metricValue = [@(currentMove)stringValue] ;
-            [self.tracker set:[GAIFields customMetricForIndex:1] value:metricValue];
-            
-            [self.tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"finish_event"     // Event category (required)
-                                                                       action:@"finish"  // Event action (required)
-                                                                        label:timingName          // Event label
-                                                                        value:nil] build]];
-            
+            if(self.sendAnalytic == TRUE){
+                
+                NSString *timingName = [NSString stringWithFormat:@"%d",self.size];
+                NSNumber* intervalTime =[NSNumber numberWithDouble:CACurrentMediaTime() - self.currentTime ] ;
+                
+                NSDictionary *builder = [[GAIDictionaryBuilder createTimingWithCategory:@"finish"    // Timing category (required)
+                                                                               interval:intervalTime        // Timing interval (required)
+                                                                                   name:timingName  // Timing name
+                                                                                  label:[@(currentMove) stringValue]] build];
+                [self.tracker send:builder];
+                
+                
+                NSString *metricValue = [@(currentMove)stringValue] ;
+                [self.tracker set:[GAIFields customMetricForIndex:1] value:metricValue];
+                
+                [self.tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"finish_event"     // Event category (required)
+                                                                           action:@"finish"  // Event action (required)
+                                                                            label:timingName          // Event label
+                                                                            value:nil] build]];
+            }
             
             endGame = YES;
             self.hoverY  = 1 ;
@@ -913,16 +930,18 @@ int randomCount;
 }
 
 - (void) back:(int)currentMove{
-    NSString *timingName = [NSString stringWithFormat:@"%d",self.size];
-    NSNumber* intervalTime =[NSNumber numberWithDouble: CACurrentMediaTime() - self.currentTime ] ;
     
-    NSDictionary *builder = [[GAIDictionaryBuilder createTimingWithCategory:@"notfinish"    // Timing category (required)
-                                                                   interval:intervalTime        // Timing interval (required)
-                                                                       name:timingName  // Timing name
-                                                                      label:[@(currentMove) stringValue]] build];
-
-    [self.tracker send:builder];
-        
+     if(self.sendAnalytic == TRUE){
+         NSString *timingName = [NSString stringWithFormat:@"%d",self.size];
+         NSNumber* intervalTime =[NSNumber numberWithDouble: CACurrentMediaTime() - self.currentTime ] ;
+         
+         NSDictionary *builder = [[GAIDictionaryBuilder createTimingWithCategory:@"notfinish"    // Timing category (required)
+                                                                        interval:intervalTime        // Timing interval (required)
+                                                                            name:timingName  // Timing name
+                                                                           label:[@(currentMove) stringValue]] build];
+         
+         [self.tracker send:builder];
+     }
 }
 
 

@@ -8,6 +8,7 @@
 
 #import "HowToPlay.h"
 #import "Constants.h"
+#import "GridScene.h"
 
 @implementation HowToPlay
 
@@ -36,6 +37,7 @@
     self.grid.anchorPoint = ccp(0.5,0.5);
     self.grid.positionType = CCPositionTypeNormalized;
     self.grid.position = ccp(0.5f, 0.59f);
+    self.grid.sendAnalytic = FALSE;
     
     [self addChild:self.grid];
     
@@ -93,6 +95,7 @@
         self.grid.anchorPoint = ccp(0.5,0.5);
         self.grid.positionType = CCPositionTypeNormalized;
         self.grid.position = ccp(0.5f, 0.59f);
+        self.grid.sendAnalytic = FALSE;
         [self addChild:self.grid];
         
         CCSprite *finger = [CCSprite spriteWithImageNamed:@"finger.png"];

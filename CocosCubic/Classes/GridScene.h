@@ -16,6 +16,8 @@
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
 #import "GADHolderView.h"
+#import "HowToPlay.h"
+
 
 
 @interface GridScene : CCSprite
@@ -33,6 +35,7 @@
 @property NSString* image;
 @property int level;
 @property  int size;
+@property BOOL sendAnalytic;
 
 @property  int hoverX;
 @property  int hoverY;

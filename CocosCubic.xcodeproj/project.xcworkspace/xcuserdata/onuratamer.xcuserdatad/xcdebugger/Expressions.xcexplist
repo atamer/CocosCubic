@@ -160,7 +160,29 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[CCActionSequence initOne:two:]:CCActionInterval.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[one duration]">
+            </PersistentString>
+            <PersistentString
+               value = "[two duration]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[GridScene initWithImageNamed:size:level:random:reverse:gameSceneProtocol:]:GridScene.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.parent">
+            </PersistentString>
+            <PersistentString
+               value = "[gameSceneProtocol class]">
+            </PersistentString>
+            <PersistentString
+               value = "gameSceneProtocol">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "-[CCResponderManager cancelResponder:]:CCResponderManager.m">
@@ -193,14 +215,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[GameScene onBackClicked]:GameScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "size_">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[CCSpriteFrame(Proxy) proxy]:CCSpriteFrameCache.m">
       </ContextState>
       <ContextState
@@ -223,14 +237,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[GridScene moveDown:sel:checkComplete:]:GridScene.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "sel">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[CCResponderManager cancelAllResponders]:CCResponderManager.m">
          <PersistentStrings>
             <PersistentString
@@ -239,13 +245,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[CCActionSequence initOne:two:]:CCActionInterval.m">
+         contextName = "-[GridScene moveDown:sel:checkComplete:]:GridScene.m">
          <PersistentStrings>
             <PersistentString
-               value = "[one duration]">
+               value = "sel">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[GameScene onBackClicked]:GameScene.m">
+         <PersistentStrings>
             <PersistentString
-               value = "[two duration]">
+               value = "size_">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

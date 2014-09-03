@@ -9,8 +9,9 @@
 #import "CCScene.h"
 #import "cocos2d.h"
 #import "cocos2d-ui.h"
-#import "GridScene.h"
+#import "GameSceneProtocol.h"
 
+@class GridScene;
 
 @interface HowToPlay : CCScene<GameSceneProtocol>
 
