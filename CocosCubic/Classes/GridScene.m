@@ -914,7 +914,7 @@ int randomCount;
             if(self.sendAnalytic == TRUE){
                 
                 NSString *timingName = [NSString stringWithFormat:@"%d",self.size];
-                NSNumber* intervalTime =[NSNumber numberWithDouble:CACurrentMediaTime() - self.currentTime ] ;
+                NSNumber* intervalTime =[NSNumber numberWithInt:CACurrentMediaTime() - self.currentTime ] ;
                 
                 NSDictionary *builder = [[GAIDictionaryBuilder createTimingWithCategory:@"finish"    // Timing category (required)
                                                                                interval:intervalTime        // Timing interval (required)
@@ -922,14 +922,12 @@ int randomCount;
                                                                                   label:[@(currentMove) stringValue]] build];
                 [self.tracker send:builder];
                 
-                
-                NSString *metricValue = [@(currentMove)stringValue] ;
-                [self.tracker set:[GAIFields customMetricForIndex:1] value:metricValue];
+                [self.tracker set:[GAIFields customMetricForIndex:1] value:@"1"];
                 
                 [self.tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"finish_event"     // Event category (required)
                                                                            action:@"finish"  // Event action (required)
                                                                             label:timingName          // Event label
-                                                                            value:nil] build]];
+                                                                            value:[NSNumber numberWithInt:currentMove]] build]];
             }
             
             endGame = YES;
@@ -945,7 +943,7 @@ int randomCount;
     
      if(self.sendAnalytic == TRUE){
          NSString *timingName = [NSString stringWithFormat:@"%d",self.size];
-         NSNumber* intervalTime =[NSNumber numberWithDouble: CACurrentMediaTime() - self.currentTime ] ;
+         NSNumber* intervalTime =[NSNumber numberWithInt:CACurrentMediaTime() - self.currentTime ] ;
          
          NSDictionary *builder = [[GAIDictionaryBuilder createTimingWithCategory:@"notfinish"    // Timing category (required)
                                                                         interval:intervalTime        // Timing interval (required)
