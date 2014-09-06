@@ -27,11 +27,11 @@
 	// If you want more flexibility, you can configure Cocos2D yourself instead of calling setupCocos2dWithOptions:.
     
     [GAI sharedInstance].trackUncaughtExceptions = YES;
-    [GAI sharedInstance].dispatchInterval = 10;
-    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    [GAI sharedInstance].dispatchInterval = 20;
+
     
     // Initialize tracker. Replace with your tracking ID.
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-31321094-4"];
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-31321094-5"];
     
     
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
@@ -40,7 +40,7 @@
     NSString  *currentDeviceId = [[device identifierForVendor]UUIDString];
     
     NSString *dimensionValue = currentDeviceId;
-    [tracker set:[GAIFields customDimensionForIndex:4] value:dimensionValue];
+    [tracker set:[GAIFields customDimensionForIndex:2] value:dimensionValue];
     
    
     
@@ -50,7 +50,7 @@
     
     
     dimensionValue = strTime;
-    [tracker set:[GAIFields customDimensionForIndex:5] value:dimensionValue];
+    [tracker set:[GAIFields customDimensionForIndex:3] value:dimensionValue];
     
 	[self setupCocos2dWithOptions:@{
 		// Show the FPS and draw call label.

@@ -173,12 +173,6 @@
 -(void) finishGame{
     
     
-    NSString *label = [NSString stringWithFormat:@"%@ %@",self.size ,self.level];
-    
-    [self.tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"finishgame"     // Event category
-                                                               action:@"finish"  // Event action (required)
-                                                                label:label
-                                                                value:nil] build]];    // Event valu
     
     int sizeInt = [[self.size substringFromIndex:4] intValue];
     int bestScore = [Constants getScore:sizeInt level:[self.level intValue]];
