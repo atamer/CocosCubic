@@ -49,8 +49,8 @@
     
 }
 
--(void) updateMove:(BOOL)reverse{
-    
+-(int) updateMove:(BOOL)reverse{
+    return 0;
 }
 
 -(void)howToPlayBackClicked{
